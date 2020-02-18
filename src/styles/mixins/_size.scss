@@ -1,0 +1,5 @@
+@function vmin($base, $screen) {
+  $result: $base * 100 / $screen;
+
+  @return $result+vmin;
+}

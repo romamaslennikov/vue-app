@@ -1,0 +1,56 @@
+@import "../mixins/mixins"
+@import "../vars/variables"
+
+html, body
+  font: $fz-base/$line-height-base $family-base
+  height: 100%
+  width: 100%
+  color: $color-base
+  background: $bg-color-base
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+*, *:before, *:after
+  box-sizing: border-box
+
+html
+  +rem-baseline
+
+#app
+  min-height: 100%
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-items: stretch
+  transition: opacity $anim-global*4 ease-out
+
+.content
+  flex: 1 1 auto
+
+*::-ms-backdrop, .content
+  min-height: 80vh
+
+.container
+  max-width: 1200px
+  padding: 0 vmin(20, $vmin-land)
+  margin: 0 auto
+
+  +media($land, $scaling)
+    padding: 0 vmin(20, $vmin-land)
+    max-width: vmin(1200, $vmin-land)
+
+  +media($port, ">=tablet")
+    padding: 0 vmin(20, $vmin-port-tablet)
+    max-width: vmin(1200, $vmin-port-tablet)
+
+  +media($port, "<tablet")
+    padding: 0 vmin(20, $vmin-port)
+    max-width: vmin(1200, $vmin-port)
+
+
+
+
+
+
+
+

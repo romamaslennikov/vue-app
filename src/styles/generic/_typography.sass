@@ -1,0 +1,153 @@
+h1, .h1
+  font-weight: bold
+  font-size: 1.8em
+
+h2, .h2
+  font-weight: bold
+  font-size: 1.5em
+
+h3, .h3
+  font-weight: bold
+  font-size: 1.5em
+
+h4, h5, h6, .h4, .h5, .h6
+  font-weight: bold
+  font-size: 1.2em
+
+a
+  color: $link-color
+  text-decoration: underline
+
+a:visited
+
+a:hover
+  text-decoration: none
+
+a:active
+
+a:focus
+  outline: none
+
+img
+  vertical-align: middle
+  max-width: 100%
+
+.v-lazy-image
+  filter: blur(5px)
+  transition: filter $anim-global
+
+.v-lazy-image-loaded
+  filter: blur(0)
+
+textarea
+  overflow: auto
+
+input, textarea
+  +placeholder
+    color: $placeholder
+    opacity: 0.5
+
+input:focus, input:active, textarea:focus, textarea:active
+  outline: none
+
+  +placeholder
+    color: transparent !important
+
+button:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active
+  outline: none
+
+/*stylized-switch*/
+.switch
+  position: relative
+  display: inline-block
+  height: $switch-h
+  width: $switch-w
+  vertical-align: middle
+  cursor: pointer
+  top: -1px
+  margin-right: 3px
+
+.switch input
+  vertical-align: middle
+  margin: 0
+  position: absolute
+  top: 0
+  left: 0
+  height: $switch-h
+  width: $switch-w
+
+.switch input:not(:checked), .switch input:checked
+  opacity: 0
+  filter: alpha(opacity=0)
+  z-index: 1
+  cursor: pointer
+
+/*not checked radio*/
+.switch input[type=radio]:not(:checked) + i, .switch input[type=radio]:checked + i
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: $switch-not-checked-bg
+  border: $switch-not-checked-border
+  border-radius: 30px 30px 30px 30px
+
+/*not checked checkbox*/
+.switch input[type=checkbox]:not(:checked) + i, .switch input[type=checkbox]:checked + i
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: $switch-not-checked-bg
+  border-radius: 3px 3px 3px 3px
+  border: $switch-not-checked-border
+
+/*checked radio*/
+.switch input[type=radio]:checked + i
+  background: $switch-checked-bg
+  box-shadow: $switch-checked-shadow
+  border: $switch-checked-border
+
+/*checked checkbox*/
+.switch input[type=checkbox]:checked + i
+  background: $switch-checked-bg
+  box-shadow: $switch-checked-shadow
+  border: $switch-checked-border
+
+/*hover radio*/
+.switch input[type=radio]:checked + i:hover, label:hover .switch input[type=radio]:checked + i
+  opacity: 0.85
+
+.switch input[type=radio] + i:hover, label:hover .switch input[type=radio] + i
+  opacity: 0.85
+
+/*hover checkbox*/
+.switch input[type=checkbox]:checked + i:hover, label:hover .switch input[type=checkbox]:checked + i
+  opacity: 0.85
+
+.switch input[type=checkbox] + i:hover, label:hover .switch input[type=checkbox] + i
+  opacity: 0.85
+
+/*end stylized-switch*/
+
+.no-webp
+  .on-webp
+    display: none
+
+.webp
+  .off-webp
+    display: none
+
+button
+  &:active, &:focus
+    outline: none
+
+*
+  -webkit-tap-highlight-color:  transparent
+
+

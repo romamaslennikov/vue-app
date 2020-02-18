@@ -1,0 +1,182 @@
+.reset
+  margin: 0
+  padding: 0
+  list-style: none
+
+.hidden
+  display: none
+
+.-transparent
+  opacity: 0
+
+.show
+  display: block !important
+
+.no-margin
+  margin: 0 !important
+
+.no-padding
+  padding: 0 !important
+
+.no-bg
+  background: none !important
+
+.no-border
+  border: 0 !important
+
+.bold
+  font-weight: bold
+
+.italic
+  font-style: italic
+
+.underline
+  text-decoration: underline
+
+.pointer
+  cursor: pointer
+
+.uppercase
+  text-transform: uppercase
+
+.lowercase
+  text-transform: lowercase
+
+.disabled
+  cursor: default !important
+  opacity: .3
+  filter: alpha(opacity=30)
+
+.text-center
+  text-align: center
+
+.text-left
+  text-align: left
+
+.text-right
+  text-align: right
+
+.text-justify
+  text-align: justify
+
+@for $i from 1 through 99
+  .w-#{$i}
+    width: percentage($i/100)
+
+.w-16
+  width: 16.666666667%
+
+.w-33
+  width: 33.3333%
+
+.w-37
+  width: 37.5%
+
+.w-66
+  width: 66.6667%
+
+.w-100
+  width: 100%
+
+.flex-row
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
+  align-items: flex-start
+  margin: 0 -$row-spreed
+
+  +media($land, $scaling)
+    margin: 0 vmin(-15, $vmin-land)
+
+  +media($port, ">=tablet")
+    margin: 0 vmin(-15, $vmin-port-tablet)
+
+  +media($port, "<tablet")
+    margin: 0 vmin(-15, $vmin-port)
+
+  &.-stretch
+    align-items: stretch
+
+  .flex-row-item
+    padding: 0 $row-spreed
+
+    +media($land, $scaling)
+      padding: 0 vmin(15, $vmin-land)
+
+    +media($port, ">=tablet")
+      padding: 0 vmin(15, $vmin-port-tablet)
+
+    +media($port, "<tablet")
+      padding: 0 vmin(15, $vmin-port)
+
+.ajax-loader
+  background-color: rgba(255, 255, 255, .9)
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: auto
+  z-index: 1
+
+.ajax-loader div
+  position: absolute
+  top: 50%
+  left: 50%
+  margin: 0
+  text-align: center
+  z-index: 1
+  transform: translateX(-50%) translateY(-50%)
+  width: 3rem
+  height: 3rem
+  font-size: 1em
+
+.ajax-loader div:after, .ajax-loader div:before
+  width: 3rem
+  height: 3rem
+  margin: 0 0 0 -1.5rem
+
+.ajax-loader div:before
+  position: absolute
+  content: ""
+  top: 0
+  left: 50%
+  border-radius: 500rem
+  border: .3em solid rgba(0, 0, 0, .1)
+
+.ajax-loader div:after
+  position: absolute
+  content: ""
+  top: 0
+  left: 50%
+  animation: loader .6s linear
+  animation-iteration-count: infinite
+  border-radius: 500rem
+  border-color: $color-red transparent transparent
+  border-style: solid
+  border-width: .3em
+  box-shadow: 0 0 0 1px transparent
+
+@keyframes loader
+  from
+    -webkit-transform: rotate(0)
+    transform: rotate(0)
+
+  to
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+.scrollbar-styled
+  &::-webkit-scrollbar
+    width: 6px
+
+  &::-webkit-scrollbar-track
+    background: none
+
+  &::-webkit-scrollbar-thumb
+    background: #b3b3b3
+    border-radius: 3px
+
+[data-sr-id]
+  visibility: hidden
+

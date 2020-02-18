@@ -1,0 +1,5 @@
+@mixin webp-bg($src) {
+  .webp.webpalpha & {
+    background-image: url($src)
+  }
+}
