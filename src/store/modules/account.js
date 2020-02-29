@@ -4,6 +4,7 @@ import {
   requestPasswordReset, passwordReset, resendPassword,
 } from '@/api/user';
 import { getToken, setToken, removeToken } from '@/utils/auth';
+import router from '@/router';
 
 /* eslint-disable */
 
@@ -77,16 +78,20 @@ const account = {
       console.log('---', 'LogOut');
 
       if (data) {
+        (document.getElementById('spinner')).classList.remove('-hide');
+
         logOut()
           .then((r) => {
             commit('REMOVE_TOKEN');
 
-            location.href = '/';
+            router.push('/auth/sign_in');
+
+            (document.getElementById('spinner')).classList.add('-hide');
           });
       } else {
         commit('REMOVE_TOKEN');
 
-        location.href = '/';
+        router.push('/auth/sign_in');
       }
     },
   },

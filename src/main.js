@@ -21,6 +21,8 @@ Vue.prototype.$webp = false;
 modernizr.on('webp', (result) => {
   if (result) {
     Vue.prototype.$webp = true;
+  } else {
+    Vue.prototype.$webp = false;
   }
 });
 

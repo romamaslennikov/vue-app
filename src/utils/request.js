@@ -3,7 +3,7 @@ import { getToken } from '@/utils/auth';
 
 const store = require('../store');
 
-const BASE_API = process.env.NODE_ENV === 'production'
+const BASE_API = process.env.VUE_APP_NODE_ENV === 'production'
   ? process.env.VUE_APP_BASE_API : process.env.VUE_APP_BASE_API_DEV;
 
 const service = axios.create({

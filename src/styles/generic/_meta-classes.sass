@@ -86,13 +86,13 @@
   margin: 0 -$row-spreed
 
   +media($land, $scaling)
-    margin: 0 vmin(-15, $vmin-land)
+    margin: 0 size(-15, $size-land)
 
   +media($port, ">=tablet")
-    margin: 0 vmin(-15, $vmin-port-tablet)
+    margin: 0 size(-15, $size-port-tablet)
 
   +media($port, "<tablet")
-    margin: 0 vmin(-15, $vmin-port)
+    margin: 0 size(-15, $size-port)
 
   &.-stretch
     align-items: stretch
@@ -101,13 +101,13 @@
     padding: 0 $row-spreed
 
     +media($land, $scaling)
-      padding: 0 vmin(15, $vmin-land)
+      padding: 0 size(15, $size-land)
 
     +media($port, ">=tablet")
-      padding: 0 vmin(15, $vmin-port-tablet)
+      padding: 0 size(15, $size-port-tablet)
 
     +media($port, "<tablet")
-      padding: 0 vmin(15, $vmin-port)
+      padding: 0 size(15, $size-port)
 
 .ajax-loader
   background-color: rgba(255, 255, 255, .9)

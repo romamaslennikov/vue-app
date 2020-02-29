@@ -32,20 +32,20 @@ html
 
 .container
   max-width: 1200px
-  padding: 0 vmin(20, $vmin-land)
+  padding: 0 size(20, $size-land)
   margin: 0 auto
 
   +media($land, $scaling)
-    padding: 0 vmin(20, $vmin-land)
-    max-width: vmin(1200, $vmin-land)
+    padding: 0 size(20, $size-land)
+    max-width: size(1200, $size-land)
 
   +media($port, ">=tablet")
-    padding: 0 vmin(20, $vmin-port-tablet)
-    max-width: vmin(1200, $vmin-port-tablet)
+    padding: 0 size(20, $size-port-tablet)
+    max-width: size(1200, $size-port-tablet)
 
   +media($port, "<tablet")
-    padding: 0 vmin(20, $vmin-port)
-    max-width: vmin(1200, $vmin-port)
+    padding: 0 size(20, $size-port)
+    max-width: size(1200, $size-port)
 
 
 

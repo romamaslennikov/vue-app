@@ -1,4 +1,4 @@
-@function vmin($base, $screen) {
+@function size($base, $screen) {
   $result: $base * 100 / $screen;
 
   @return $result+vmin;
