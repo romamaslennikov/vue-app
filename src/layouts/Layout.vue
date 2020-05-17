@@ -27,6 +27,9 @@ export default {
 
         this.ready = true;
       });
+    } else {
+      document.querySelector('html')
+        .setAttribute('class', '');
     }
   },
   components: {

@@ -10,9 +10,16 @@ import router from './router';
 import store from './store';
 
 import 'normalize.css/normalize.css'; //  reset CSS
-import '@/styles/layout.sass'; // global CSS
+import '@/styles/layout.sass'; // for svg
 
-require('intersection-observer'); // for svg
+import { isIE11 } from './utils/device'; // global CSS
+
+require('intersection-observer');
+
+if (isIE11) { // ie11 support
+  require('es6-shim'); // eslint-disable-line
+  require('element-closest-polyfill'); // eslint-disable-line
+}
 
 Vue.config.productionTip = false;
 
