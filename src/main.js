@@ -8,6 +8,7 @@ import { VLazyImagePlugin } from 'v-lazy-image';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import './utils/filters';
 
 import 'normalize.css/normalize.css'; //  reset CSS
 import '@/styles/layout.sass'; // for svg
