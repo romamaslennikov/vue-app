@@ -24,12 +24,10 @@ if (isIE11) { // ie11 support
 
 Vue.config.productionTip = false;
 
-Vue.prototype.$webp = false;
+Vue.prototype.$webp = true;
 
 modernizr.on('webp', (result) => {
-  if (result) {
-    Vue.prototype.$webp = true;
-  } else {
+  if (!result) {
     Vue.prototype.$webp = false;
   }
 });

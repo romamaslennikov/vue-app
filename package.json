@@ -1,6 +1,6 @@
 {
   "name": "vue-bootstrap",
-  "version": "0.0.6-6",
+  "version": "0.0.6",
   "private": true,
   "author": "telegram: @romamas",
   "scripts": {
@@ -12,7 +12,7 @@
     "iconfont": "gulp iconfont",
     "spritePng": "gulp spritePng",
     "spriteSvg": "gulp spriteSvg",
-    "version": "standard-version --skip.changelog --prerelease",
+    "version": "standard-version --skip.changelog",
     "webp": "gulp webp"
   },
   "dependencies": {
