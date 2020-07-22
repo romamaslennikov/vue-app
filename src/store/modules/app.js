@@ -1,7 +1,10 @@
 /* eslint-disable */
+import modernizr from 'modernizr';
+import Vue from 'vue';
 
 const app = {
   state: {
+    ready: null,
     isPortrait: null,
     isMobile: null,
     showMobileNav: null,
@@ -9,6 +12,23 @@ const app = {
     scrollY: null,
   },
   mutations: {
+    DETECT_WEBP: (state) => {
+      const isSafari = navigator.userAgent.indexOf('Safari') !== -1
+        && navigator.userAgent.indexOf('Chrome') === -1;
+
+      state.webp = !isSafari;
+
+      modernizr.on('webp', (result) => {
+        if (!result) {
+          state.webp = false;
+        }
+      });
+    },
+
+    UPDATE_READY: (state, ready) => {
+      state.ready = ready;
+    },
+
     UPDATE_IS_MOBILE: (state, isMobile) => {
       state.isMobile = isMobile;
     },

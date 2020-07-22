@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueScrollReveal from 'vue-scroll-reveal';
-import modernizr from 'modernizr'; // eslint-disable-line
 import Vuelidate from 'vuelidate';
 import Meta from 'vue-meta';
 import svg4everybody from 'svg4everybody';
@@ -23,14 +22,6 @@ if (isIE11) { // ie11 support
 }
 
 Vue.config.productionTip = false;
-
-Vue.prototype.$webp = true;
-
-modernizr.on('webp', (result) => {
-  if (!result) {
-    Vue.prototype.$webp = false;
-  }
-});
 
 Vue.use(VueScrollReveal);
 Vue.use(Vuelidate);

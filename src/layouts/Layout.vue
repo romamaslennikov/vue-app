@@ -26,10 +26,18 @@ export default {
         (document.getElementById('spinner')).classList.add('-hide');
 
         this.ready = true;
+
+        this.$store.commit('UPDATE_READY', true);
       });
     } else {
       document.querySelector('html')
         .setAttribute('class', '');
+    }
+
+    if (this.$store.getters.ready) {
+      (document.getElementById('spinner')).classList.add('-hide');
+
+      this.ready = true;
     }
   },
   components: {
