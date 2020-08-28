@@ -36,7 +36,7 @@ export default {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > current) {
-          if (scrollTop > this.$refs.header.clientHeight * 2) {
+          if (scrollTop > this.$refs.header?.clientHeight * 2) {
             this.showHeader = true;
           }
         } else {

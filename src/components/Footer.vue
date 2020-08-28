@@ -23,4 +23,5 @@ export default {
 
   .footer
     background: #eee
+    content-visibility: auto
 </style>

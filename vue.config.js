@@ -2,6 +2,7 @@ const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const path = require('path');
 
 module.exports = {
+  productionSourceMap: false,
   configureWebpack: {
     plugins: [
       new PrerenderSpaPlugin({

@@ -1,11 +1,11 @@
 {
   "name": "vue-app",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "private": true,
   "author": "telegram: @romamas",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "standard-version --skip.changelog && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "gulp deploy",
     "fonts": "gulp fonts",
@@ -42,6 +42,7 @@
     "@vue/cli-service": "~4.2.2",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "dotenv": "^8.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.1",

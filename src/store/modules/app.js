@@ -10,6 +10,7 @@ const app = {
     showMobileNav: null,
     windowWidth: null,
     scrollY: null,
+    webp: null,
   },
   mutations: {
     DETECT_WEBP: (state) => {

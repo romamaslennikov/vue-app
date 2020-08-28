@@ -28,6 +28,10 @@ export default {
     this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth);
   },
 
+  async beforeCreate() {
+    this.$store.commit('DETECT_WEBP');
+  },
+
   async created() {
     this.handleWindowResize();
 

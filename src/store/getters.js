@@ -5,9 +5,9 @@ const getters = {
   showMobileNav: (state) => state.app.showMobileNav,
   windowWidth: (state) => state.app.windowWidth,
   scrollY: (state) => state.app.scrollY,
+  webp: (state) => state.app.webp,
   token: (state) => state.account.token,
   user: (state) => state.account.user,
-  webp: (state) => state.app.webp,
 };
 
 export default getters;
