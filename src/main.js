@@ -10,11 +10,11 @@ import store from './store';
 import './utils/filters';
 
 import 'normalize.css/normalize.css'; //  reset CSS
-import '@/styles/layout.sass'; // for svg
+import '@/styles/layout.sass'; // global CSS
 
-import { isIE11 } from './utils/device'; // global CSS
+import { isIE11 } from './utils/device';
 
-require('intersection-observer');
+require('intersection-observer'); // for svg
 
 if (isIE11) { // ie11 support
   require('es6-shim'); // eslint-disable-line

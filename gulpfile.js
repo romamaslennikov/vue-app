@@ -111,7 +111,7 @@ function spritePng() {
       imgName: '../images/sprite.png',
       // retinaImgName: '../img/sprite@2x.png',
       cssName: '_sprite.sass',
-      cssTemplate: './icons_template/_sprite_template.css.tmpl',
+      cssTemplate: './template-icons/_sprite_template.css.tmpl',
       padding: 2,
       algorithm: 'top-down',
       algorithmOpts: { sort: false },
@@ -151,7 +151,7 @@ function iconfont() {
     .pipe(plugins.iconfontCss({
       fontName,
       cssClass: cssClassPrefix,
-      path: './icons_template/_icons_template.css.tmpl',
+      path: './template-icons/_icons_template.css.tmpl',
       targetPath: '../../styles/generic/_icons.scss',
       fontPath: '../assets/fonts/',
     }))

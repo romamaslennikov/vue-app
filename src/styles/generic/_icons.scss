@@ -1,0 +1,28 @@
+/* Icons font----------------------------------------------------------- */
+@font-face {
+  font-family: "Icons";
+  src: url("../assets/fonts/Icons.eot");
+  src: url("../assets/fonts/Icons.eot?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/Icons.woff") format("woff"),
+  url("../assets/fonts/Icons.ttf") format("truetype"),
+  url("../assets/fonts/Icons.svg#Icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.icon {
+  font-family: "Icons", sans-serif;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-variant: normal;
+  text-rendering: auto;
+}
+.i_test:before {
+  content:"\E001";
+}
