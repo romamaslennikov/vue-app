@@ -33,11 +33,11 @@ img
   max-width: 100%
 
 .v-lazy-image
-  filter: blur(5px)
-  transition: filter $anim-global
+  opacity: 0
+  transition: opacity $anim-global
 
 .v-lazy-image-loaded
-  filter: blur(0)
+  opacity: 1
 
 textarea
   overflow: auto

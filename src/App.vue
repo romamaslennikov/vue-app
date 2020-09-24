@@ -39,13 +39,13 @@ export default {
 
     window.addEventListener('resize', this.handleWindowResize);
 
-    window.addEventListener('scroll', this.handleScroll);
+    // window.addEventListener('scroll', this.handleScroll);
   },
 
   destroyed() {
     window.removeEventListener('resize', this.handleWindowResize);
 
-    window.removeEventListener('scroll', this.handleScroll);
+    // window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>

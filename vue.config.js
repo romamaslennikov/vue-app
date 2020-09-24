@@ -1,21 +1,32 @@
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const path = require('path');
 
+const plugins = [];
+
+if (process.env.NODE_ENV === 'production') {
+  const Prerender = new PrerenderSpaPlugin({
+    staticDir: path.join(__dirname, 'dist'),
+    routes: ['/', '/winners', '/faq'],
+    renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
+      injectProperty: 'PRERENDER_INJECTED',
+      inject: {
+        foo: 'bar',
+      },
+    }),
+  });
+
+  plugins.push(Prerender);
+}
+
 module.exports = {
+  // publicPath: process.env.NODE_ENV === 'production'
+  //  ? '/models/T6-1/'
+  //   : '/',
+
   productionSourceMap: false,
+
   configureWebpack: {
-    plugins: [
-      new PrerenderSpaPlugin({
-        staticDir: path.join(__dirname, 'dist'),
-        routes: ['/'],
-        renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
-          injectProperty: 'PRERENDER_INJECTED',
-          inject: {
-            foo: 'bar',
-          },
-        }),
-      }),
-    ],
+    plugins,
 
     resolve: {
       extensions: ['.js', '.vue', '.json'],
@@ -26,6 +37,7 @@ module.exports = {
       },
     },
   },
+
   chainWebpack(config) {
     config.module
       .rule('vue')
