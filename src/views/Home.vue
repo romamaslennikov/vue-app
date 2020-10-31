@@ -8,16 +8,24 @@
 export default {
   name: 'Home',
 
+  data() {
+    return {
+      ready: false,
+    };
+  },
+
   methods: {},
 
-  mounted() {},
+  mounted() {
+    this.ready = true;
+  },
 
   components: {},
 };
 </script>
 
 <style lang="sass">
-  @import "../styles/mixins/mixins"
-  @import "../styles/vars/variables"
+@import "../styles/mixins/mixins"
+@import "../styles/vars/variables"
 
 </style>

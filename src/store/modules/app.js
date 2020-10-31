@@ -4,7 +4,6 @@ import Vue from 'vue';
 
 const app = {
   state: {
-    ready: null,
     isPortrait: null,
     isMobile: null,
     showMobileNav: null,
@@ -24,10 +23,6 @@ const app = {
           state.webp = false;
         }
       });
-    },
-
-    UPDATE_READY: (state, ready) => {
-      state.ready = ready;
     },
 
     UPDATE_IS_MOBILE: (state, isMobile) => {
@@ -50,11 +45,7 @@ const app = {
       state.scrollY = val
     },
   },
-  actions: {
-    ShowMobileNav: ({commit}, show) => {
-      commit('SHOW_MOBILE_NAV', show);
-    },
-  },
+  actions: {},
 };
 
 export default app;

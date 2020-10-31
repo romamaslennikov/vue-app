@@ -1,8 +1,5 @@
-import { checkEmail, signUp, signIn } from '@/api/login';
-import {
-  getProfile, setProfile, logOut,
-  requestPasswordReset, passwordReset, resendPassword,
-} from '@/api/user';
+import { signUp, signIn } from '@/api/login';
+import { getProfile, logOut } from '@/api/user';
 import { getToken, setToken, removeToken } from '@/utils/auth';
 import router from '@/router';
 
@@ -46,26 +43,6 @@ const account = {
       });
     },
 
-    RequestPasswordReset({ commit }, data) {
-      return (async () => requestPasswordReset(data))();
-    },
-
-    PasswordReset({ commit }, data) {
-      return (async () => passwordReset(data))();
-    },
-
-    ResendPassword({ commit }) {
-      return (async () => resendPassword())();
-    },
-
-    SetProfile({ commit }, data) {
-      return (async () => setProfile(data))();
-    },
-
-    CheckEmail({ commit }, data) {
-      return (async () => checkEmail(data))();
-    },
-
     SignUp({ commit }, data) {
       return (async () => signUp(data))();
     },
@@ -81,7 +58,7 @@ const account = {
         (document.getElementById('spinner')).classList.remove('-hide');
 
         logOut()
-          .then((r) => {
+          .then(() => {
             commit('REMOVE_TOKEN');
 
             router.push('/auth/sign_in');

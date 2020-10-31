@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app(:class="{'-transparent': !ready}")
+  #app
     Header
 
     keep-alive
@@ -22,22 +22,11 @@ export default {
   methods: {},
   mounted() {
     if (!window.PRERENDER_INJECTED) {
-      window.addEventListener('load', () => {
-        (document.getElementById('spinner')).classList.add('-hide');
-
-        this.ready = true;
-
-        this.$store.commit('UPDATE_READY', true);
-      });
+      // ...
     } else {
+      // пререндер
       document.querySelector('html')
         .setAttribute('class', '');
-    }
-
-    if (this.$store.getters.ready) {
-      (document.getElementById('spinner')).classList.add('-hide');
-
-      this.ready = true;
     }
   },
   components: {

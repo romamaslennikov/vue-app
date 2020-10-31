@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-view
+  router-view(:class="{'-transparent': !ready}")
 </template>
 
 <script>
@@ -7,7 +7,9 @@ import { isPortrait } from '@/utils/device';
 
 export default {
   data() {
-    return {};
+    return {
+      ready: false,
+    };
   },
 
   methods: {
@@ -26,6 +28,10 @@ export default {
 
   mounted() {
     this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth);
+
+    window.addEventListener('load', () => {
+      this.ready = true;
+    });
   },
 
   async beforeCreate() {

@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     showNav(state) {
-      this.$store.dispatch('ShowMobileNav', !state);
+      this.$store.commit('SHOW_MOBILE_NAV', !state);
 
       const body = document.querySelector('body');
 

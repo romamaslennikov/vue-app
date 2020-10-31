@@ -1,5 +1,4 @@
 const getters = {
-  ready: (state) => state.app.ready,
   isPortrait: (state) => state.app.isPortrait,
   isMobile: (state) => state.app.isMobile,
   showMobileNav: (state) => state.app.showMobileNav,

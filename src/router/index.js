@@ -5,7 +5,7 @@ import routes from './routes';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   scrollBehavior: (to) => {
@@ -16,3 +16,13 @@ export default new Router({
   },
   routes,
 });
+
+router.afterEach(() => {
+  const spinner = document.getElementById('spinner');
+
+  if (spinner) {
+    spinner.classList.add('-hide');
+  }
+});
+
+export default router;
