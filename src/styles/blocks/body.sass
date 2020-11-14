@@ -16,6 +16,16 @@ html, body
 html
   +rem-baseline
 
+body
+  +media($land, $scaling)
+    font-size: size(14, $size-land)
+
+  +media($port, ">=tablet")
+    font-size: size(14, $size-port-tablet)
+
+  +media($port, "<tablet")
+    font-size: size(14, $size-port)
+
 #app
   min-height: 100%
   display: flex

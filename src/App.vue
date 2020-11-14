@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import objectFitImages from 'object-fit-images';
 import { isPortrait } from '@/utils/device';
 
 export default {
@@ -31,6 +32,8 @@ export default {
 
     window.addEventListener('load', () => {
       this.ready = true;
+
+      objectFitImages();
     });
   },
 

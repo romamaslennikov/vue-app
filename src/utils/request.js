@@ -1,5 +1,9 @@
+import Vue from 'vue';
+import VueNoty from 'vuejs-noty';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
+
+Vue.use(VueNoty);
 
 const store = require('../store');
 
@@ -22,6 +26,8 @@ service.interceptors.request.use((config) => {
 
   return conf;
 }, (error) => {
+  Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+
   Promise.reject(error);
 });
 
@@ -30,13 +36,19 @@ service.interceptors.response.use(
     const res = response.data;
 
     if (res.error === 404) { // токен не валиден
+      Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
+
       store.default.dispatch('LogOut');
 
       return Promise.reject(new Error('error'));
     }
     return res;
   },
-  (error) => Promise.reject(error),
+  (error) => {
+    Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+
+    return Promise.reject(error);
+  },
 );
 
 export { BASE_API };
