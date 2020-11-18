@@ -30,11 +30,17 @@ export default {
   mounted() {
     this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth);
 
-    window.addEventListener('load', () => {
-      this.ready = true;
+    if (!window.PRERENDER_INJECTED) {
+      window.addEventListener('load', () => {
+        this.ready = true;
 
-      objectFitImages();
-    });
+        objectFitImages();
+      });
+    } else {
+      // пререндер
+      document.querySelector('html')
+        .setAttribute('class', '');
+    }
   },
 
   async beforeCreate() {

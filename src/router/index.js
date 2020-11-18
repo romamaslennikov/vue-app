@@ -18,10 +18,12 @@ const router = new Router({
 });
 
 router.afterEach(() => {
-  const spinner = document.getElementById('spinner');
+  if (!window.PRERENDER_INJECTED) {
+    const spinner = document.getElementById('spinner');
 
-  if (spinner) {
-    spinner.classList.add('-hide');
+    if (spinner) {
+      spinner.classList.add('-hide');
+    }
   }
 });
 

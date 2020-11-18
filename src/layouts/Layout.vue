@@ -20,15 +20,7 @@ export default {
     };
   },
   methods: {},
-  mounted() {
-    if (!window.PRERENDER_INJECTED) {
-      // ...
-    } else {
-      // пререндер
-      document.querySelector('html')
-        .setAttribute('class', '');
-    }
-  },
+  mounted() {},
   components: {
     Footer,
     Header,
