@@ -61,12 +61,16 @@ const account = {
           .then(() => {
             commit('REMOVE_TOKEN');
 
+            commit('SET_USER', null);
+
             router.push('/auth/sign_in');
 
             (document.getElementById('spinner')).classList.add('-hide');
           });
       } else {
         commit('REMOVE_TOKEN');
+
+        commit('SET_USER', null);
 
         router.push('/auth/sign_in');
       }

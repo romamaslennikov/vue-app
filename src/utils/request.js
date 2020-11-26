@@ -26,7 +26,9 @@ service.interceptors.request.use((config) => {
 
   return conf;
 }, (error) => {
-  Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+  if (!window.PRERENDER_INJECTED) {
+    Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+  }
 
   Promise.reject(error);
 });
@@ -36,7 +38,9 @@ service.interceptors.response.use(
     const res = response.data;
 
     if (res.error === 404) { // токен не валиден
-      Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
+      if (!window.PRERENDER_INJECTED) {
+        Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
+      }
 
       store.default.dispatch('LogOut');
 
@@ -45,7 +49,9 @@ service.interceptors.response.use(
     return res;
   },
   (error) => {
-    Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+    if (!window.PRERENDER_INJECTED) {
+      Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+    }
 
     return Promise.reject(error);
   },

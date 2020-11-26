@@ -10,6 +10,7 @@ import router from './router';
 import store from './store';
 import './utils/filters';
 
+import 'vuejs-noty/dist/vuejs-noty.css';
 import 'normalize.css/normalize.css'; //  reset CSS
 import '@/styles/layout.sass'; // global CSS
 

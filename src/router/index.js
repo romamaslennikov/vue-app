@@ -17,14 +17,4 @@ const router = new Router({
   routes,
 });
 
-router.afterEach(() => {
-  if (!window.PRERENDER_INJECTED) {
-    const spinner = document.getElementById('spinner');
-
-    if (spinner) {
-      spinner.classList.add('-hide');
-    }
-  }
-});
-
 export default router;

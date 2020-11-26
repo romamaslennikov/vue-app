@@ -32,6 +32,12 @@ export default {
 
     if (!window.PRERENDER_INJECTED) {
       window.addEventListener('load', () => {
+        const spinner = document.getElementById('spinner');
+
+        if (spinner) {
+          spinner.classList.add('-hide');
+        }
+
         this.ready = true;
 
         objectFitImages();
