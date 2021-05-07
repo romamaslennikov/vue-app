@@ -13,18 +13,18 @@ html, body
 *, *:before, *:after
   box-sizing: border-box
 
-html
-  +rem-baseline
-
-body
+\:root
   +media($land, $scaling)
-    font-size: size(14, $size-land)
+    font-size: vw(18, $size-land)
+
+  +media($landLaptop)
+    font-size: vh(18, $size-land-vh)
 
   +media($port, ">=tablet")
-    font-size: size(14, $size-port-tablet)
+    font-size: vw(18, $size-port-tablet)
 
   +media($port, "<tablet")
-    font-size: size(14, $size-port)
+    font-size: vw(14, $size-port)
 
 #app
   min-height: 100%
@@ -34,28 +34,18 @@ body
   align-items: stretch
   transition: opacity $anim-global ease-out
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+  #app
+    display: block
+    height: 100vh
+
 .content
   flex: 1 1 auto
 
-*::-ms-backdrop, .content
-  min-height: 80vh
-
 .container
-  max-width: 1200px
-  padding: 0 20px
+  max-width: rem(1200px)
+  padding: 0 rem(20px)
   margin: 0 auto
-
-  +media($land, $scaling)
-    padding: 0 size(20, $size-land)
-    max-width: size(1200, $size-land)
-
-  +media($port, ">=tablet")
-    padding: 0 size(20, $size-port-tablet)
-    max-width: size(1200, $size-port-tablet)
-
-  +media($port, "<tablet")
-    padding: 0 size(20, $size-port)
-    max-width: size(1200, $size-port)
 
 
 

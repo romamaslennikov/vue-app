@@ -1,5 +1,11 @@
-@function size($base, $screen) {
+@function vw($base, $screen) {
   $result: $base * 100 / $screen;
 
-  @return $result+vmin;
+  @return $result+vw;
+}
+
+@function vh($base, $screen) {
+  $result: $base * 100 / $screen;
+
+  @return $result+vh;
 }

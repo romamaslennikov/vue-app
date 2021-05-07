@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "standard-version --skip.changelog && vue-cli-service build",
+    "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
     "deploy": "gulp deploy",
     "fonts": "gulp fonts",

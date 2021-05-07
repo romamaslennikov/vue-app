@@ -21,6 +21,7 @@ require('intersection-observer'); // for svg
 if (isIE11) { // ie11 support
   require('es6-shim'); // eslint-disable-line
   require('element-closest-polyfill'); // eslint-disable-line
+  document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'); // css vars
 }
 
 Vue.config.productionTip = false;

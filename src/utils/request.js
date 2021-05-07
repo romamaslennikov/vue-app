@@ -7,12 +7,12 @@ Vue.use(VueNoty);
 
 const store = require('../store');
 
-const BASE_API = process.env.VUE_APP_NODE_ENV === 'production'
+const BASE_API = process.env.NODE_ENV === 'production'
   ? process.env.VUE_APP_BASE_API : process.env.VUE_APP_BASE_API_DEV;
 
 const service = axios.create({
   baseURL: BASE_API,
-  timeout: 15000,
+  timeout: 10000,
 });
 
 service.interceptors.request.use((config) => {

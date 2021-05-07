@@ -20,10 +20,19 @@ export default {
       this.$store.commit('UPDATE_IS_PORTRAIT', isPortrait());
 
       this.$store.commit('UPDATE_IS_MOBILE', (isPortrait() && window.innerWidth < 768));
+
+      this.vh();
     },
 
     handleScroll() {
       this.$store.commit('UPDATE_WINDOW_SCROLL_Y', window.scrollY);
+    },
+
+    vh() {
+      const vh = window.innerHeight * 0.01;
+
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      // height: calc(var(--vh, 1vh) * 100);
     },
   },
 
@@ -55,9 +64,7 @@ export default {
 
   async created() {
     this.handleWindowResize();
-
     this.handleScroll();
-
     window.addEventListener('resize', this.handleWindowResize);
 
     // window.addEventListener('scroll', this.handleScroll);

@@ -83,31 +83,13 @@
   flex-flow: row wrap
   justify-content: flex-start
   align-items: flex-start
-  margin: 0 -15px
-
-  +media($land, $scaling)
-    margin: 0 size(-15, $size-land)
-
-  +media($port, ">=tablet")
-    margin: 0 size(-15, $size-port-tablet)
-
-  +media($port, "<tablet")
-    margin: 0 size(-15, $size-port)
+  margin: 0 rem(-15px)
 
   &.-stretch
     align-items: stretch
 
   .flex-row-item
-    padding: 0 $row-spreed
-
-    +media($land, $scaling)
-      padding: 0 size(15, $size-land)
-
-    +media($port, ">=tablet")
-      padding: 0 size(15, $size-port-tablet)
-
-    +media($port, "<tablet")
-      padding: 0 size(15, $size-port)
+    padding: 0 rem(15px)
 
 .ajax-loader
   background-color: rgba(255, 255, 255, .9)

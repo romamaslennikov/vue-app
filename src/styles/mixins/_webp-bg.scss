@@ -1,5 +1,5 @@
 @mixin webp-bg($src) {
-  .webp.webpalpha & {
+  .webp.webpalpha:not(.no-webp) & {
     background-image: url($src)
   }
 }
