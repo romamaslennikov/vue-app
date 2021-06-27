@@ -20,8 +20,10 @@ service.interceptors.request.use((config) => {
 
   conf.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
-  if (store.default.getters.token) {
-    conf.headers['X-Auth-Token'] = getToken();
+  const token = getToken();
+
+  if (token) {
+    conf.headers['X-Auth-Token'] = token;
   }
 
   return conf;

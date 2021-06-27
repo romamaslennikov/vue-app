@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueNoty from 'vuejs-noty';
-import VueScrollReveal from 'vue-scroll-reveal';
 import Vuelidate from 'vuelidate';
 import Meta from 'vue-meta';
 import svg4everybody from 'svg4everybody';
@@ -27,7 +26,6 @@ if (isIE11) { // ie11 support
 Vue.config.productionTip = false;
 
 Vue.use(VueNoty);
-Vue.use(VueScrollReveal);
 Vue.use(Vuelidate);
 Vue.use(Meta);
 svg4everybody();

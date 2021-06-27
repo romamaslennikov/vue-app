@@ -15,29 +15,29 @@ export default {
 
   methods: {
     handleWindowResize() {
-      this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth);
+      this.$store.commit('app/UPDATE_WINDOW_WIDTH', window.innerWidth);
 
-      this.$store.commit('UPDATE_IS_PORTRAIT', isPortrait());
+      this.$store.commit('app/UPDATE_IS_PORTRAIT', isPortrait());
 
-      this.$store.commit('UPDATE_IS_MOBILE', (isPortrait() && window.innerWidth < 768));
+      this.$store.commit('app/UPDATE_IS_MOBILE', (isPortrait() && window.innerWidth < 768));
 
       this.vh();
     },
 
     handleScroll() {
-      this.$store.commit('UPDATE_WINDOW_SCROLL_Y', window.scrollY);
+      this.$store.commit('app/UPDATE_WINDOW_SCROLL_Y', window.scrollY);
     },
 
     vh() {
       const vh = window.innerHeight * 0.01;
 
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      // height: calc(var(--vh, 1vh) * 100);
+      // use in css => height: calc(var(--vh, 1vh) * 100);
     },
   },
 
   mounted() {
-    this.$store.commit('UPDATE_WINDOW_WIDTH', window.innerWidth);
+    this.$store.commit('app/UPDATE_WINDOW_WIDTH', window.innerWidth);
 
     if (!window.PRERENDER_INJECTED) {
       window.addEventListener('load', () => {
@@ -59,7 +59,7 @@ export default {
   },
 
   async beforeCreate() {
-    this.$store.commit('DETECT_WEBP');
+    this.$store.commit('app/DETECT_WEBP');
   },
 
   async created() {

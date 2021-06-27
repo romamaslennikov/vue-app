@@ -1,14 +1,21 @@
 import { signUp, signIn } from '@/api/login';
-import { getProfile, logOut } from '@/api/user';
+import { getProfile, logOut } from '@/api/me';
 import { getToken, setToken, removeToken } from '@/utils/auth';
 import router from '@/router';
 
 /* eslint-disable */
 
-const account = {
+const me = {
+  namespaced: true,
+
   state: {
     token: getToken(),
     user: null,
+  },
+
+  getters: {
+    token: (state) => state.token,
+    user: (state) => state.user,
   },
 
   mutations: {
@@ -78,4 +85,4 @@ const account = {
   },
 };
 
-export default account;
+export default me;

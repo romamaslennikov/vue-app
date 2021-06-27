@@ -1,8 +1,9 @@
 /* eslint-disable */
 import modernizr from 'modernizr';
-import Vue from 'vue';
 
 const app = {
+  namespaced: true,
+
   state: {
     isPortrait: null,
     isMobile: null,
@@ -11,6 +12,16 @@ const app = {
     scrollY: null,
     webp: null,
   },
+
+  getters: {
+    isPortrait: (state) => state.isPortrait,
+    isMobile: (state) => state.isMobile,
+    showMobileNav: (state) => state.showMobileNav,
+    windowWidth: (state) => state.windowWidth,
+    scrollY: (state) => state.scrollY,
+    webp: (state) => state.webp,
+  },
+
   mutations: {
     DETECT_WEBP: (state) => {
       const isSafari = navigator.userAgent.indexOf('Safari') !== -1
@@ -45,6 +56,7 @@ const app = {
       state.scrollY = val
     },
   },
+
   actions: {},
 };
 

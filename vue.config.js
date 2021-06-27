@@ -6,7 +6,7 @@ const plugins = [];
 if (process.env.NODE_ENV === 'production') {
   const Prerender = new PrerenderSpaPlugin({
     staticDir: path.join(__dirname, 'dist'),
-    routes: ['/', '/winners', '/faq'],
+    routes: ['/'],
     renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
       injectProperty: 'PRERENDER_INJECTED',
       inject: {
