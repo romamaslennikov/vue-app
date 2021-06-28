@@ -15,7 +15,7 @@ const store = new Vuex.Store({
   },
   strict: process.env.DEV,
   plugins: [createPersistedState({
-    key: 'vuex-app',
+    key: process.env.VUE_APP_STATE_KEY,
   })],
 });
 
