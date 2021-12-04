@@ -44,7 +44,7 @@ service.interceptors.response.use(
         Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
       }
 
-      store.default.dispatch('LogOut');
+      store.default.dispatch('me/LogOut');
 
       return Promise.reject(new Error('error'));
     }

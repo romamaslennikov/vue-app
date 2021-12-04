@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,height=479,initial-scale=1.0">
@@ -8,16 +8,158 @@
     <title>title</title>
     <meta name="description" content="">
     <meta name="theme-color" content="#fff">
-    <style type="text/css">body,html{background-color:#101011}.lds-dual-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:inline-block;width:80px;height:80px}#spinner{background-color:#101011;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:10000}.lds-dual-ring:after{position:relative;content:" ";display:block;width:64px;height:64px;margin:8px;border-radius:50%;border:6px solid #fff;border-color:#fff transparent #fff transparent;animation:lds-dual-ring 1.2s linear infinite}@keyframes lds-dual-ring{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#spinner.-hide{transition:all .4s ease-out;pointer-events:none;opacity:0;visibility:hidden}</style>
-  </head>
-  <body>
-    <div id="spinner"><div class="lds-dual-ring"></div></div>
-    <div id="app"></div>
-    <% if (NODE_ENV !== 'development') { %>
-    <!-- counters -->
-    <% } %>
-    <script type="text/javascript">
-      if (!window.PRERENDER_INJECTED) {}
-    </script>
-  </body>
+    <style>
+        body, html {
+            background-color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        #spinner {
+            transition: all .4s ease-out;
+            transition-delay: .4s;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 10000
+        }
+
+        #spinner.-hide {
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden
+        }
+
+        .spinner__content {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 50px #00B9BF, 0 0 50px #00B9BF;
+            background: #fff;
+            z-index: 1000;
+            transform: scale(0.5);
+        }
+
+        .spinner__num {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .spinner__title {
+            color: #777;
+            font-weight: 700;
+            font-size: 40px;
+            transition: 0.5s;
+        }
+
+        .spinner__title span {
+            color: #777;
+            font-size: 24px;
+            transition: 0.5s;
+        }
+
+        .spinner__title em {
+            font-style: normal;
+        }
+
+        .spinner__content svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            z-index: 1000;
+        }
+
+        .spinner__content svg circle {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);
+        }
+
+        #spinnerCircle {
+            stroke-dasharray: 440;
+            stroke-dashoffset: 0;
+            stroke: #00B9BF;
+            transition: all 0.4s linear;
+        }
+    </style>
+</head>
+<body>
+<div id="spinner">
+    <div class="spinner__content">
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle id="spinnerCircle" cx="70" cy="70" r="70"></circle>
+        </svg>
+        <div class="spinner__num">
+            <div class="spinner__title"><em id="spinnerText">0</em><span>%</span></div>
+        </div>
+        <script>
+            (() => {
+                let loaded = null;
+
+                window.addEventListener('load', () => {
+                    loaded = 1;
+                });
+
+                const animate = (obj, circle, initVal, lastVal, duration) => {
+                    let startTime = null;
+                    const currentTime = Date.now();
+                    const step = (currentTime) => {
+                        if (!startTime) {
+                            startTime = currentTime;
+                        }
+                        const progress = Math.min((currentTime - startTime) / duration, 1);
+                        const full = Math.floor(progress * (lastVal - initVal) + initVal);
+                        obj.innerHTML = full;
+                        circle.style.strokeDashoffset = 440 - (440 * full) / 100;
+                        if (loaded) {
+                            obj.innerHTML = '100';
+                            circle.style.strokeDashoffset = 440 - (440 * 100) / 100;
+                        }
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            window.cancelAnimationFrame(window.requestAnimationFrame(step));
+                        }
+                    };
+
+                    window.requestAnimationFrame(step);
+                }
+
+                const spinnerText = document.getElementById('spinnerText');
+
+                const spinnerCircle = document.getElementById('spinnerCircle');
+
+                animate(spinnerText, spinnerCircle, 0, 100, 5000);
+            })();
+        </script>
+    </div>
+</div>
+<div id="app"></div>
+<% if (NODE_ENV !== 'development') { %>
+<!-- counters -->
+<% } %>
+<script type="text/javascript">
+    if (!window.PRERENDER_INJECTED) {}
+</script>
+</body>
 </html>

@@ -22,6 +22,10 @@ module.exports = {
   // publicPath: process.env.NODE_ENV === 'production'
   //  ? '/models/T6-1/'
   //   : '/',
+  
+  // devServer: {
+  //   https: true,
+  // },
 
   productionSourceMap: false,
 

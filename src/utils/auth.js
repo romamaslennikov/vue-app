@@ -8,10 +8,10 @@ export function getToken() {
 
 export function setToken(token) {
   if (window.localStorage.getItem('remember')) {
-    return Cookies.set(TokenKey, token, { expires: 90 });
+    return Cookies.set(TokenKey, token, { expires: 90, secure: true });
   }
 
-  return Cookies.set(TokenKey, token);
+  return Cookies.set(TokenKey, token, { secure: true });
 }
 
 export function removeToken() {
