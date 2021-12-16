@@ -8,10 +8,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
-@import "../styles/mixins/mixins"
-@import "../styles/vars/variables"
-
+<style lang="sass" scoped>
 .loading-spinner
   position: absolute
   top: 50%

@@ -7,12 +7,8 @@
 export default {
   name: 'SvgIcon',
 
-  props: ['id'],
+  props: {
+    id: String,
+  },
 };
 </script>
-
-<style lang="sass" scoped>
-@import "../styles/mixins/mixins"
-@import "../styles/vars/variables"
-
-</style>

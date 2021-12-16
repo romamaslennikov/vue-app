@@ -1,27 +1,26 @@
 <template lang="pug">
   footer.footer
-    .container footer
+    .container Footer
 </template>
 
 <script>
 export default {
   name: 'Footer',
+
   data() {
-    return {
-      ready: false,
-    };
+    return {};
   },
+
   methods: {},
+
   mounted() {},
+
   components: {},
 };
 </script>
 
 <style lang="sass">
-  @import "../styles/mixins/mixins"
-  @import "../styles/vars/variables"
-
-  .footer
-    background: #eee
-    content-visibility: auto
+.footer
+  background: $color-white
+  content-visibility: auto
 </style>

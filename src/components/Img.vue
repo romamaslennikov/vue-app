@@ -12,11 +12,13 @@
 export default {
   name: 'Img',
 
-  props: ['src', 'type'],
+  props: {
+    src: String,
+    type: String,
+  },
+
+  // props: ['src', 'type'],
 };
 </script>
 
-<style lang="sass" scoped>
-@import "../styles/mixins/mixins"
-@import "../styles/vars/variables"
-</style>
+<style lang="sass" scoped></style>

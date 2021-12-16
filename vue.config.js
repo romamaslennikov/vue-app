@@ -22,7 +22,7 @@ module.exports = {
   // publicPath: process.env.NODE_ENV === 'production'
   //  ? '/models/T6-1/'
   //   : '/',
-  
+
   // devServer: {
   //   https: true,
   // },
@@ -82,5 +82,13 @@ module.exports = {
       a[0].terserOptions.compress.drop_console = true;
       return a;
     });
+  },
+
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: '@import "~@/styles/vars/variables.sass"; @import "~@/styles/mixins/mixins.sass";',
+      },
+    },
   },
 };

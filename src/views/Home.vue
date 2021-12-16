@@ -9,23 +9,15 @@ export default {
   name: 'Home',
 
   data() {
-    return {
-      ready: false,
-    };
+    return {};
   },
 
   methods: {},
 
-  mounted() {
-    this.ready = true;
-  },
+  mounted() {},
 
   components: {},
 };
 </script>
 
-<style lang="sass">
-@import "../styles/mixins/mixins"
-@import "../styles/vars/variables"
-
-</style>
+<style lang="sass"></style>

@@ -14,13 +14,15 @@ import Header from '../components/Header.vue';
 
 export default {
   name: 'Layout',
+
   data() {
-    return {
-      ready: false,
-    };
+    return {};
   },
+
   methods: {},
+
   mounted() {},
+
   components: {
     Footer,
     Header,

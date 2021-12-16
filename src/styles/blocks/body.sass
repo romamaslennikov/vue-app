@@ -8,9 +8,11 @@ html, body
   color: $color-base
   background: $bg-color-base
   scroll-behavior: smooth
+  min-height: -webkit-fill-available
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  
+  text-rendering: optimizeSpeed
+
   +scrollbars(6px, $color-orange, 8px, $color-black)
 
 *, *:before, *:after
@@ -35,7 +37,7 @@ html, body
   flex-flow: column nowrap
   justify-content: flex-start
   align-items: stretch
-  transition: opacity $anim-global ease-out
+  transition: opacity $transition ease-out
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
   #app
