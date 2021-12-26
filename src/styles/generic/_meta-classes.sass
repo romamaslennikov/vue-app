@@ -45,7 +45,6 @@
 .disabled
   cursor: default !important
   opacity: .3
-  filter: alpha(opacity=30)
 
 .text-center
   text-align: center
@@ -91,75 +90,181 @@
   .flex-row-item
     padding: 0 rem(15px)
 
-.ajax-loader
-  background-color: rgba(255, 255, 255, .9)
-  position: absolute
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  height: auto
-  z-index: 1
-
-.ajax-loader div
-  position: absolute
-  top: 50%
-  left: 50%
-  margin: 0
-  text-align: center
-  z-index: 1
-  transform: translateX(-50%) translateY(-50%)
-  width: 3rem
-  height: 3rem
-  font-size: 1em
-
-.ajax-loader div:after, .ajax-loader div:before
-  width: 3rem
-  height: 3rem
-  margin: 0 0 0 -1.5rem
-
-.ajax-loader div:before
-  position: absolute
-  content: ""
-  top: 0
-  left: 50%
-  border-radius: 500rem
-  border: .3em solid rgba(0, 0, 0, .1)
-
-.ajax-loader div:after
-  position: absolute
-  content: ""
-  top: 0
-  left: 50%
-  animation: loader .6s linear
-  animation-iteration-count: infinite
-  border-radius: 500rem
-  border-color: $color-red transparent transparent
-  border-style: solid
-  border-width: .3em
-  box-shadow: 0 0 0 1px transparent
-
-@keyframes loader
-  from
-    -webkit-transform: rotate(0)
-    transform: rotate(0)
-
-  to
-    -webkit-transform: rotate(360deg)
-    transform: rotate(360deg)
-
-.scrollbar-styled
-  &::-webkit-scrollbar
-    width: 6px
-
-  &::-webkit-scrollbar-track
-    background: none
-
-  &::-webkit-scrollbar-thumb
-    background: #b3b3b3
-    border-radius: 3px
-
 [data-sr-id]
   visibility: hidden
   will-change: transform
+
+// отступы
+
+.ml-auto
+  margin-left: auto
+
+.mr-auto
+  margin-right: auto
+
+.mt-auto
+  margin-top: auto
+
+.mb-auto
+  margin-bottom: auto
+
+.mb-0
+  margin-bottom: 0 !important
+
+.mt-0
+  margin-top: 0 !important
+
+.ml-0
+  margin-left: 0 !important
+
+.mr-0
+  margin-right: 0 !important
+
+.m-25
+  margin: .25rem
+
+.mb-25
+  margin-bottom: .25rem
+
+.mt-25
+  margin-top: .25rem
+
+.ml-25
+  margin-left: .25rem
+
+.mr-25
+  margin-right: .25rem
+
+.m-50
+  margin: .5rem
+
+.mb-50
+  margin-bottom: .5rem
+
+.mt-50
+  margin-top: .5rem
+
+.ml-50
+  margin-left: .5rem
+
+.mr-50
+  margin-right: .5rem
+
+.m-1
+  margin: 1rem
+
+.mb-1
+  margin-bottom: 1rem
+
+.mt-1
+  margin-top: 1rem
+
+.ml-1
+  margin-left: 1rem
+
+.mr-1
+  margin-right: 1rem
+
+.m-2
+  margin: 2rem
+
+.mb-2
+  margin-bottom: 2rem
+
+.mt-2
+  margin-top: 2rem
+
+.ml-2
+  margin-left: 2rem
+
+.mr-2
+  margin-right: 2rem
+
+// поля
+
+.pb-0
+  padding-bottom: 0 !important
+
+.pt-0
+  padding-top: 0 !important
+
+.pl-0
+  padding-left: 0 !important
+
+.pr-0
+  padding-right: 0 !important
+
+.p-25
+  padding: .25rem
+
+.pb-25
+  padding-bottom: .25rem
+
+.pt-25
+  padding-top: .25rem
+
+.pl-25
+  padding-left: .25rem
+
+.pr-25
+  padding-right: .25rem
+
+.p-50
+  padding: .5rem
+
+.pb-50
+  padding-bottom: .5rem
+
+.pt-50
+  padding-top: .5rem
+
+.pl-50
+  padding-left: .5rem
+
+.pr-50
+  padding-right: .5rem
+
+.p-1
+  padding: 1rem
+
+.pb-1
+  padding-bottom: 1rem
+
+.pt-1
+  padding-top: 1rem
+
+.pl-1
+  padding-left: 1rem
+
+.pr-1
+  padding-right: 1rem
+
+.p-2
+  padding: 2rem
+
+.pb-2
+  padding-bottom: 2rem
+
+.pt-2
+  padding-top: 2rem
+
+.pl-2
+  padding-left: 2rem
+
+.pr-2
+  padding-right: 2rem
+
+// flex
+
+.d-flex
+  display: flex
+
+.d-flex-inline
+  display: inline-flex
+
+.justify-content-between
+  justify-content: space-between
+
+.align-items-center
+  align-items: center
 

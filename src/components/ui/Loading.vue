@@ -1,15 +1,9 @@
 <template lang="pug">
-  span.loading-spinner
+  span(:class="$style.spinner")
 </template>
 
-<script>
-export default {
-  name: 'Loading',
-};
-</script>
-
-<style lang="sass" scoped>
-.loading-spinner
+<style lang="sass" module>
+.spinner
   position: absolute
   top: 50%
   left: 50%
@@ -18,7 +12,7 @@ export default {
   width: 1.5em
   height: 1.5em
 
-  &.-inline
+  &[inline]
     position: relative
     transform: none
     top: auto
@@ -32,7 +26,7 @@ export default {
     height: 1.5em
     margin: 0
     border-radius: 50%
-    border: .75em solid $color-blue
+    border: .75em solid $color-white
     border-color: $color-red $color-white $color-red $color-white
     animation: lds-dual-ring 1.2s linear infinite
 

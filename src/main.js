@@ -10,8 +10,7 @@ import store from './store';
 import './utils/filters';
 
 // global components
-import Img from './components/Img.vue';
-import SvgIcon from './components/SvgIcon.vue';
+import './components/global-components';
 
 // global CSS
 import 'vuejs-noty/dist/vuejs-noty.css';
@@ -37,9 +36,6 @@ Vue.use(Vuelidate);
 Vue.use(Meta);
 svg4everybody();
 Vue.use(VLazyImagePlugin);
-
-Vue.component('Img', Img);
-Vue.component('SvgIcon', SvgIcon);
 
 new Vue({
   router,
