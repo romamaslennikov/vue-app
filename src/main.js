@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import vClickOutside from 'v-click-outside';
 import VueNoty from 'vuejs-noty';
 import Vuelidate from 'vuelidate';
 import Meta from 'vue-meta';
@@ -36,6 +37,7 @@ Vue.use(Vuelidate);
 Vue.use(Meta);
 svg4everybody();
 Vue.use(VLazyImagePlugin);
+Vue.use(vClickOutside);
 
 new Vue({
   router,

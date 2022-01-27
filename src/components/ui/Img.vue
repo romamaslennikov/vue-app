@@ -1,5 +1,12 @@
+/**
+* @usage:
+*
+*   Img(src="landing/line")
+*   Img(src="landing/line" :ext="'svg'" :alt="'text'")
+*   Img(src="landing/line" :ext="'jpg'" :alt="'text'")
+*/
+
 <template lang="pug">
-  // use: Img(src="landing/line")
   v-lazy-image(
     @load="$emit('load')"
     width="10"

@@ -52,7 +52,6 @@ export default {
   width: $size-custom
   min-width: $size-custom
   height: $size-custom
-  margin-right: $margin-right
   vertical-align: middle
   cursor: pointer
 

@@ -1,3 +1,10 @@
+/**
+* @usage:
+*
+*   Loading
+*   Loading(inline)
+*/
+
 <template lang="pug">
   span(:class="$style.spinner")
 </template>
