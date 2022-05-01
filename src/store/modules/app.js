@@ -8,8 +8,6 @@ const app = {
     isPortrait: null,
     isMobile: null,
     showMobileNav: null,
-    windowWidth: null,
-    scrollY: null,
     webp: null,
   },
 
@@ -17,8 +15,6 @@ const app = {
     isPortrait: (state) => state.isPortrait,
     isMobile: (state) => state.isMobile,
     showMobileNav: (state) => state.showMobileNav,
-    windowWidth: (state) => state.windowWidth,
-    scrollY: (state) => state.scrollY,
     webp: (state) => state.webp,
   },
 
@@ -46,14 +42,6 @@ const app = {
 
     UPDATE_IS_PORTRAIT: (state, isPortrait) => {
       state.isPortrait = isPortrait;
-    },
-
-    UPDATE_WINDOW_WIDTH(state, width) {
-      state.windowWidth = width
-    },
-
-    UPDATE_WINDOW_SCROLL_Y(state, val) {
-      state.scrollY = val
     },
   },
 

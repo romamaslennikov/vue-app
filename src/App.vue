@@ -15,17 +15,11 @@ export default {
 
   methods: {
     handleWindowResize() {
-      this.$store.commit('app/UPDATE_WINDOW_WIDTH', window.innerWidth);
-
       this.$store.commit('app/UPDATE_IS_PORTRAIT', isPortrait());
 
       this.$store.commit('app/UPDATE_IS_MOBILE', (isPortrait() && window.innerWidth < 768));
 
       this.vh();
-    },
-
-    handleScroll() {
-      this.$store.commit('app/UPDATE_WINDOW_SCROLL_Y', window.scrollY);
     },
 
     vh() {
@@ -37,8 +31,6 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('app/UPDATE_WINDOW_WIDTH', window.innerWidth);
-
     if (!window.PRERENDER_INJECTED) {
       window.addEventListener('load', () => {
         const spinner = document.getElementById('spinner');
@@ -64,16 +56,12 @@ export default {
 
   async created() {
     this.handleWindowResize();
-    this.handleScroll();
-    window.addEventListener('resize', this.handleWindowResize);
 
-    // window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleWindowResize);
   },
 
   destroyed() {
     window.removeEventListener('resize', this.handleWindowResize);
-
-    // window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>

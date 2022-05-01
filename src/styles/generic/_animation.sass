@@ -1,3 +1,4 @@
+@use "sass:math"
 
 //slide-top
 .slide-top-enter-active,
@@ -80,7 +81,7 @@
 
 // slide-bottom-smile
 .slide-bottom-smile-enter-active, .slide-bottom-smile-leave-active
-  transition: all $transition/2 ease-out
+  transition: all math.div($transition, 2) ease-out
   transform: translate3d(0,0,0)
 
 .slide-bottom-smile-enter

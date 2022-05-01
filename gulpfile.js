@@ -9,10 +9,6 @@
 const runTimestamp = Math.round(Date.now() / 1000);
 const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
-const moment = require('moment');
-const GulpSSH = require('gulp-ssh');
-const shell = require('gulp-shell');
-const fs = require('fs');
 require('dotenv')
   .config();
 
@@ -23,16 +19,6 @@ require('dotenv')
 const src = 'src/'; // development
 const fontName = 'Icons'; // name icons font
 const cssClassPrefix = 'i_'; // class for font icons
-
-const archiveName = 'deploy.tgz';
-const timestamp = moment()
-  .format('YYYYMMDDHHmmssSSS');
-const buildPath = './dist';
-const rootPath = process.env.VUE_APP_NODE_ENV === 'production' ? '' : '/root/smart_login_vue/';
-const releasesPath = `${rootPath}releases/`;
-const symlinkPath = `${rootPath}current`;
-const releasePath = releasesPath + timestamp;
-let gulpSSH;
 
 //= ============================================
 //               DECLARE PATHS
@@ -193,49 +179,3 @@ function fontgenRemove() {
 }
 
 exports.fonts = gulp.series(fontgen, fontgenConcatCss, fontgenRemove);
-
-/**
- * Deploy
- */
-
-function deployCompress() {
-  return (async () => (shell.task(`tar -czvf ./${archiveName} --directory=${buildPath} .`))())();
-}
-
-function deployPrepare() {
-  const config = {
-    host: process.env.VUE_APP_NODE_ENV === 'production' ? process.env.HOST_DEPLOY : process.env.HOST_DEPLOY_DEV,
-    port: 22,
-    username: process.env.VUE_APP_NODE_ENV === 'production' ? process.env.USERNAME : process.env.USERNAME_DEV,
-    privateKey: fs.readFileSync(process.env.SSH_AUTH),
-  };
-
-  return (async () => {
-    gulpSSH = new GulpSSH({
-      ignoreErrors: false,
-      sshConfig: config,
-    });
-
-    gulpSSH.exec(`cd ${releasesPath} && mkdir ${timestamp}`);
-  })();
-}
-
-function deployUpload() {
-  return gulp.src(archiveName)
-    .pipe(gulpSSH.sftp('write', `${releasePath}/${archiveName}`));
-}
-
-function deployUncompress() {
-  return (async () => gulpSSH.exec(`cd ${releasePath} && tar -xzvf ${archiveName}`))();
-}
-
-function deploySymlink() {
-  return (async () => gulpSSH.exec(`rm -r ${symlinkPath} && ln -s ${releasePath} ${symlinkPath}`))();
-}
-
-function deployClean() {
-  return (async () => (shell.task(`rm ${archiveName}`, { ignoreErrors: true }))())();
-}
-
-exports.deploy = gulp.series(deployCompress, deployPrepare, deployUpload,
-  deployUncompress, deploySymlink, deployClean);

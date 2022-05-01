@@ -87,7 +87,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: '@import "~@/styles/mixins/mixins.sass"; @import "~@/styles/vars/variables.sass";',
+        prependData: '@import "~@/styles/global.sass"',
       },
     },
   },

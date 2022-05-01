@@ -12,6 +12,7 @@
 *  }
 */
 
+<!--suppress ALL -->
 <template lang="pug">
   span(:class="[$style.c, {[$style.error]: error}]")
     input(
