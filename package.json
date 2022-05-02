@@ -1,11 +1,11 @@
 {
   "name": "vue-app",
-  "version": "1.0.26-0",
+  "version": "1.0.26",
   "private": true,
   "developer": "telegram: @romamas",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "standard-version --skip.changelog --prerelease && vue-cli-service build",
+    "build": "standard-version --skip.changelog -- --prerelease && vue-cli-service build",
     "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
     "fonts": "gulp fonts",
