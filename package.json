@@ -1,20 +1,19 @@
 {
   "name": "vue-app",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "private": true,
   "developer": "telegram: @romamas",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "standard-version --skip.changelog && vue-cli-service build",
     "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
-    "deploy": "gulp deploy",
     "fonts": "gulp fonts",
     "iconfont": "gulp iconfont",
     "spritePng": "gulp spritePng",
     "spriteSvg": "gulp spriteSvg",
     "webp": "gulp webp",
-    "version": "npm version patch"
+    "version": "standard-version --skip.changelog"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -28,6 +27,7 @@
     "normalize.css": "^8.0.1",
     "object-fit-images": "^3.2.4",
     "qs": "^6.10.1",
+    "standard-version": "^9.3.2",
     "svg4everybody": "^2.1.9",
     "typograf": "^6.12.1",
     "v-click-outside": "^3.1.2",
