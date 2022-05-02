@@ -9,9 +9,6 @@
 </template>
 
 <script>
-import Footer from '../components/Footer.vue';
-import Header from '../components/Header.vue';
-
 export default {
   name: 'Layout',
 
@@ -24,8 +21,8 @@ export default {
   mounted() {},
 
   components: {
-    Footer,
-    Header,
+    Header: () => import('@/components/Header.vue'),
+    Footer: () => import('@/components/Footer.vue'),
   },
 };
 </script>

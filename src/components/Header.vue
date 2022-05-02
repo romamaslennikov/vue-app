@@ -16,22 +16,6 @@ export default {
   },
 
   methods: {
-    showNav(state) {
-      this.$store.commit('app/SHOW_MOBILE_NAV', !state);
-
-      const body = document.querySelector('body');
-
-      if (this.$store.getters['app/showMobileNav']) {
-        body
-          .classList
-          .add('-lock');
-      } else {
-        body
-          .classList
-          .remove('-lock');
-      }
-    },
-
     show() {
       let current = 0;
 

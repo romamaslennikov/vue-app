@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import objectFitImages from 'object-fit-images';
 import { isPortrait } from '@/utils/device';
 
@@ -14,10 +15,15 @@ export default {
   },
 
   methods: {
-    handleWindowResize() {
-      this.$store.commit('app/UPDATE_IS_PORTRAIT', isPortrait());
+    ...mapMutations({
+      updateIsMobile: 'app/UPDATE_IS_MOBILE',
+      updateIsPortrait: 'app/UPDATE_IS_PORTRAIT',
+    }),
 
-      this.$store.commit('app/UPDATE_IS_MOBILE', (isPortrait() && window.innerWidth < 768));
+    handleWindowResize() {
+      this.updateIsPortrait(isPortrait());
+
+      this.updateIsMobile((isPortrait() && window.innerWidth < 768));
 
       this.vh();
     },
