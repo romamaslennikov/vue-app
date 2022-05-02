@@ -5,7 +5,7 @@
   "developer": "telegram: @romamas",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "standard-version --skip.changelog && vue-cli-service build",
+    "build": "vue-cli-service build",
     "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
     "deploy": "gulp deploy",
@@ -13,8 +13,8 @@
     "iconfont": "gulp iconfont",
     "spritePng": "gulp spritePng",
     "spriteSvg": "gulp spriteSvg",
-    "version": "standard-version --skip.changelog",
-    "webp": "gulp webp"
+    "webp": "gulp webp",
+    "version": "npm version patch"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -66,7 +66,6 @@
     "prerender-spa-plugin": "^3.4.0",
     "sass": "^1.51.0",
     "sass-loader": "^8.0.2",
-    "standard-version": "^9.3.0",
     "vue-cli-plugin-pug": "^2.0.0",
     "vue-template-compiler": "^2.6.11",
     "webpack-modernizr-loader": "^5.0.0"
