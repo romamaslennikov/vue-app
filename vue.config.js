@@ -71,12 +71,6 @@ module.exports = {
         },
       }));
 
-    config.module
-      .rule('modernizr')
-      .test(/\.modernizrrc$/)
-      .use('webpack-modernizr-loader')
-      .loader('webpack-modernizr-loader');
-
     config.optimization.minimizer('terser').tap((args) => {
       const a = args;
       a[0].terserOptions.compress.drop_console = true;

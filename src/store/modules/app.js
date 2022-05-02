@@ -1,6 +1,3 @@
-/* eslint-disable */
-import modernizr from 'modernizr';
-
 const app = {
   namespaced: true,
 
@@ -8,7 +5,7 @@ const app = {
     isPortrait: null,
     isMobile: null,
     showMobileNav: null,
-    webp: null,
+    webp: true,
   },
 
   getters: {
@@ -20,14 +17,35 @@ const app = {
 
   mutations: {
     DETECT_WEBP: (state) => {
-      const isSafari = navigator.userAgent.indexOf('Safari') !== -1
-        && navigator.userAgent.indexOf('Chrome') === -1;
+      // check_webp_feature:
+      // 'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
+      // 'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
+      function checkWebpFeature(feature, callback) {
+        const kTestImages = {
+          lossy: 'UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA',
+          lossless: 'UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==',
+          alpha: 'UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==',
+          animation: 'UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA',
+        };
+        const img = new Image();
 
-      state.webp = !isSafari;
+        img.onerror = () => {
+          callback(feature, false);
+        };
 
-      modernizr.on('webp', (result) => {
+        img.onload = () => {
+          const result = (img.width > 0) && (img.height > 0);
+          callback(feature, result);
+        };
+
+        img.src = `data:image/webp;base64,${kTestImages[feature]}`;
+      }
+
+      checkWebpFeature('lossy', (feature, result) => {
+        state.webp = result;
+
         if (!result) {
-          state.webp = false;
+          document.documentElement.classList.add('no-webp');
         }
       });
     },
