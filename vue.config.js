@@ -1,5 +1,6 @@
 const PrerenderSpaPlugin = require('prerender-spa-plugin');
 const path = require('path');
+const extraScripts = require('./extra-scripts');
 
 const plugins = [];
 
@@ -13,6 +14,13 @@ if (process.env.NODE_ENV === 'production') {
         foo: 'bar',
       },
     }),
+    postProcess(context) {
+      const c = context;
+      const bodyEnd = c.html.indexOf('</body>');
+      c.html = c.html.substr(0, bodyEnd) + extraScripts + c.html.substr(bodyEnd);
+
+      return c;
+    },
   });
 
   plugins.push(Prerender);
