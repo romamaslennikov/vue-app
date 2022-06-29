@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,height=479,initial-scale=1.0">
@@ -101,65 +101,69 @@
             transition: all 0.4s linear;
         }
     </style>
-</head>
-<body>
-<div id="spinner">
-    <div class="spinner__content">
+  </head>
+  <body>
+    <div id="spinner">
+      <div class="spinner__content">
         <svg>
-            <circle cx="70" cy="70" r="70"></circle>
-            <circle id="spinnerCircle" cx="70" cy="70" r="70"></circle>
+          <circle cx="70" cy="70" r="70"></circle>
+          <circle id="spinnerCircle" cx="70" cy="70" r="70"></circle>
         </svg>
         <div class="spinner__num">
-            <div class="spinner__title"><em id="spinnerText">0</em><span>%</span></div>
+          <div class="spinner__title"><em id="spinnerText">0</em><span>%</span></div>
         </div>
         <script>
-            (() => {
-                let loaded = null;
+          (() => {
+            let loaded = null;
 
-                window.addEventListener('load', () => {
-                    loaded = 1;
-                });
+            window.addEventListener('load', () => {
+              loaded = 1;
+            });
 
-                const animate = (obj, circle, initVal, lastVal, duration) => {
-                    let startTime = null;
-                    const currentTime = Date.now();
-                    const step = (currentTime) => {
-                        if (!startTime) {
-                            startTime = currentTime;
-                        }
-                        const progress = Math.min((currentTime - startTime) / duration, 1);
-                        const full = Math.floor(progress * (lastVal - initVal) + initVal);
-                        obj.innerHTML = full;
-                        circle.style.strokeDashoffset = 440 - (440 * full) / 100;
-                        if (loaded) {
-                            obj.innerHTML = '100';
-                            circle.style.strokeDashoffset = 440 - (440 * 100) / 100;
-                        }
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            window.cancelAnimationFrame(window.requestAnimationFrame(step));
-                        }
-                    };
-
-                    window.requestAnimationFrame(step);
+            const animate = (obj, circle, initVal, lastVal, duration) => {
+              let startTime = null;
+              const currentTime = Date.now();
+              const step = (currentTime) => {
+                if (!startTime) {
+                  startTime = currentTime;
                 }
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const full = Math.floor(progress * (lastVal - initVal) + initVal);
+                obj.innerHTML = full;
+                circle.style.strokeDashoffset = 440 - (440 * full) / 100;
+                if (loaded) {
+                  obj.innerHTML = '100';
+                  circle.style.strokeDashoffset = 440 - (440 * 100) / 100;
+                }
+                if (progress < 1) {
+                  window.requestAnimationFrame(step);
+                } else {
+                  window.cancelAnimationFrame(window.requestAnimationFrame(step));
+                }
+              };
 
-                const spinnerText = document.getElementById('spinnerText');
+              window.requestAnimationFrame(step);
+            }
 
-                const spinnerCircle = document.getElementById('spinnerCircle');
+            const spinnerText = document.getElementById('spinnerText');
 
-                animate(spinnerText, spinnerCircle, 0, 100, 5000);
-            })();
+            const spinnerCircle = document.getElementById('spinnerCircle');
+
+            animate(spinnerText, spinnerCircle, 0, 100, 5000);
+          })();
         </script>
+      </div>
     </div>
-</div>
-<div id="app"></div>
-<% if (NODE_ENV !== 'development') { %>
-<!-- counters -->
-<% } %>
-<script type="text/javascript">
-    if (!window.PRERENDER_INJECTED) {}
-</script>
-</body>
+    <div id="app"></div>
+
+    <% if (NODE_ENV !== 'development') { %>
+    <!-- development -->
+    <% } %>
+
+    <script type="text/javascript">
+      if (!window.PRERENDER_INJECTED) {
+        // ...
+      }
+    </script>
+  </body>
 </html>

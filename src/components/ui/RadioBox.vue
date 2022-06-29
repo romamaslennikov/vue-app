@@ -13,13 +13,13 @@
 */
 
 <template lang="pug">
-  span(:class="[$style.r, {[$style.error]: error}]")
-    input(
-      type="radio"
-      :checked="isChecked"
-      :value="value"
-      @change="$emit('change', $event.target.value)")
-    i.icon.i_ch
+span(:class="[$style.r, {[$style.error]: error}]")
+  input(
+    type="radio"
+    :checked="isChecked"
+    :value="value"
+    @change="$emit('change', $event.target.value)")
+  i.icon.i_ch
 </template>
 
 <script>

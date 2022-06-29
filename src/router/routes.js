@@ -1,17 +1,29 @@
 const routes = [
   {
     path: '/',
+    name: 'layout',
     component: () => import('../layouts/Layout.vue'),
     children: [
-      { path: '/', name: 'home', component: () => import('../views/Home.vue') },
+      // home
+      {
+        path: '',
+        name: 'home',
+        component: () => import(/* webpackChunkName: 'home' */'../views/Home.vue'),
+      },
+
+      // about
+      {
+        path: 'about',
+        name: 'about',
+        component: () => import(/* webpackChunkName: 'about' */'../views/About.vue'),
+      },
     ],
   },
+
+  // 404
   {
-    path: '*',
-    component: () => import('../layouts/Layout.vue'),
-    children: [
-      { path: '/', component: () => import('../views/Home.vue') },
-    ],
+    path: '/:catchAll(.*)',
+    redirect: '/',
   },
 ];
 

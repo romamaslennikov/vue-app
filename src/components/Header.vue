@@ -1,6 +1,9 @@
 <template lang="pug">
-  header.header(:class="{'-hide': showHeader}" ref="header")
-    .container Header
+header.header(:class="{'-hide': showHeader}" ref="header")
+  .container
+    router-link(to="/") home
+
+    router-link(to="/about") about
 </template>
 
 <script>
@@ -23,7 +26,7 @@ export default {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > current) {
-          if (scrollTop > this.$refs.header?.clientHeight * 2) {
+          if (scrollTop > this.$refs.header.clientHeight * 2) {
             this.showHeader = true;
           }
         } else {

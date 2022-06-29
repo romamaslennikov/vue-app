@@ -3,8 +3,6 @@ import { getProfile, logOut } from '@/api/me';
 import { getToken, setToken, removeToken } from '@/utils/auth';
 import router from '@/router';
 
-/* eslint-disable */
-
 const me = {
   namespaced: true,
 
@@ -38,7 +36,7 @@ const me = {
 
   actions: {
     GetProfile({ commit }) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         getProfile()
           .then((response) => {
             if (response.error === 0) {
@@ -50,11 +48,11 @@ const me = {
       });
     },
 
-    SignUp({ commit }, data) {
+    SignUp(o, data) {
       return (async () => signUp(data))();
     },
 
-    SignIn({ commit }, data) {
+    SignIn(o, data) {
       return (async () => signIn(data))();
     },
 
@@ -79,7 +77,7 @@ const me = {
 
         commit('SET_USER', null);
 
-        router.push('/auth/sign_in');
+        router.push('/sign_in');
       }
     },
   },

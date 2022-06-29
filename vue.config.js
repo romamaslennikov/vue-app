@@ -1,4 +1,5 @@
-const PrerenderSpaPlugin = require('prerender-spa-plugin');
+const { defineConfig } = require('@vue/cli-service');
+const PrerenderSpaPlugin = require('prerender-spa-plugin-next');
 const path = require('path');
 const extraScripts = require('./extra-scripts');
 
@@ -7,13 +8,13 @@ const plugins = [];
 if (process.env.NODE_ENV === 'production') {
   const Prerender = new PrerenderSpaPlugin({
     staticDir: path.join(__dirname, 'dist'),
-    routes: ['/'],
-    renderer: new PrerenderSpaPlugin.PuppeteerRenderer({
+    routes: ['/', '/about'],
+    rendererOptions: {
       injectProperty: 'PRERENDER_INJECTED',
       inject: {
         foo: 'bar',
       },
-    }),
+    },
     postProcess(context) {
       const c = context;
       const bodyEnd = c.html.indexOf('</body>');
@@ -26,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push(Prerender);
 }
 
-module.exports = {
+module.exports = defineConfig({
   // publicPath: process.env.NODE_ENV === 'production'
   //  ? '/models/T6-1/'
   //   : '/',
@@ -35,50 +36,15 @@ module.exports = {
   //   https: true,
   // },
 
+  transpileDependencies: true,
+
   productionSourceMap: false,
 
   configureWebpack: {
     plugins,
-
-    resolve: {
-      extensions: ['.js', '.vue', '.json'],
-      alias: {
-        '~': path.resolve(__dirname, 'src/'),
-        '@': path.resolve('src/'),
-        modernizr$: path.resolve(__dirname, '.modernizrrc'),
-      },
-    },
   },
 
   chainWebpack(config) {
-    /*
-       Disable (or customize) prefetch, see:
-       https://cli.vuejs.org/guide/html-and-static-assets.html#prefetch
-    */
-    config.plugins.delete('prefetch');
-
-    /*
-       Configure preload to load all chunks
-       NOTE: use `allChunks` instead of `all` (deprecated)
-    */
-    config.plugin('preload').tap((options) => {
-      const o = options;
-      o[0].include = 'allChunks';
-      return o;
-    });
-
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .loader('vue-loader')
-      .tap((options) => ({
-        ...options,
-        compilerOptions: {
-          ...options.compilerOptions,
-          preserveWhitespace: true,
-        },
-      }));
-
     config.optimization.minimizer('terser').tap((args) => {
       const a = args;
       a[0].terserOptions.compress.drop_console = true;
@@ -89,8 +55,11 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: '@import "~@/styles/global.sass"',
+        // Вставит sass-стили в каждый компонент
+        additionalData: `
+          @import "@/styles/global.sass"
+        `,
       },
     },
   },
-};
+});

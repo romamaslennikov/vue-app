@@ -1,14 +1,17 @@
 <template lang="pug">
-  #app
-    Header
+Header
 
-    keep-alive
-      router-view
+router-view(v-slot="{ Component }")
+  keep-alive
+    component(:is="Component")
 
-    Footer
+Footer
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+
 export default {
   name: 'Layout',
 
@@ -21,10 +24,8 @@ export default {
   mounted() {},
 
   components: {
-    Header: () => import('@/components/Header.vue'),
-    Footer: () => import('@/components/Footer.vue'),
+    Header,
+    Footer,
   },
 };
 </script>
-
-<style lang="sass"></style>

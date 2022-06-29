@@ -1,16 +1,18 @@
 <template lang="pug">
-  router-view(:class="{'-transparent': !ready}")
+// router-view(:class="{'-transparent': !ready}")
+router-view
+
+notifications(position="bottom right")
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
-import objectFitImages from 'object-fit-images';
 import { isPortrait } from '@/utils/device';
 
 export default {
   data() {
     return {
-      ready: false,
+      ready: null,
     };
   },
 
@@ -46,8 +48,6 @@ export default {
         }
 
         this.ready = true;
-
-        objectFitImages();
       });
     } else {
       // пререндер
@@ -66,7 +66,7 @@ export default {
     window.addEventListener('resize', this.handleWindowResize);
   },
 
-  destroyed() {
+  unmounted() {
     window.removeEventListener('resize', this.handleWindowResize);
   },
 };

@@ -19,7 +19,8 @@ const app = {
     DETECT_WEBP: (state) => {
       // check_webp_feature:
       // 'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
-      // 'callback(feature, result)' will be passed back the detection result (in an asynchronous way!)
+      // 'callback(feature, result)' will be passed
+      // back the detection result (in an asynchronous way!)
       function checkWebpFeature(feature, callback) {
         const kTestImages = {
           lossy: 'UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA',

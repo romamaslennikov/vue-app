@@ -1,46 +1,19 @@
-import Vue from 'vue';
-import vClickOutside from 'v-click-outside';
-import VueNoty from 'vuejs-noty';
-import Vuelidate from 'vuelidate';
-import Meta from 'vue-meta';
-import svg4everybody from 'svg4everybody';
-import { VLazyImagePlugin } from 'v-lazy-image';
+import { createApp } from 'vue';
+import vClickOutside from 'click-outside-vue3';
+import Notifications from '@kyvg/vue3-notification';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import './utils/filters';
-
-// global components
-import './components/global-components';
 
 // global CSS
-import 'vuejs-noty/dist/vuejs-noty.css';
-import 'normalize.css/normalize.css'; //  reset CSS
+import 'normalize.css/normalize.css';
 import '@/styles/layout.sass';
 
-// ie11 support
-import { isIE11 } from './utils/device';
+require('intersection-observer');
 
-if (isIE11) { // ie11 support
-  require('es6-shim'); // eslint-disable-line
-  require('element-closest-polyfill'); // eslint-disable-line
-  document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'); // css vars
-}
-
-// for svg support
-require('intersection-observer'); // for svg
-
-Vue.config.productionTip = false;
-
-Vue.use(VueNoty);
-Vue.use(Vuelidate);
-Vue.use(Meta);
-svg4everybody();
-Vue.use(VLazyImagePlugin);
-Vue.use(vClickOutside);
-
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(vClickOutside)
+  .use(Notifications)
+  .mount('#app');

@@ -14,13 +14,13 @@
 
 <!--suppress ALL -->
 <template lang="pug">
-  span(:class="[$style.c, {[$style.error]: error}]")
-    input(
-      type="checkbox"
-      :checked="isChecked"
-      :value="value"
-      @change="updateInput")
-    i.icon.i_ch
+span(:class="[$style.c, {[$style.error]: error}]")
+  input(
+    type="checkbox"
+    :checked="isChecked"
+    :value="value"
+    @change="updateInput")
+  i.icon.i_ch
 </template>
 
 <script>

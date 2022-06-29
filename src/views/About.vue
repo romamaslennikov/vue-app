@@ -1,38 +1,28 @@
 <template lang="pug">
 main.content
   .container
-    Img(src="logo")
-
-    | Home {{ formatNumber(123333) }}
-
-    | {{ declOfNum(2, ['телефон', 'телефона', 'телефонов']) }}
+    | About
 
     p(v-html="typograf('Мы используем куки <br> на всех своих сайтах, включая этот, потому что без кук вообще весь интернет работал бы через жопу')")
 </template>
 
 <script>
-import SvgIcon from '@/components/ui/SvgIcon.vue';
-import { formatNumber, declOfNum, typograf } from '@/utils/format';
-import Img from '@/components/ui/Img.vue';
+import { typograf } from '@/utils/format';
 
 export default {
-  name: 'Home',
-
-  components: { Img, SvgIcon },
+  name: 'About',
 
   data() {
     return {};
   },
 
   methods: {
-    formatNumber,
-
-    declOfNum,
-
     typograf,
   },
 
   mounted() {},
+
+  components: {},
 };
 </script>
 

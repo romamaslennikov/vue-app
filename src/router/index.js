@@ -1,18 +1,17 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-
+import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
 
-Vue.use(Router);
-
-const router = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   scrollBehavior: (to) => {
     if (to.hash) {
-      return { selector: to.hash };
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
     }
-    return { x: 0, y: 0 };
+
+    return {};
   },
   routes,
 });

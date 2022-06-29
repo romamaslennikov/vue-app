@@ -1,30 +1,30 @@
 <template lang="pug">
-  .select(v-click-outside="onClickOutside")
-    .select-head(@click="showDrop")
-      input.input-text(
-      :class="{'-pr': isSearch}"
-        @input="search(selected)"
-          @blur="cancel"
-      v-model="selected"
-        :readonly="!isSearch" type="text" maxlength="" :placeholder="placeholder")
+.select(v-click-outside="onClickOutside")
+  .select-head(@click="showDrop")
+    input.input-text(
+    :class="{'-pr': isSearch}"
+      @input="search(selected)"
+        @blur="cancel"
+    v-model="selected"
+      :readonly="!isSearch" type="text" maxlength="" :placeholder="placeholder")
 
-      i.select-arr.-x.icon.i_x(
-      @click.stop="cancel"
-      v-if="remove && selected")
+    i.select-arr.-x.icon.i_x(
+    @click.stop="cancel"
+    v-if="remove && selected")
 
-      i.select-arr.icon.i_chevron-down(:class="{'-active': show}")
+    i.select-arr.icon.i_chevron-down(:class="{'-active': show}")
 
-    transition(name="slide-bottom-min")
-      .select-drop.scrollbar-styled(v-if="show")
-        .select-option(
-        :key="index"
-          @click="select(item, index)"
-        v-for="(item, index) in (isSearch ? searchList : list)")
-          template(v-if="propName") {{item[propName]}}
+  transition(name="slide-bottom-min")
+    .select-drop.scrollbar-styled(v-if="show")
+      .select-option(
+      :key="index"
+        @click="select(item, index)"
+      v-for="(item, index) in (isSearch ? searchList : list)")
+        template(v-if="propName") {{item[propName]}}
 
-          template(v-else-if="obj") {{item}}
+        template(v-else-if="obj") {{item}}
 
-          template(v-else) {{item.text}}
+        template(v-else) {{item.text}}
 
 </template>
 

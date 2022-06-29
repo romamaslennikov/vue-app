@@ -7,15 +7,17 @@
 */
 
 <template lang="pug">
-  v-lazy-image(
-    @load="$emit('load')"
-    width="10"
-    height="10"
-    :src="require(`@/assets/images/${src}.${(ext === 'svg' || ext === 'gif') ? ext : $store.getters['app/webp'] ? 'webp' : ext}`)"
-    :alt="alt")
+VLazyImage(
+  @load="$emit('load')"
+  width="10"
+  height="10"
+  :src="require(`@/assets/images/${src}.${(ext === 'svg' || ext === 'gif') ? ext : $store.getters['app/webp'] ? 'webp' : ext}`)"
+  :alt="alt")
 </template>
 
 <script>
+import VLazyImage from 'v-lazy-image';
+
 export default {
   name: 'Img',
 
@@ -34,6 +36,10 @@ export default {
       type: String,
       default: '',
     },
+  },
+
+  components: {
+    VLazyImage,
   },
 };
 </script>

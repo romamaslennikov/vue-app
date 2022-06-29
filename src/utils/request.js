@@ -1,9 +1,6 @@
-import Vue from 'vue';
-import VueNoty from 'vuejs-noty';
+import { notify } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
-
-Vue.use(VueNoty);
 
 const store = require('../store');
 
@@ -29,7 +26,7 @@ service.interceptors.request.use((config) => {
   return conf;
 }, (error) => {
   if (!window.PRERENDER_INJECTED) {
-    Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+    notify(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
   }
 
   Promise.reject(error);
@@ -41,7 +38,7 @@ service.interceptors.response.use(
 
     if (res.error === 404) { // токен не валиден
       if (!window.PRERENDER_INJECTED) {
-        Vue.noty.error(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
+        notify(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
       }
 
       store.default.dispatch('me/LogOut');
@@ -62,7 +59,7 @@ service.interceptors.response.use(
       if (response?.status === 401) {
         const r = response?.data;
 
-        Vue.noty.error(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
+        notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
 
         store.default.dispatch('me/LogOut', true);
 
@@ -74,23 +71,23 @@ service.interceptors.response.use(
 
         if (Array.isArray(r)) {
           r.forEach((item) => {
-            Vue.noty.error(`<b>Error. </b> <div>${item?.message}</div>`);
+            notify(`<b>Error. </b> <div>${item?.message}</div>`);
           });
         } else {
-          Vue.noty.error(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
+          notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
         }
 
         return Promise.reject(new Error(r));
       }
 
       if (response?.status >= 500) {
-        Vue.noty.error(`<b>Oops. </b> <div>${error}</div>`);
+        notify(`<b>Oops. </b> <div>${error}</div>`);
       }
     } else if (request) {
       // client never received a response, or request never left
-      Vue.noty.error(`<b>Error. </b> <div>${request}</div>`);
+      notify(`<b>Error. </b> <div>${request}</div>`);
     } else {
-      Vue.noty.error(`<b>Error. </b> <div>${error}</div>`);
+      notify(`<b>Error. </b> <div>${error}</div>`);
     }
 
     return Promise.reject(new Error(response));
