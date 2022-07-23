@@ -33,13 +33,6 @@
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-airbnb": "^6.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
@@ -60,6 +53,7 @@
     "prerender-spa-plugin-next": "^4.2.0",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
+    "vite": "^3.0.2",
     "vue-cli-plugin-pug": "~2.0.0"
   }
 }
