@@ -1,5 +1,4 @@
 <template lang="pug">
-// router-view(:class="{'-transparent': !ready}")
 router-view
 
 notifications(position="bottom right")
