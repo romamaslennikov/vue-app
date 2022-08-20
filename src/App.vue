@@ -1,5 +1,7 @@
 <template lang="pug">
-router-view
+router-view(v-slot="{ Component }")
+  keep-alive
+    component(:is="Component")
 
 notifications(position="bottom right")
 </template>
@@ -10,9 +12,7 @@ import { isPortrait } from '@/utils/device';
 
 export default {
   data() {
-    return {
-      ready: null,
-    };
+    return {};
   },
 
   methods: {
@@ -38,25 +38,17 @@ export default {
   },
 
   mounted() {
-    if (!window.PRERENDER_INJECTED) {
-      window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
+      if (window.PRERENDER_INJECTED) {
+        document.dispatchEvent(new Event('custom-render-trigger'));
+      } else {
         const spinner = document.getElementById('spinner');
 
         if (spinner) {
           spinner.classList.add('-hide');
         }
-
-        this.ready = true;
-      });
-    } else {
-      // пререндер
-      document.querySelector('html')
-        .setAttribute('class', '');
-    }
-  },
-
-  async beforeCreate() {
-    this.$store.commit('app/DETECT_WEBP');
+      }
+    });
   },
 
   async created() {

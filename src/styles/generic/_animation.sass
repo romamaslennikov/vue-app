@@ -5,7 +5,7 @@
 .slide-top-leave-active
   transition: transform $transition ease-out
 
-.slide-top-enter,
+.slide-top-enter-from,
 .slide-top-leave-to
   transform: translateY(-100%)
 
@@ -14,7 +14,7 @@
 .slide-bottom-leave-active
   transition: transform $transition ease-out
 
-.slide-bottom-enter,
+.slide-bottom-enter-from,
 .slide-bottom-leave-to
   transform: translateY(100%)
 
@@ -23,7 +23,7 @@
 .slide-left-leave-active
   transition: transform $transition ease-out
 
-.slide-left-enter,
+.slide-left-enter-from,
 .slide-left-leave-to
   transform: translateX(-100%)
 
@@ -32,16 +32,16 @@
 .slide-right-leave-active
   transition: transform $transition ease-out
 
-.slide-right-enter,
+.slide-right-enter-from,
 .slide-right-leave-to
   transform: translateX(100%)
 
 //fade
 .fade-enter-active,
 .fade-leave-active
-  transition: opacity $transition
+  transition: opacity $transition ease-out
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to
   opacity: 0
 
@@ -84,7 +84,7 @@
   transition: all math.div($transition, 2) ease-out
   transform: translate3d(0,0,0)
 
-.slide-bottom-smile-enter
+.slide-bottom-smile-enter-from
   transform: translateY(15px)
   opacity: 0
 
@@ -105,3 +105,31 @@
 
   100%
     transform: scale(1) translate3d(0,0,0)
+
+// next
+.next-enter-active
+  transition: transform $transition cubic-bezier(.65,0,.35,1)
+  transform: translateY(100%)
+
+.next-leave-active
+  transition: transform $transition cubic-bezier(.65,0,.35,1)
+
+.next-enter-to
+  transform: none
+
+.next-leave-to
+  transform: translateY(-100%)
+
+// prev
+.prev-enter-active
+  transform: translateY(-100%)
+  transition: transform $transition cubic-bezier(.65,0,.35,1)
+
+.prev-leave-active
+  transition: transform $transition cubic-bezier(.65,0,.35,1)
+
+.prev-enter-to
+  transform: none
+
+.prev-leave-to
+  transform: translateY(100%)

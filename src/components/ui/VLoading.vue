@@ -1,8 +1,8 @@
 /**
 * @usage:
 *
-*   Loading
-*   Loading(inline)
+*   VLoading
+*   VLoading(inline)
 */
 
 <template lang="pug">

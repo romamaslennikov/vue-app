@@ -2,13 +2,9 @@
 main.content
   .container
     | About
-
-    p(v-html="typograf('Мы используем куки <br> на всех своих сайтах, включая этот, потому что без кук вообще весь интернет работал бы через жопу')")
 </template>
 
 <script>
-import { typograf } from '@/utils/format';
-
 export default {
   name: 'About',
 
@@ -16,9 +12,7 @@ export default {
     return {};
   },
 
-  methods: {
-    typograf,
-  },
+  methods: {},
 
   mounted() {},
 

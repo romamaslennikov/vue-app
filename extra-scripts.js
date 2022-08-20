@@ -1,4 +1,5 @@
-module.exports = `
-
+const extraScripts = `
 <!-- Counters -->
 `;
+
+export default extraScripts;

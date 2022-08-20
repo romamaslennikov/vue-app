@@ -31,7 +31,7 @@
 <script>
 export default {
   props: ['list', 'placeholder', 'first', 'propName', 'obj', 'remove', 'isSearch', 'empty'],
-  name: 'Select',
+  name: 'VSelect',
   data() {
     return {
       ready: false,

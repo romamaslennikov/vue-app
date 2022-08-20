@@ -1,19 +1,18 @@
 <template lang="pug">
-Header
+VHeader
 
 router-view(v-slot="{ Component }")
   keep-alive
     component(:is="Component")
 
-Footer
+VFooter
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
+import { defineAsyncComponent } from 'vue';
 
 export default {
-  name: 'Layout',
+  name: 'VLayout',
 
   data() {
     return {};
@@ -24,8 +23,8 @@ export default {
   mounted() {},
 
   components: {
-    Header,
-    Footer,
+    VHeader: defineAsyncComponent(() => import('@/components/VHeader.vue')),
+    VFooter: defineAsyncComponent(() => import('@/components/VFooter.vue')),
   },
 };
 </script>

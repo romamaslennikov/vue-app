@@ -5,7 +5,7 @@ footer.footer
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'VFooter',
 
   data() {
     return {};

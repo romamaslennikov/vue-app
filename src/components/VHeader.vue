@@ -10,7 +10,9 @@ header.header(:class="{'-hide': showHeader}" ref="header")
 import debounce from 'lodash.debounce';
 
 export default {
-  name: 'Header',
+  name: 'VHeader',
+
+  inject: ['eventHub'],
 
   data() {
     return {
@@ -42,6 +44,12 @@ export default {
 
   mounted() {
     this.show();
+
+    console.log(this.eventHub);
+
+    this.eventHub.on('test', (e) => {
+      console.log(e);
+    });
   },
 
   components: {},

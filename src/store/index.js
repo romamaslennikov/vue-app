@@ -10,8 +10,8 @@ export default createStore({
     app,
     me,
   },
-  strict: process.env.DEV,
+  strict: import.meta.env.DEV,
   plugins: [createPersistedState({
-    key: process.env.VUE_APP_STATE_KEY,
+    key: import.meta.env.VUE_APP_STATE_KEY,
   })],
 });

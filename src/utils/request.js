@@ -1,11 +1,12 @@
 import { notify } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
+import { useStore } from 'vuex';
 
-const store = require('../store');
+const store = useStore();
 
-const BASE_API = process.env.NODE_ENV === 'production'
-  ? process.env.VUE_APP_BASE_API : process.env.VUE_APP_BASE_API_DEV;
+const BASE_API = import.meta.env.NODE_ENV === 'production'
+  ? import.meta.env.VUE_APP_BASE_API : import.meta.env.VUE_APP_BASE_API_DEV;
 
 const service = axios.create({
   baseURL: BASE_API,
