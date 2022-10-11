@@ -16,57 +16,35 @@
 <template lang="pug">
 span(:class="[$style.c, {[$style.error]: error}]")
   input(
+    :disabled="disabled"
+    v-model="model"
     type="checkbox"
-    :checked="isChecked"
-    :value="value"
-    @change="updateInput")
+    :value="value")
   i.icon.i_ch
 </template>
 
-<script>
-export default {
-  name: 'CheckBox',
+<script setup>
+import { computed, defineEmits } from 'vue';
 
-  model: {
-    prop: 'modelValue',
-    event: 'change',
-  },
+const props = defineProps({
+  disabled: { type: Boolean },
+  error: { type: Boolean },
+  modelValue: { type: [Array, Boolean] },
+  value: { type: [Boolean, Object, String] },
+  label: { type: String },
+});
 
-  props: {
-    error: { type: Boolean },
-    value: { type: String },
-    modelValue: { default: '' },
-    trueValue: { default: true },
-    falseValue: { default: false },
-  },
+const emit = defineEmits(['update:modelValue']);
 
-  computed: {
-    isChecked() {
-      if (this.modelValue instanceof Array) {
-        return this.modelValue.includes(this.value);
-      }
-      // Note that `true-value` and `false-value` are camelCase in the JS
-      return this.modelValue === this.trueValue;
-    },
+// eslint-disable-next-line no-unused-vars
+const model = computed({
+  get() {
+    return props.modelValue;
   },
-
-  methods: {
-    updateInput(event) {
-      const isChecked = event.target.checked;
-      if (this.modelValue instanceof Array) {
-        const newValue = [...this.modelValue];
-        if (isChecked) {
-          newValue.push(this.value);
-        } else {
-          newValue.splice(newValue.indexOf(this.value), 1);
-        }
-        this.$emit('change', newValue);
-      } else {
-        this.$emit('change', isChecked ? this.trueValue : this.falseValue);
-      }
-    },
+  set(value) {
+    emit('update:modelValue', value);
   },
-};
+});
 </script>
 
 <style lang="sass" module>
@@ -78,6 +56,11 @@ export default {
   height: $size-custom
   vertical-align: middle
   cursor: pointer
+
+  +media($port)
+    width: rem(14px)
+    min-width: rem(14px)
+    height: rem(14px)
 
   &.error
     i
@@ -94,8 +77,10 @@ export default {
     justify-content: center
     align-items: center
     line-height: 1
-    border: rem(1px) solid $color-black
+    border: rem(1px) solid #B3DDCA
     color: transparent
+    background: #B3DDCA
+    font-size: rem(20px)
 
   input
     position: absolute
@@ -109,6 +94,6 @@ export default {
     opacity: 0
 
     &:checked + i
-      color: $color-black
+      color: $color-orange
 
 </style>

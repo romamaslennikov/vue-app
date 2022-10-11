@@ -6,7 +6,7 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 const BASE_API = import.meta.env.NODE_ENV === 'production'
-  ? import.meta.env.VUE_APP_BASE_API : import.meta.env.VUE_APP_BASE_API_DEV;
+  ? import.meta.env.VITE_BASE_API : import.meta.env.VITE_BASE_API_DEV;
 
 const service = axios.create({
   baseURL: BASE_API,

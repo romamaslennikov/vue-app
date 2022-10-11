@@ -28,7 +28,7 @@
     "normalize.css": "^8.0.1",
     "npm": "^8.15.0",
     "qs": "^6.11.0",
-    "typograf": "^6.14.1",
+    "typograf": "^6.15.1",
     "v-lazy-image": "^2.1.1",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
@@ -59,7 +59,7 @@
     "prerender-spa-plugin-next": "^4.2.0",
     "pug": "^3.0.2",
     "sass": "^1.54.0",
-    "vite": "^3.0.2",
+    "vite": "^3.*",
     "vite-plugin-eslint": "^1.8.0",
     "vite-plugin-prerender": "^1.0.6"
   }

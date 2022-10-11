@@ -15,34 +15,34 @@
 <template lang="pug">
 span(:class="[$style.r, {[$style.error]: error}]")
   input(
+    :disabled="disabled"
     type="radio"
-    :checked="isChecked"
-    :value="value"
-    @change="$emit('change', $event.target.value)")
-  i.icon.i_ch
+    v-model="model"
+    :value="value")
+  i
 </template>
 
-<script>
-export default {
-  name: 'RadioBox',
+<script setup>
+import { computed, defineEmits } from 'vue';
 
-  model: {
-    prop: 'modelValue',
-    event: 'change',
-  },
+const props = defineProps({
+  disabled: { type: Boolean },
+  error: { type: Boolean },
+  modelValue: { type: [Array, Boolean, String] },
+  value: { type: [Boolean, Object, String] },
+});
 
-  props: {
-    error: { type: Boolean },
-    modelValue: { default: '' },
-    value: { type: String, default: undefined },
-  },
+const emit = defineEmits(['update:modelValue']);
 
-  computed: {
-    isChecked() {
-      return this.modelValue === this.value;
-    },
+// eslint-disable-next-line no-unused-vars
+const model = computed({
+  get() {
+    return props.modelValue;
   },
-};
+  set(value) {
+    emit('update:modelValue', value);
+  },
+});
 </script>
 
 <style lang="sass" module>
@@ -70,7 +70,8 @@ export default {
     justify-content: center
     align-items: center
     line-height: 1
-    border: rem(1px) solid $color-black
+    border: rem(1px) solid #B3DDCA
+    background: #B3DDCA
     color: transparent
     border-radius: 100%
 
@@ -86,6 +87,8 @@ export default {
     opacity: 0
 
     &:checked + i
-      color: $color-black
+      color: #B3DDCA
+      background: $color-orange
+      box-shadow: 0 0 0 rem(8px) inset
 
 </style>

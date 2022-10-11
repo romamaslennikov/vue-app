@@ -22,6 +22,7 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'max-len': 'off',
   },
+  ignorePatterns: ['public/**/*.js'],
   settings: {
     'import/resolver': {
       alias: {

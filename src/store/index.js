@@ -12,6 +12,6 @@ export default createStore({
   },
   strict: import.meta.env.DEV,
   plugins: [createPersistedState({
-    key: import.meta.env.VUE_APP_STATE_KEY,
+    key: import.meta.env.VITE_APP_STATE_KEY,
   })],
 });
