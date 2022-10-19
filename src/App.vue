@@ -7,38 +7,36 @@ notifications(position="bottom right")
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { onMounted, onUnmounted } from 'vue';
 import { isPortrait } from '@/utils/device';
+import { useAppStore } from '@/stores/app';
 
 export default {
-  data() {
-    return {};
-  },
+  setup() {
+    // data
+    const store = useAppStore();
 
-  methods: {
-    ...mapMutations({
-      updateIsMobile: 'app/UPDATE_IS_MOBILE',
-      updateIsPortrait: 'app/UPDATE_IS_PORTRAIT',
-    }),
+    // computed
 
-    handleWindowResize() {
-      this.updateIsPortrait(isPortrait());
-
-      this.updateIsMobile((isPortrait() && window.innerWidth < 768));
-
-      this.vh();
-    },
-
-    vh() {
+    // methods
+    function useVh() {
+      /*
+      * use in css => height: calc(var(--vh, 1vh) * 100);
+      * */
       const vh = window.innerHeight * 0.01;
 
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      // use in css => height: calc(var(--vh, 1vh) * 100);
-    },
-  },
+    }
 
-  mounted() {
-    window.addEventListener('load', () => {
+    function handleWindowResize() {
+      store.updateIsPortrait(isPortrait());
+
+      store.updateIsMobile((isPortrait() && window.innerWidth < 768));
+
+      useVh();
+    }
+
+    function handleLoad() {
       if (window.PRERENDER_INJECTED) {
         document.dispatchEvent(new Event('custom-render-trigger'));
       } else {
@@ -48,17 +46,22 @@ export default {
           spinner.classList.add('-hide');
         }
       }
+    }
+
+    // hooks
+    onMounted(() => {
+      window.addEventListener('load', handleLoad);
     });
-  },
 
-  async created() {
-    this.handleWindowResize();
+    onUnmounted(() => {
+      window.removeEventListener('resize', handleWindowResize);
+    });
 
-    window.addEventListener('resize', this.handleWindowResize);
-  },
+    handleWindowResize();
 
-  unmounted() {
-    window.removeEventListener('resize', this.handleWindowResize);
+    window.addEventListener('resize', handleWindowResize);
+
+    return {};
   },
 };
 </script>

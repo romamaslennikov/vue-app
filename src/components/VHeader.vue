@@ -45,7 +45,7 @@ export default {
   mounted() {
     this.show();
 
-    console.log(this.eventHub);
+    // console.log(this.eventHub);
 
     this.eventHub.on('test', (e) => {
       console.log(e);

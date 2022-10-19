@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { fileURLToPath, URL } from 'node:url';
 import vitePrerender from 'vite-plugin-prerender';
 import { defineConfig } from 'vite';

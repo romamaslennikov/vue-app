@@ -4,7 +4,7 @@ import Notifications from '@kyvg/vue3-notification';
 import vueEmitter from './utils/emitter';
 import App from './App.vue';
 import router from './router';
-import store from './store';
+import store from './stores';
 
 // global CSS
 import 'normalize.css/normalize.css';

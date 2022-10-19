@@ -14,13 +14,9 @@ import { defineAsyncComponent } from 'vue';
 export default {
   name: 'VLayout',
 
-  data() {
+  setup() {
     return {};
   },
-
-  methods: {},
-
-  mounted() {},
 
   components: {
     VHeader: defineAsyncComponent(() => import('@/components/VHeader.vue')),

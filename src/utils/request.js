@@ -1,9 +1,9 @@
 import { notify } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
-import { useStore } from 'vuex';
+import { useMeStore } from '@/stores/me';
 
-const store = useStore();
+const me = useMeStore();
 
 const BASE_API = import.meta.env.NODE_ENV === 'production'
   ? import.meta.env.VITE_BASE_API : import.meta.env.VITE_BASE_API_DEV;
@@ -42,7 +42,7 @@ service.interceptors.response.use(
         notify(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
       }
 
-      store.default.dispatch('me/LogOut');
+      // me.logOut();
 
       return Promise.reject(new Error('error'));
     }
@@ -62,7 +62,7 @@ service.interceptors.response.use(
 
         notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
 
-        store.default.dispatch('me/LogOut', true);
+        me.logOut(true);
 
         return Promise.reject(r);
       }

@@ -1,5 +1,6 @@
+/* eslint-disable */
 System.config({
-  "paths": {
-    "@/*": "./src/*",
-  }
+  paths: {
+    '@/*': './src/*',
+  },
 });

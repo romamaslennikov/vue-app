@@ -38,7 +38,7 @@ export default {
 
         if (entry.isIntersecting) {
           entry.target.classList.add('-visible');
-          
+
           this.$emit('visible');
         }
       });
