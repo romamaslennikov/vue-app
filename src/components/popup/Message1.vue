@@ -1,8 +1,8 @@
 <template lang="pug">
-main.content
-  .container
-    a(@click="popup('Message')" href="#") Home
+.popup__container
+  .popup__close.icon.i_x(@click="close")
 
+  div Message1
 </template>
 
 <script>
@@ -16,23 +16,17 @@ export default {
     // data
     const appStore = useAppStore();
     const popupStore = usePopupStore();
-    const { show } = popupStore;
+    const { close } = popupStore;
 
     // computed
     const isPortrait = computed(() => appStore.isPortrait);
 
     // methods
-    const popup = async (e) => {
-      const res = await show(e);
-
-      console.log(res);
-    };
 
     // hooks
 
     return {
-      popup,
-      show,
+      close,
       isPortrait,
       typograf,
     };

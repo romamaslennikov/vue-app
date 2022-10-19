@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import Vue3TouchEvents from 'vue3-touch-events';
 import vClickOutside from 'click-outside-vue3';
 import Notifications from '@kyvg/vue3-notification';
 import vueEmitter from './utils/emitter';
@@ -16,4 +17,5 @@ createApp(App)
   .use(router)
   .use(vClickOutside)
   .use(Notifications)
+  .use(Vue3TouchEvents)
   .mount('#app');

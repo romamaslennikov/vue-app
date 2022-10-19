@@ -4,10 +4,12 @@ router-view(v-slot="{ Component }")
     component(:is="Component")
 
 notifications(position="bottom right")
+
+Popup
 </template>
 
 <script>
-import { onMounted, onUnmounted } from 'vue';
+import { defineAsyncComponent, onMounted, onUnmounted } from 'vue';
 import { isPortrait } from '@/utils/device';
 import { useAppStore } from '@/stores/app';
 
@@ -21,7 +23,7 @@ export default {
     // methods
     function useVh() {
       /*
-      * use in css => height: calc(var(--vh, 1vh) * 100);
+      * use in css => height: calc(var(--vh, 1vh) * 100)
       * */
       const vh = window.innerHeight * 0.01;
 
@@ -62,6 +64,10 @@ export default {
     window.addEventListener('resize', handleWindowResize);
 
     return {};
+  },
+
+  components: {
+    Popup: defineAsyncComponent(() => import('@/components/popup/PopupLayout.vue')),
   },
 };
 </script>

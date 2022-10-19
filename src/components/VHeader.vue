@@ -1,9 +1,6 @@
 <template lang="pug">
 header.header(:class="{'-hide': showHeader}" ref="header")
-  .container
-    router-link(to="/") home
-
-    router-link(to="/about") about
+  .container VHeader
 </template>
 
 <script>
@@ -11,8 +8,6 @@ import debounce from 'lodash.debounce';
 
 export default {
   name: 'VHeader',
-
-  inject: ['eventHub'],
 
   data() {
     return {
@@ -44,12 +39,6 @@ export default {
 
   mounted() {
     this.show();
-
-    // console.log(this.eventHub);
-
-    this.eventHub.on('test', (e) => {
-      console.log(e);
-    });
   },
 
   components: {},
