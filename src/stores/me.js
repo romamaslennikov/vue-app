@@ -52,11 +52,13 @@ export const useMeStore = defineStore('me', {
       console.log('---', 'logOut');
 
       if (!local) {
-        (document.getElementById('spinner')).classList.remove('-hide');
+        const spinner = document.getElementById('spinner');
+
+        spinner?.classList.remove('-hide');
 
         await logOut();
 
-        (document.getElementById('spinner')).classList.add('-hide');
+        spinner?.classList.add('-hide');
       }
 
       await router.push('/sign_in');

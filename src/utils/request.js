@@ -34,20 +34,7 @@ service.interceptors.request.use((config) => {
 });
 
 service.interceptors.response.use(
-  (response) => {
-    const res = response.data;
-
-    if (res.error === 404) { // токен не валиден
-      if (!window.PRERENDER_INJECTED) {
-        notify(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${res.error}</div>`);
-      }
-
-      // me.logOut();
-
-      return Promise.reject(new Error('error'));
-    }
-    return res;
-  },
+  (response) => response.data,
   (error) => {
     if (window.PRERENDER_INJECTED) return null;
 

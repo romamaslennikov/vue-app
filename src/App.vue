@@ -44,9 +44,7 @@ export default {
       } else {
         const spinner = document.getElementById('spinner');
 
-        if (spinner) {
-          spinner.classList.add('-hide');
-        }
+        spinner?.classList.add('-hide');
       }
     }
 
