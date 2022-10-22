@@ -9,6 +9,12 @@
 span(:class="$style.spinner")
 </template>
 
+<script>
+export default {
+  name: 'VLoading',
+};
+</script>
+
 <style lang="sass" module>
 .spinner
   position: absolute

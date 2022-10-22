@@ -30,7 +30,19 @@ export default defineConfig({
   },
 
   plugins: [
-    vue(),
+    vue({
+      template: {
+        transformAssetUrls: {
+          video: ['src', 'poster'],
+          source: ['src'],
+          img: ['src'],
+          image: ['xlink:href', 'href'],
+          use: ['xlink:href', 'href'],
+          'v-lazy-image': ['src', 'srcset'],
+          VImg: ['src', 'srcset'],
+        },
+      },
+    }),
     eslintPlugin({
       fix: true,
       include: '/.(js|ts|vue)$/',

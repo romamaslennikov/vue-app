@@ -11,7 +11,16 @@ import store from './stores';
 import 'normalize.css/normalize.css';
 import './styles/layout.sass';
 
-createApp(App)
+// global components
+import globalComponents from './components/global-components';
+
+const app = createApp(App);
+
+globalComponents.forEach((c) => {
+  app.component(c.name, c);
+});
+
+app
   .provide('eventHub', vueEmitter)
   .use(store)
   .use(router)

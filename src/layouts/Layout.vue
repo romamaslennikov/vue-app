@@ -12,8 +12,6 @@ VFooter
 import { defineAsyncComponent } from 'vue';
 
 export default {
-  name: 'VLayout',
-
   setup() {
     return {};
   },

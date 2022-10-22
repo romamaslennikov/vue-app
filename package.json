@@ -33,14 +33,14 @@
     "qs": "^6.11.0",
     "typograf": "^6.15.1",
     "v-lazy-image": "^2.1.1",
-    "vue": "^3.2.13",
+    "vue": "^3.2.41",
     "vue-router": "^4.0.3",
     "vue3-touch-events": "^4.1.0",
     "vuex": "^4.0.0",
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue": "^3.1.2",
     "@vue/eslint-config-airbnb": "^6.0.0",
     "eslint": "^8.22.0",
     "eslint-import-resolver-alias": "^1.1.2",

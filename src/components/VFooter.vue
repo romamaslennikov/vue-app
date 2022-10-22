@@ -7,15 +7,17 @@ footer.footer
 export default {
   name: 'VFooter',
 
-  data() {
+  setup() {
+    // data
+
+    // computed
+
+    // methods
+
+    // hooks
+
     return {};
   },
-
-  methods: {},
-
-  mounted() {},
-
-  components: {},
 };
 </script>
 

@@ -3,11 +3,20 @@ main.content
   .container
     a(@click="popup('Message')" href="#") Home
 
+    SvgIcon(id="ch")
+
+    VImg(
+      src="@images/logo.png"
+      srcset="@images/logo.webp"
+      alt="text")
+
+    VLoading(inline)
+
 </template>
 
 <script>
 import { typograf } from '@/utils/format';
-import { computed, defineAsyncComponent } from 'vue';
+import { computed } from 'vue';
 import { useAppStore } from '@/stores/app';
 import { usePopupStore } from '@/stores/popup';
 
@@ -38,9 +47,7 @@ export default {
     };
   },
 
-  components: {
-    SvgIcon: defineAsyncComponent(() => import('@/components/ui/SvgIcon.vue')),
-  },
+  components: {},
 };
 </script>
 

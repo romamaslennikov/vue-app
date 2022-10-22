@@ -19,26 +19,34 @@ picture
     :alt="alt")
 </template>
 
-<script setup>
-// eslint-disable-next-line no-unused-vars
+<script>
 import VLazyImage from 'v-lazy-image';
 
-defineProps({
-  src: {
-    type: String,
-    required: true,
+export default {
+  name: 'VImg',
+
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+    srcset: {
+      type: String,
+      default: '',
+    },
+    alt: { type: String },
   },
-  srcset: {
-    type: String,
-    default: '',
+
+  components: {
+    VLazyImage,
   },
-  alt: { type: String },
-});
+};
 </script>
 
 <style lang="sass" scoped>
 picture
-  display: block
+  display: inline-flex
+  vertical-align: middle
 
   img
     width: 100%

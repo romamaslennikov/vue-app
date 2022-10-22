@@ -1,90 +1,32 @@
 <template lang="pug">
-.hamburger-wrapper(@click="showNav")
-  .hamburger(:class="{'-active': mobileNav}"): .hamburger-box: .hamburger-inner
-
+.hamburger-wrapper(@click="show(!active)")
+  .hamburger(:class="{'-active': active}")
+    .hamburger-box
+      .hamburger-inner
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { useAppStore } from '@/stores/app';
+import { computed } from 'vue';
 
 export default {
   name: 'Hamburger',
 
-  data() {
-    return {};
+  setup() {
+    // data
+    const appStore = useAppStore();
+
+    // computed
+    const active = computed(() => appStore.mobileNav);
+
+    // methods
+    const show = (e) => appStore.showMobileNav(e);
+
+    return {
+      active,
+      show,
+    };
   },
-
-  computed: {
-    ...mapGetters({
-      mobileNav: 'app/showMobileNav',
-    }),
-  },
-
-  methods: {
-    ...mapMutations({
-      showMobileNav: 'app/SHOW_MOBILE_NAV',
-    }),
-
-    showNav() {
-      this.showMobileNav(!this.mobileNav);
-    },
-
-    swipeDetect() {
-      const body = document.querySelector('body');
-
-      let xDown = null;
-      let yDown = null;
-
-      const getTouches = (evt) => evt.touches || evt.originalEvent.touches;
-
-      const handleTouchStart = (evt) => {
-        const firstTouch = getTouches(evt)[0];
-        xDown = firstTouch.clientX;
-        yDown = firstTouch.clientY;
-      };
-
-      const handleTouchMove = (evt) => {
-        if (!xDown || !yDown) {
-          return;
-        }
-
-        const xUp = evt.touches[0].clientX;
-        const yUp = evt.touches[0].clientY;
-
-        const xDiff = xDown - xUp;
-        const yDiff = yDown - yUp;
-
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-          if (xDiff > 0) {
-            /* left swipe */
-          } else {
-            /* right swipe */
-          }
-        } else if (yDiff > 0) {
-          // this.$store.commit('SHOW_MOBILE_NAV', false);
-        } else {
-          /* down swipe */
-        }
-
-        xDown = null;
-        yDown = null;
-      };
-
-      body.addEventListener('touchstart', handleTouchStart, false);
-
-      body.addEventListener('touchmove', handleTouchMove, false);
-
-      document.addEventListener('scroll', () => {
-        if (this.mobileNav) {
-          this.showMobileNav(false);
-        }
-      });
-    },
-  },
-
-  mounted() {},
-
-  components: {},
 };
 </script>
 
@@ -130,7 +72,7 @@ export default {
     width: 100%
     height: rem(2px)
     transition-property: all
-    background-color: $color-white
+    background-color: $color-black
     transition-timing-function: cubic-bezier(.16,1,.3,1)
     transition-duration: 0.22s
     top: 50%
@@ -145,7 +87,7 @@ export default {
     content: ""
     position: absolute
     height: rem(2px)
-    background-color: $color-white
+    background-color: $color-black
     left: 0
 
     .-black-menu:not(.-lock) &

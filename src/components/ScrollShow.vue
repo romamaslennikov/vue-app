@@ -1,3 +1,10 @@
+/**
+* @usage:
+*
+* ScrollShow
+*
+*/
+
 <template lang="pug">
 .observer-move(ref="node")
   .slide(

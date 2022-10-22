@@ -1,22 +1,25 @@
 <template lang="pug">
 header.header(:class="{'-hide': showHeader}" ref="header")
-  .container VHeader
+  .container
+    | VHeader
+    Hamburger
 </template>
 
 <script>
 import debounce from 'lodash.debounce';
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'VHeader',
 
-  data() {
-    return {
-      showHeader: null,
-    };
-  },
+  setup() {
+    // data
+    const showHeader = ref(null);
 
-  methods: {
-    show() {
+    // computed
+
+    // methods
+    const show = () => {
       let current = 0;
 
       const handler = debounce(() => {
@@ -34,14 +37,15 @@ export default {
       }, 200);
 
       document.addEventListener('scroll', handler);
-    },
-  },
+    };
 
-  mounted() {
-    this.show();
-  },
+    // hooks
+    onMounted(show);
 
-  components: {},
+    return {
+      showHeader,
+    };
+  },
 };
 </script>
 

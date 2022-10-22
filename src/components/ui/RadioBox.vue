@@ -22,27 +22,34 @@ span(:class="[$style.r, {[$style.error]: error}]")
   i
 </template>
 
-<script setup>
-import { computed, defineEmits } from 'vue';
+<script>
+import { computed } from 'vue';
 
-const props = defineProps({
-  disabled: { type: Boolean },
-  error: { type: Boolean },
-  modelValue: { type: [Array, Boolean, String] },
-  value: { type: [Boolean, Object, String] },
-});
+export default {
+  name: 'RadioBox',
 
-const emit = defineEmits(['update:modelValue']);
-
-// eslint-disable-next-line no-unused-vars
-const model = computed({
-  get() {
-    return props.modelValue;
+  props: {
+    disabled: { type: Boolean },
+    error: { type: Boolean },
+    modelValue: { type: [Array, Boolean, String] },
+    value: { type: [Boolean, Object, String] },
   },
-  set(value) {
-    emit('update:modelValue', value);
+
+  setup(props, { emit }) {
+    const model = computed({
+      get() {
+        return props.modelValue;
+      },
+      set(value) {
+        emit('update:modelValue', value);
+      },
+    });
+
+    return {
+      model,
+    };
   },
-});
+};
 </script>
 
 <style lang="sass" module>
