@@ -1,9 +1,6 @@
 import { notify } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
-// import { useMeStore } from '@/stores/me';
-
-// const me = useMeStore();
 
 const BASE_API = import.meta.env.NODE_ENV === 'production'
   ? import.meta.env.VITE_BASE_API : import.meta.env.VITE_BASE_API_DEV;
@@ -48,8 +45,6 @@ service.interceptors.response.use(
         const r = response?.data;
 
         notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
-
-        // me.logOut(true);
 
         return Promise.reject(r);
       }
