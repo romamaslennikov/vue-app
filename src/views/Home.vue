@@ -1,17 +1,6 @@
 <template lang="pug">
 main.content
-  .container
-    a(@click="popup('Message')" href="#") Home
-
-    SvgIcon(id="ch")
-
-    VImg(
-      src="@images/logo.png"
-      srcset="@images/logo.webp"
-      alt="text")
-
-    VLoading(inline)
-
+  .container Home
 </template>
 
 <script>

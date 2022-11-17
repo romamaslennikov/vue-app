@@ -55,36 +55,6 @@ const notifyOnError = () => plugins.notify.onError({
 //= ============================================
 
 /*
- * Create webp images
- * */
-
-function webp() {
-  return gulp.src(paths.img)
-    .pipe(plugins.webp({
-      quality: 100,
-      method: 6,
-      lossless: true,
-    }))
-    .on('error', notifyOnError())
-    .pipe(gulp.dest(paths.imgDir));
-}
-
-function webpPublic() {
-  return gulp.src(paths.imgPublic)
-    .pipe(plugins.webp({
-      quality: 100,
-      method: 6,
-      lossless: true,
-    }))
-    .on('error', notifyOnError())
-    .pipe(gulp.dest(paths.imgPublicDir));
-}
-
-exports.webp = webp;
-
-exports.webpPublic = webpPublic;
-
-/*
  * Create sprite
  * */
 

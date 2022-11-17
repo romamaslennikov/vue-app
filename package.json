@@ -13,7 +13,8 @@
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
     "spriteSvg": "cd gulp && gulp spriteSvg",
-    "webp": "cd gulp && gulp webp"
+    "webp": "optimizt --webp --lossless src/assets/images/*",
+    "optimiz": "optimizt --lossless src/assets/images/*"
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
@@ -33,13 +34,12 @@
     "qs": "^6.11.0",
     "typograf": "^6.15.1",
     "v-lazy-image": "^2.1.1",
-    "vue": "^3.2.41",
+    "vue": "^3.*",
     "vue-router": "^4.0.3",
-    "vue3-touch-events": "^4.1.0",
-    "vuex": "^4.0.0",
-    "vuex-persistedstate": "^4.1.0"
+    "vue3-touch-events": "^4.1.0"
   },
   "devDependencies": {
+    "@funboxteam/optimizt": "^4.0.0",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/eslint-config-airbnb": "^6.0.0",
     "eslint": "^8.22.0",
@@ -57,7 +57,6 @@
     "gulp-notify": "^4.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-svgstore": "^8.0.0",
-    "gulp-webp": "^4.0.1",
     "gulp.spritesmith": "^6.12.1",
     "path": "^0.12.7",
     "prerender-spa-plugin-next": "^4.2.0",
