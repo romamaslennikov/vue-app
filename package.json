@@ -13,8 +13,7 @@
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
     "spriteSvg": "cd gulp && gulp spriteSvg",
-    "webp": "optimizt --webp --lossless src/assets/images/*",
-    "optimiz": "optimizt --lossless src/assets/images/*"
+    "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*"
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
@@ -33,7 +32,6 @@
     "pinia-persistedstate": "^0.1.2",
     "qs": "^6.11.0",
     "typograf": "^6.15.1",
-    "v-lazy-image": "^2.1.1",
     "vue": "^3.*",
     "vue-router": "^4.0.3",
     "vue3-touch-events": "^4.1.0"

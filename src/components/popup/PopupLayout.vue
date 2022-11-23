@@ -3,7 +3,7 @@ transition(name="fade")
   .popup(
     @click.self="close()"
     v-if="current"
-    @wheel.prevent)
+    @wheel.stop)
     transition(name="slide-bottom-smile" mode="out-in")
       component(:is="current")
 

@@ -39,7 +39,7 @@ export default defineConfig({
           image: ['xlink:href', 'href'],
           use: ['xlink:href', 'href'],
           'v-lazy-image': ['src', 'srcset'],
-          VImg: ['src', 'srcset'],
+          VImg: ['src', 'srcset', 'avif', 'webp'],
         },
       },
     }),

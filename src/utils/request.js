@@ -1,6 +1,13 @@
-import { notify } from '@kyvg/vue3-notification';
+import { useNotification } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken } from '@/utils/auth';
+
+const notification = useNotification();
+
+const configNotify = {
+  type: 'error',
+  duration: 5000,
+};
 
 const BASE_API = import.meta.env.NODE_ENV === 'production'
   ? import.meta.env.VITE_BASE_API : import.meta.env.VITE_BASE_API_DEV;
@@ -24,7 +31,10 @@ service.interceptors.request.use((config) => {
   return conf;
 }, (error) => {
   if (!window.PRERENDER_INJECTED) {
-    notify(`<b>Упс. Что-то пошло не так, повторите позже.</b> <div>${error}</div>`);
+    notification.notify({
+      ...configNotify,
+      text: 'Упс. Что-то пошло не так, повторите позже.',
+    });
   }
 
   Promise.reject(error);
@@ -44,7 +54,11 @@ service.interceptors.response.use(
       if (response?.status === 401) {
         const r = response?.data;
 
-        notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
+        notification.notify({
+          ...configNotify,
+          title: r?.name,
+          text: r?.message,
+        });
 
         return Promise.reject(r);
       }
@@ -54,23 +68,42 @@ service.interceptors.response.use(
 
         if (Array.isArray(r)) {
           r.forEach((item) => {
-            notify(`<b>Error. </b> <div>${item?.message}</div>`);
+            notification.notify({
+              ...configNotify,
+              text: item?.message,
+            });
           });
         } else {
-          notify(`<b>Error. </b> <div>${r && r?.name}</div><div>${r && r?.message}</div>`);
+          notification.notify({
+            ...configNotify,
+            title: r?.name,
+            text: r?.message,
+          });
         }
 
         return Promise.reject(new Error(r));
       }
 
       if (response?.status >= 500) {
-        notify(`<b>Oops. </b> <div>${error}</div>`);
+        notification.notify({
+          ...configNotify,
+          title: 'Oops.',
+          text: error,
+        });
       }
     } else if (request) {
       // client never received a response, or request never left
-      notify(`<b>Error. </b> <div>${request}</div>`);
+      notification.notify({
+        ...configNotify,
+        title: 'Oops.',
+        text: request,
+      });
     } else {
-      notify(`<b>Error. </b> <div>${error}</div>`);
+      notification.notify({
+        ...configNotify,
+        title: 'Oops.',
+        text: error,
+      });
     }
 
     return Promise.reject(new Error(response));

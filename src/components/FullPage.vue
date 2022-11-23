@@ -80,4 +80,5 @@ html, body
   height: calc(var(--vh, 1vh) * 100)
   transform: translate3d(0, 0, 0)
   transition: transform $transition*1.5 ease
+  will-change: transform
 </style>
