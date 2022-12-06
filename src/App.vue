@@ -6,12 +6,15 @@ router-view(v-slot="{ Component }")
 notifications(position="bottom right")
 
 Popup
+
+PWAReloadPrompt
 </template>
 
 <script>
 import { defineAsyncComponent, onMounted, onUnmounted } from 'vue';
 import { isPortrait } from '@/utils/device';
 import { useAppStore } from '@/stores/app';
+import PWAReloadPrompt from '@/components/PWAReloadPrompt.vue';
 
 export default {
   setup() {
