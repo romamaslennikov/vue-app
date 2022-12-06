@@ -3,7 +3,6 @@
   .popup__close.icon.i_x(@click="close")
 
   div Message
-  a(href="#" @click="show('Message1')") show
 </template>
 
 <script>
@@ -34,9 +33,7 @@ export default {
     };
   },
 
-  components: {
-    SvgIcon: defineAsyncComponent(() => import('@/components/ui/SvgIcon.vue')),
-  },
+  components: {},
 };
 </script>
 

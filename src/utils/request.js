@@ -1,6 +1,6 @@
 import { useNotification } from '@kyvg/vue3-notification';
 import axios from 'axios';
-import { getToken } from '@/utils/auth';
+import { getToken, removeToken } from '@/utils/auth';
 
 const notification = useNotification();
 
@@ -9,8 +9,7 @@ const configNotify = {
   duration: 5000,
 };
 
-const BASE_API = import.meta.env.NODE_ENV === 'production'
-  ? import.meta.env.VITE_BASE_API : import.meta.env.VITE_BASE_API_DEV;
+const BASE_API = import.meta.env.VITE_BASE_API;
 
 const service = axios.create({
   baseURL: BASE_API,
@@ -59,6 +58,12 @@ service.interceptors.response.use(
           title: r?.name,
           text: r?.message,
         });
+        
+        if (getToken()) {
+          removeToken();
+
+          document.location.reload();
+        }
 
         return Promise.reject(r);
       }

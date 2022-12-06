@@ -1,7 +1,7 @@
 /**
 * @usage:
 *
-* VImg(src="logo.png" webp="logo.webp" avif="logo.avif" alt="text")
+* VImg(src="logo.png" webp="logo.webp" avif="logo.avif" alt="alt")
 *
 */
 
@@ -47,7 +47,10 @@ export default {
       type: String,
       default: '',
     },
-    alt: { type: String },
+    alt: {
+      type: String,
+      default: 'text',
+    },
   },
 
   setup(props, { emit }) {
@@ -74,4 +77,11 @@ picture
 
   img
     width: 100%
+    
+:deep(.v-lazy-image)
+  opacity: 0
+  transition: opacity $transition
+
+  &.v-lazy-image-loaded
+    opacity: 1    
 </style>

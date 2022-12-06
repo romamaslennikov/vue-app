@@ -2,7 +2,7 @@ export const isTouch = () => 'ontouchstart' in window || navigator.maxTouchPoint
 
 export const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
 
-export const iOS = () => [
+export const iOS = (() => [
   'iPad Simulator',
   'iPhone Simulator',
   'iPod Simulator',
@@ -11,7 +11,7 @@ export const iOS = () => [
   'iPod',
 ].includes(navigator.platform)
     // iPad on iOS 13 detection
-    || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+    || (navigator.userAgent.includes('Mac') && 'ontouchend' in document))();
 
 export const isMac = navigator.platform.toUpperCase().includes('MAC');
 
