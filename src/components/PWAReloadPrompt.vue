@@ -24,6 +24,9 @@ const close = async () => {
     role="alert"
   >
     <div class="message">
+      <span v-if="offlineReady">
+        Сайт доступен в офлайн режиме
+      </span>
       <span>
         New content available, click on reload button to update.
       </span>
