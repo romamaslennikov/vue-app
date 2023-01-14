@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { VitePWA } from 'vite-plugin-pwa';
+// import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 import vitePrerender from 'vite-plugin-prerender';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import eslintPlugin from 'vite-plugin-eslint';
 import path from 'path';
@@ -10,8 +10,8 @@ import extraScripts from './extra-scripts';
 
 const Prerender = vitePrerender.PuppeteerRenderer;
 
-export default defineConfig({
-  // base: process.env.NODE_ENV === 'production'
+const config = ({ env }) => defineConfig({
+  // base: env.NODE_ENV === 'production'
   //   ? '/dixy_rules_2022/'
   //   : '/',
 
@@ -44,10 +44,12 @@ export default defineConfig({
         },
       },
     }),
+
     eslintPlugin({
       fix: true,
       include: '/.(js|ts|vue)$/',
     }),
+
     vitePrerender({
       staticDir: path.join(__dirname, 'dist'),
       routes: ['/'],
@@ -60,7 +62,8 @@ export default defineConfig({
         minifyCSS: true,
       },
       renderer: new Prerender({
-        // Optional - The name of the property to add to the window object with the contents of `inject`.
+        // Optional - The name of the property to add to
+        // the window object with the contents of `inject`.
         injectProperty: 'PRERENDER_INJECTED',
 
         // Optional - Any values you'd like your app to have access to via `window.injectProperty`.
@@ -72,54 +75,60 @@ export default defineConfig({
         // eg, with `document.dispatchEvent(new Event('custom-render-trigger'))`
         renderAfterDocumentEvent: 'custom-render-trigger',
 
-        // Optional - Wait to render until the specified element is detected using `document.querySelector`
+        // Optional - Wait to render until the specified
+        // element is detected using `document.querySelector`
         renderAfterElementExists: '.content',
+
+        // headless: false,
+
+        executablePath: env?.VITE_PATH_TO_CHROME || '',
       }),
       postProcess(context) {
         const c = context;
         const bodyEnd = c.html.indexOf('</body>');
-        c.html = c.html.substr(0, bodyEnd) + extraScripts + c.html.substr(bodyEnd);
+        c.html = c.html.substring(0, bodyEnd) + extraScripts + c.html.substring(bodyEnd);
 
         return c;
       },
     }),
-    VitePWA({
-      registerType: 'autoUpdate',
-      mode: 'development',
-      base: '/',
-      includeAssets: ['favicon.icon'],
-      manifest: {
-        name: 'Название проекта',
-        short_name: 'Название',
-        theme_color: '#ffffff',
-        icons: [
-          {
-            src: 'pwa-192x192.png', // <== don't add slash, for testing
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/pwa-512x512.png', // <== don't remove slash, for testing
-            sizes: '512x512',
-            type: 'image/png',
-          },
-          {
-            src: 'pwa-512x512.png', // <== don't add slash, for testing
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable',
-          },
-        ],
-      },
-      devOptions: {
-        enabled: true,
-        type: 'module',
-        navigateFallback: 'index.html',
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,png,webp,avif,jpg,jpeg,svg,woff,woff2,ttf,vue,json}'],
-      },
-    }),
+
+    // VitePWA({
+    //   registerType: 'autoUpdate',
+    //   mode: 'development',
+    //   base: '/',
+    //   includeAssets: ['favicon.icon'],
+    //   manifest: {
+    //     name: 'Название проекта',
+    //     short_name: 'Название',
+    //     theme_color: '#ffffff',
+    //     icons: [
+    //       {
+    //         src: 'pwa-192x192.png', // <== don't add slash, for testing
+    //         sizes: '192x192',
+    //         type: 'image/png',
+    //       },
+    //       {
+    //         src: '/pwa-512x512.png', // <== don't remove slash, for testing
+    //         sizes: '512x512',
+    //         type: 'image/png',
+    //       },
+    //       {
+    //         src: 'pwa-512x512.png', // <== don't add slash, for testing
+    //         sizes: '512x512',
+    //         type: 'image/png',
+    //         purpose: 'any maskable',
+    //       },
+    //     ],
+    //   },
+    //   devOptions: {
+    //     enabled: true,
+    //     type: 'module',
+    //     navigateFallback: 'index.html',
+    //   },
+    //   workbox: {
+    //     globPatterns: ['**/*.{js,css,html,png,webp,avif,jpg,jpeg,svg,woff,woff2,ttf,vue,json}'],
+    //   },
+    // }),
   ],
 
   resolve: {
@@ -130,3 +139,11 @@ export default defineConfig({
     },
   },
 });
+
+export default ({ mode }) => {
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+
+  const { env } = process;
+
+  return config({ env });
+};

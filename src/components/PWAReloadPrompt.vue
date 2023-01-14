@@ -1,43 +1,36 @@
 <script setup>
-import { useRegisterSW } from 'virtual:pwa-register/vue';
+// import { useRegisterSW } from 'virtual:pwa-register/vue';
 
-const {
-  offlineReady,
-  needRefresh,
-  updateServiceWorker,
-} = useRegisterSW({
-  onRegisteredSW(swUrl) {
-    console.log(`Service Worker at: ${swUrl}`);
-  },
-});
-
-const close = async () => {
-  offlineReady.value = false;
-  needRefresh.value = false;
-};
+// const {
+//   offlineReady,
+//   needRefresh,
+//   updateServiceWorker,
+// } = useRegisterSW({
+//   onRegisteredSW(swUrl) {
+//     console.log(`Service Worker at: ${swUrl}`);
+//   },
+// });
+//
+// const close = async () => {
+//   offlineReady.value = false;
+//   needRefresh.value = false;
+// };
 </script>
 
-<template>
-  <div
-    v-if="needRefresh"
-    class="pwa-toast"
-    role="alert"
-  >
-    <div class="message">
-      <span v-if="offlineReady">
-        Сайт доступен в офлайн режиме
-      </span>
-      <span>
-        New content available, click on reload button to update.
-      </span>
-    </div>
-    <button v-if="needRefresh" @click="updateServiceWorker()">
-      Reload
-    </button>
-    <button @click="close">
-      Close
-    </button>
-  </div>
+<template lang="pug">
+//.pwa-toast(v-if='offlineReady || needRefresh' role='alert')
+//  .message
+//    span(v-if='offlineReady')
+//      | Сайт доступен в офлайн режиме
+//    span
+//      | New content available, click on reload button to update.
+//
+//  button(type='button' v-if='needRefresh' @click='updateServiceWorker()')
+//    | Reload
+//
+//  button(type='button' @click='close')
+//    | Close
+
 </template>
 
 <style>

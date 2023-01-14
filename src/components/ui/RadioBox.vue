@@ -31,8 +31,14 @@ export default {
   props: {
     disabled: { type: Boolean },
     error: { type: Boolean },
-    modelValue: { type: [Array, Boolean, String] },
-    value: { type: [Boolean, Object, String] },
+    modelValue: {
+      type: [Array, Boolean, String],
+      default: false,
+    },
+    value: {
+      type: [Boolean, Object, String],
+      default: false,
+    },
   },
 
   setup(props, { emit }) {

@@ -34,7 +34,6 @@ const paths = {
   imgDir: `${src}assets/images/`,
   imgPublicDir: 'public/resource/',
   svgForFont: `${src}assets/images/svg-to-font/**/*.svg`,
-  svgForSprite: `${src}assets/images/svg-to-sprite/**/*.svg`,
   svgForFontDir: `${src}assets/images/svg-to-font/`,
   fonts: `${src}assets/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
   fontsDir: `${src}assets/fonts/`,
@@ -82,19 +81,6 @@ function spritePng() {
 }
 
 exports.spritePng = spritePng;
-
-/*
- * Create svg sprite
- * */
-
-function spriteSvg() {
-  return gulp.src(paths.svgForSprite)
-    .pipe(plugins.svgstore())
-    .pipe(plugins.rename('sprite.svg'))
-    .pipe(gulp.dest(paths.imgDir));
-}
-
-exports.spriteSvg = spriteSvg;
 
 /*
  * Create icons font

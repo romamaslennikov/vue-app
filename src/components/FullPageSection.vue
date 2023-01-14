@@ -34,7 +34,8 @@ export default {
       const visible = overflow === 'visible';
 
       const allowNext = !this.stopNext
-        && (((currentTarget.scrollTop + window.innerHeight) >= currentTarget.scrollHeight - 1) || visible);
+        && (((currentTarget.scrollTop + window.innerHeight) >= currentTarget.scrollHeight - 1)
+          || visible);
 
       const allowPrev = !this.stopPrev && ((currentTarget.scrollTop <= 0) || visible);
 

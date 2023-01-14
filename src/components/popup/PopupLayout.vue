@@ -1,18 +1,18 @@
 <template lang="pug">
-  transition(
-    @after-enter="onAfterEnter"
-    @before-leave="onBeforeLeave"
-    name="fade")
-    .popup(
-      @click.self="close"
-      v-show="current"
-      @wheel.stop)
-      transition(
-        name="scale"
-        mode="out-in")
-        component(
-          v-if="showContent"
-          :is="current")
+transition(
+  @after-enter="onAfterEnter"
+  @before-leave="onBeforeLeave"
+  name="fade")
+  .popup(
+    @click.self="onClick"
+    v-show="current"
+    @wheel.stop)
+    transition(
+      name="scale"
+      mode="out-in")
+      component(
+        v-if="showContent"
+        :is="current")
 
 </template>
 
@@ -33,6 +33,7 @@ export default {
     // computed
     const isPortrait = computed(() => appStore.isPortrait);
     const current = computed(() => popupStore.current);
+    const popupData = computed(() => popupStore.data);
 
     // methods
     const { show, close } = popupStore;
@@ -42,6 +43,11 @@ export default {
     const onBeforeLeave = () => {
       showContent.value = null;
     };
+    const onClick = () => {
+      if (popupData.value?.preventClickOverlay) return;
+
+      close(null);
+    };
 
     // hooks
     onMounted(() => {
@@ -49,6 +55,7 @@ export default {
     });
 
     return {
+      onClick,
       onBeforeLeave,
       onAfterEnter,
       isPortrait,
@@ -60,7 +67,7 @@ export default {
   },
 
   components: {
-    PopupMessage: defineAsyncComponent(() => import('@/components/popup/PopupMessage.vue')),
+    PopupMessage: defineAsyncComponent(() => import('@/components/popup/Message.vue')),
   },
 };
 </script>

@@ -1,13 +1,13 @@
 <template lang="pug">
 .popup__container
-  .popup__close.icon.i_x(@click="close")
+  .popup__close.icon.i_x(@click="close(null)")
 
   div Message
 </template>
 
 <script>
 import { typograf } from '@/utils/format';
-import { computed, defineAsyncComponent } from 'vue';
+import { computed } from 'vue';
 import { useAppStore } from '@/stores/app';
 import { usePopupStore } from '@/stores/popup';
 

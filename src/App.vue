@@ -7,14 +7,14 @@ notifications(position="bottom right")
 
 Popup
 
-PWAReloadPrompt
+// PWAReloadPrompt
 </template>
 
 <script>
 import { defineAsyncComponent, onMounted, onUnmounted } from 'vue';
 import { isPortrait } from '@/utils/device';
 import { useAppStore } from '@/stores/app';
-import PWAReloadPrompt from '@/components/PWAReloadPrompt.vue';
+// import PWAReloadPrompt from '@/components/PWAReloadPrompt.vue';
 
 export default {
   setup() {

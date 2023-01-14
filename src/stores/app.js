@@ -23,7 +23,7 @@ export const useAppStore = defineStore('app', {
     updateIsPortrait(b) {
       this.isPortrait = b;
     },
-    
+
     gtm(data) {
       /* eslint-disable */
       window.dataLayer?.push({

@@ -58,7 +58,7 @@ service.interceptors.response.use(
           title: r?.name,
           text: r?.message,
         });
-        
+
         if (getToken()) {
           removeToken();
 
