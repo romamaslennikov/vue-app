@@ -5,8 +5,7 @@
   "developer": "telegram: @romamas",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "staging": "vite build --mode staging",
+    "build": "vite build --mode prod",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "iconfont": "cd gulp && gulp iconfont",
@@ -34,6 +33,7 @@
   "devDependencies": {
     "@funboxteam/optimizt": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@volar/vue-language-plugin-pug": "^1.0.24",
     "@vue/eslint-config-airbnb": "^7.0.0",
     "eslint": "^8.22.0",
     "eslint-import-resolver-alias": "^1.1.2",
