@@ -77,11 +77,10 @@ picture
 
   img
     width: 100%
+    opacity: 0
+    transition: opacity $transition
+    height: auto
 
-:deep(.v-lazy-image)
-  opacity: 0
-  transition: opacity $transition
-
-  &.v-lazy-image-loaded
-    opacity: 1
+    &.v-lazy-image-loaded
+      opacity: 1
 </style>

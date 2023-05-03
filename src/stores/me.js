@@ -5,6 +5,8 @@ import router from '@/router';
 import { acceptHMRUpdate, defineStore } from 'pinia';
 
 export const useMeStore = defineStore('me', {
+  persist: true,
+
   state: () => (
     {
       user: null,

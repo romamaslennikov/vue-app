@@ -30,3 +30,8 @@ export function declOfNum(number, titles) {
 export function typograf(value) {
   return tp.execute(value);
 }
+
+export function useRegexName(str) {
+  const regex = /^[а-яА-ЯЁё -]+$/; // только кириллица тире побел
+  return str ? regex.test(str) : true;
+}

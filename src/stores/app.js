@@ -1,6 +1,8 @@
 import { defineStore, acceptHMRUpdate } from 'pinia';
 
 export const useAppStore = defineStore('app', {
+  persist: true,
+
   state: () => (
     {
       isPortrait: null,

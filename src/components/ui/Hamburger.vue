@@ -108,7 +108,7 @@ export default {
     .hamburger-inner
       transition-delay: 0.12s
       transition-timing-function: cubic-bezier(.16,1,.3,1)
-      transform: rotate(225deg)
+      transform: rotate(225deg) translateY(rem(1px)) translateX(rem(1px))
       box-shadow: none
 
   &.-active  .hamburger-inner:before

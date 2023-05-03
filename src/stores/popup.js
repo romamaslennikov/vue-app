@@ -2,6 +2,8 @@ import { acceptHMRUpdate, defineStore } from 'pinia';
 
 let resolve;
 
+const body = document.querySelector('body');
+
 export const usePopupStore = defineStore('popup', {
   state: () => (
     {
@@ -14,6 +16,8 @@ export const usePopupStore = defineStore('popup', {
 
   actions: {
     async show(o, data) {
+      body.style.overflow = 'hidden';
+
       this.current = o;
 
       if (data) {
@@ -28,6 +32,8 @@ export const usePopupStore = defineStore('popup', {
     },
 
     close(data) {
+      body.style.overflow = '';
+
       if (resolve) {
         resolve(data);
       }
@@ -44,3 +50,4 @@ if (import.meta.hot) {
 }
 
 export default usePopupStore;
+

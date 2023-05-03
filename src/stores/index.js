@@ -1,13 +1,8 @@
 import { createPinia } from 'pinia';
-import persistedstate from 'pinia-persistedstate';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 const store = createPinia();
 
-store.use(
-  persistedstate({
-    key: import.meta.env.VITE_APP_STATE_KEY,
-    // paths: ['dataStore', 'dataStore.count']  // Keep state, use module id, or state
-  }),
-);
+store.use(piniaPluginPersistedstate)
 
 export default store;
