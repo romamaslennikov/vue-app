@@ -21,6 +21,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'vue/multi-word-component-names': 'off',
     'max-len': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   ignorePatterns: ['public/**/*.js', 'dev-dist/*.js'],
   settings: {

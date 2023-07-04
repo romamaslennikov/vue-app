@@ -1,4 +1,5 @@
 import { defineStore, acceptHMRUpdate } from 'pinia';
+import { isTouch } from '@/utils/device';
 
 export const useAppStore = defineStore('app', {
   persist: true,
@@ -6,7 +7,7 @@ export const useAppStore = defineStore('app', {
   state: () => (
     {
       isPortrait: null,
-      isMobile: null,
+      isMobile: isTouch(),
       mobileNav: null,
     }
   ),
@@ -14,8 +15,8 @@ export const useAppStore = defineStore('app', {
   // getters: {},
 
   actions: {
-    updateIsMobile(b) {
-      this.isMobile = b;
+    updateIsMobile() {
+      this.isMobile = isTouch();
     },
 
     showMobileNav(b) {

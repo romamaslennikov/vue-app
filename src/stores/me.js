@@ -42,11 +42,11 @@ export const useMeStore = defineStore('me', {
       }
     },
 
-    signUp(o, data) {
+    signUp(data) {
       return (async () => signUp(data))();
     },
 
-    signIn(o, data) {
+    signIn(data) {
       return (async () => signIn(data))();
     },
 
@@ -63,9 +63,9 @@ export const useMeStore = defineStore('me', {
         spinner?.classList.add('-hide');
       }
 
-      await router.push('/sign_in');
+      await router.push('/sign-in');
 
-      this.$reset();
+      this.setUser(null);
 
       this.removeToken();
     },

@@ -13,7 +13,6 @@ const BASE_API = import.meta.env.VITE_BASE_API;
 
 const service = axios.create({
   baseURL: BASE_API,
-  timeout: 10000,
 });
 
 service.interceptors.request.use((config) => {

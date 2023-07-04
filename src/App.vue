@@ -36,7 +36,7 @@ export default {
     function handleWindowResize() {
       store.updateIsPortrait(isPortrait());
 
-      store.updateIsMobile((isPortrait() && window.innerWidth < 768));
+      store.updateIsMobile();
 
       useVh();
     }

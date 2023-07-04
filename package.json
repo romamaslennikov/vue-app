@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
-    "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*"
+    "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*",
+    "deploy": "node deploy"
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
@@ -35,11 +36,13 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@volar/vue-language-plugin-pug": "^1.0.24",
     "@vue/eslint-config-airbnb": "^7.0.0",
+    "dotenv": "^16.1.4",
     "eslint": "^8.22.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^9.2.0",
     "eslint-plugin-vuejs-accessibility": "^2.0.0",
+    "ftp-deploy": "^2.4.4",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",

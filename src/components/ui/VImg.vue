@@ -1,7 +1,7 @@
 /**
 * @usage:
 *
-* VImg(src="logo.png" webp="logo.webp" avif="logo.avif" alt="alt")
+* VImg(src="@images/logo.png" webp="@images/logo.webp" avif="@images/logo.avif" alt="")
 *
 */
 

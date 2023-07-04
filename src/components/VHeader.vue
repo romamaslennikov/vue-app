@@ -30,8 +30,10 @@ export default {
       const handler = debounce(() => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+        const a = header?.value?.clientHeight;
+
         if (scrollTop > current) {
-          if (scrollTop > header.value.clientHeight * 2) {
+          if (scrollTop > (a || 0) * 2) {
             showHeader.value = true;
           }
         } else {
