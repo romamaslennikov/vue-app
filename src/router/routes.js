@@ -2,13 +2,13 @@ const routes = [
   {
     path: '/',
     name: 'layout',
-    component: () => import('../layouts/Layout.vue'),
+    component: () => import('@/layouts/Layout.vue'),
     children: [
       // home
       {
         path: '/',
         name: 'home',
-        component: () => import('../views/Home.vue'),
+        component: () => import('@/views/Home.vue'),
       },
     ],
   },
