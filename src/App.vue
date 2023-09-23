@@ -11,7 +11,7 @@ Popup
 </template>
 
 <script>
-import { defineAsyncComponent, onMounted, onUnmounted } from 'vue';
+import { defineAsyncComponent, onMounted } from 'vue';
 import { isPortrait } from '@/utils/device';
 import { useAppStore } from '@/stores/app';
 // import PWAReloadPrompt from '@/components/PWAReloadPrompt.vue';
@@ -54,10 +54,6 @@ export default {
     // hooks
     onMounted(() => {
       window.addEventListener('load', handleLoad);
-    });
-
-    onUnmounted(() => {
-      window.removeEventListener('resize', handleWindowResize);
     });
 
     handleWindowResize();

@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env.local' })
+require('dotenv').config({ path: '.env.local' });
 const FtpDeploy = require('ftp-deploy');
 
 const ftpDeploy = new FtpDeploy();

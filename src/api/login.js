@@ -1,22 +1,58 @@
 import qs from 'qs';
 import request from '@/utils/request';
 
-export function signIn(data) {
-  const options = qs.stringify(data);
+export async function signIn(o) {
+  const options = qs.stringify(o);
 
-  return request({
-    url: '/authenticateByEmail',
-    method: 'post',
-    data: options,
-  });
+  try {
+    const { result = null, data = {}, error = {} } = await request({
+      url: '/authenticate',
+      method: 'post',
+      data: options,
+    });
+
+    if (result) {
+      return {
+        data,
+      };
+    }
+
+    if (error) {
+      return {
+        error,
+      };
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  return null;
 }
 
-export function signUp(data) {
-  const options = qs.stringify(data);
+export async function signUp(o) {
+  const options = qs.stringify(o);
 
-  return request({
-    url: '/registerByEmail',
-    method: 'post',
-    data: options,
-  });
+  try {
+    const { result = null, data = {}, error = {} } = await request({
+      url: '/register',
+      method: 'post',
+      data: options,
+    });
+
+    if (result) {
+      return {
+        data,
+      };
+    }
+
+    if (error) {
+      return {
+        error,
+      };
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  return null;
 }

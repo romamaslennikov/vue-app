@@ -16,7 +16,7 @@ const plugins = require('gulp-load-plugins')();
 
 const src = '../src/'; // development
 const fontName = 'Icons'; // name icons font
-const cssClassPrefix = 'i_'; // class for font icons
+const cssClassPrefix = 'icon__'; // class for font icons
 
 //= ============================================
 //               DECLARE PATHS
@@ -37,7 +37,6 @@ const paths = {
   svgForFontDir: `${src}assets/images/svg-to-font/`,
   fonts: `${src}assets/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
   fontsDir: `${src}assets/fonts/`,
-  fontsForConvert: `${src}assets/fonts/.tmp/*.{ttf,otf}`,
 };
 
 //= ============================================
@@ -107,29 +106,3 @@ function iconfont() {
 }
 
 exports.iconfont = iconfont;
-
-/*
- * Create web fonts
- * */
-
-function fontgen() {
-  return gulp.src(paths.fontsForConvert)
-    .pipe(plugins.fontgen({
-      dest: paths.fontsDir,
-      css_fontpath: '../assets/fonts',
-    }))
-    .on('error', notifyOnError());
-}
-
-function fontgenConcatCss() {
-  return gulp.src(`${paths.fontsDir}*.css`)
-    .pipe(plugins.concat('_font-face.scss'))
-    .pipe(gulp.dest(paths.scssDirGeneric));
-}
-
-function fontgenRemove() {
-  return gulp.src(`${paths.fontsDir}*.css`)
-    .pipe(plugins.clean());
-}
-
-exports.fonts = gulp.series(fontgen, fontgenConcatCss, fontgenRemove);

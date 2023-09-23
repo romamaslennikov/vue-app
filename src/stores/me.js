@@ -1,4 +1,3 @@
-import { signUp, signIn } from '@/api/login';
 import { getProfile, logOut } from '@/api/me';
 import { setToken, removeToken } from '@/utils/auth';
 import router from '@/router';
@@ -29,25 +28,11 @@ export const useMeStore = defineStore('me', {
     },
 
     async getProfile() {
-      try {
-        const res = await getProfile();
+      const { data = null } = await getProfile();
 
-        if (res.error === 0) {
-          this.setUser(res.data);
-        }
-
-        return (res.data);
-      } catch (e) {
-        return (e);
+      if (data) {
+        this.setUser(data);
       }
-    },
-
-    signUp(data) {
-      return (async () => signUp(data))();
-    },
-
-    signIn(data) {
-      return (async () => signIn(data))();
     },
 
     async logOut(local) {

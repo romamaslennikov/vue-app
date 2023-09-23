@@ -12,6 +12,7 @@ div(ref="node")
 
 <script>
 import { useAppStore } from '@/stores/app';
+
 const appStore = useAppStore();
 
 export default {

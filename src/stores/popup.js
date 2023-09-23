@@ -50,4 +50,3 @@ if (import.meta.hot) {
 }
 
 export default usePopupStore;
-

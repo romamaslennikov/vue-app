@@ -1,11 +1,23 @@
 // import qs from 'qs';
 import request from '@/utils/request';
 
-export function getProfile() {
-  return request({
-    url: '/getProfile',
-    method: 'get',
-  });
+export async function getProfile() {
+  try {
+    const { result = null, data = {} } = await request({
+      url: '/getProfile',
+      method: 'get',
+    });
+
+    if (result) {
+      return {
+        data,
+      };
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  return null;
 }
 
 export function logOut() {
