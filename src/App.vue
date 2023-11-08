@@ -24,21 +24,10 @@ export default {
     // computed
 
     // methods
-    function useVh() {
-      /*
-      * use in css => height: calc(var(--vh, 1vh) * 100)
-      * */
-      const vh = window.innerHeight * 0.01;
-
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
     function handleWindowResize() {
       store.updateIsPortrait(isPortrait());
 
       store.updateIsMobile();
-
-      useVh();
     }
 
     function handleLoad() {

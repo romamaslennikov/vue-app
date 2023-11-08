@@ -48,7 +48,7 @@ export const useMeStore = defineStore('me', {
         spinner?.classList.add('-hide');
       }
 
-      await router.push('/sign-in');
+      await router.push(`/${window.location.search}`);
 
       this.setUser(null);
 
