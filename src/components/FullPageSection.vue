@@ -119,7 +119,7 @@ export default {
 <style lang="sass" scoped>
 .full-page__section
   position: relative
-  height: calc(var(--vh, 1vh) * 100)
+  height: 100dvh
   overflow: auto
   overflow-x: hidden
 

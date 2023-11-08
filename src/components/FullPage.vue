@@ -72,12 +72,12 @@ export default {
 <style lang="sass">
 html, body
   overflow: hidden
-  height: calc(var(--vh, 1vh) * 100)
+  height: 100dvh
   -webkit-tap-highlight-color: transparent
 
 #full-page
   position: relative
-  height: calc(var(--vh, 1vh) * 100)
+  height: 100dvh
   transform: translate3d(0, 0, 0)
   transition: transform $transition*1.5 ease
   will-change: transform

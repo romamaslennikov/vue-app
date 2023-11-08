@@ -153,7 +153,7 @@ export default {
   left: 0
   width: 100%
   overflow: auto
-  height: calc(var(--vh, 1vh) * 100)
+  height: 100dvh
   z-index: 1000
   background: rgba(0, 0, 0, .5)
   backdrop-filter: blur(1px)
