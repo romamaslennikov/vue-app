@@ -32,7 +32,9 @@ export default {
 
     function handleLoad() {
       if (window.PRERENDER_INJECTED) {
-        document.dispatchEvent(new Event('custom-render-trigger'));
+        setTimeout(() => {
+          document.dispatchEvent(new Event('custom-render-trigger'));
+        }, 5000);
       } else {
         const spinner = document.getElementById('spinner');
 

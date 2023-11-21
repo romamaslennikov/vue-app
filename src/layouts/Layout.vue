@@ -1,7 +1,9 @@
 <template lang="pug">
 VHeader
 
-router-view(v-slot="{ Component }")
+router-view(
+  :key="$route.fullPath"
+  v-slot="{ Component }")
   keep-alive
     component(:is="Component")
 

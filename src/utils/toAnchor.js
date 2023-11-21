@@ -4,10 +4,8 @@
  *   import useToAnchor from '@/utils/toAnchor';
  *   const { toAnchor } = useToAnchor();
  *   onMounted(() => {
- *       setTimeout(() => {
- *         toAnchor();
- *       }, 1000);
- *     });
+ *      toAnchor();
+  *  });
  */
 
 import { useRouter, useRoute } from 'vue-router';
@@ -20,7 +18,9 @@ export default function useToAnchor() {
     const { hash = '' } = route;
 
     if (hash) {
-      await router.push(hash);
+      setTimeout(() => {
+        router.push(hash);
+      }, 200);
     }
   }
 
