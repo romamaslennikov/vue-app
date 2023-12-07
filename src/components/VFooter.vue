@@ -1,6 +1,6 @@
 <template lang="pug">
-footer.footer
-  .container Footer
+  footer.footer
+    .container Footer
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 .footer
   background: $color-white
   content-visibility: auto

@@ -1,20 +1,20 @@
 <template lang="pug">
-.select.field__input-text(@click="show = !show")
-  .select__placeholder(
-    v-if="!model"
-    :class="{'-active': model}") {{ placeholder }}
+  .select.field__input-text(@click="show = !show")
+    .select__placeholder(
+      v-if="!model"
+      :class="{ '-active': model }") {{ placeholder }}
 
-  .select__selected-option {{ options.filter((i) => i.value === model)[0]?.text }}
+    .select__selected-option {{ options.filter((i) => i.value === model)[0]?.text }}
 
-  .select__arr.icon.icon__arr-b
+    .select__arr.icon.icon__arr-b
 
-  .select__drop(
-    v-click-outside="onClickOutside"
-    v-if="show")
-    .select__item(
-      @click="model = option.value"
-      :key="index"
-      v-for="(option, index) in options") {{ option.text }}
+    .select__drop(
+      v-click-outside="onClickOutside"
+      v-if="show")
+      .select__item(
+        @click="model = option.value"
+        :key="index"
+        v-for="(option, index) in options") {{ option.text }}
 
 </template>
 

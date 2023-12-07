@@ -1,6 +1,5 @@
 import { getProfile, logOut } from '@/api/me';
 import { setToken, removeToken } from '@/utils/auth';
-import router from '@/router';
 import { acceptHMRUpdate, defineStore } from 'pinia';
 
 export const useMeStore = defineStore('me', {
@@ -11,8 +10,6 @@ export const useMeStore = defineStore('me', {
       user: null,
     }
   ),
-
-  // getters: {},
 
   actions: {
     setUser(o) {

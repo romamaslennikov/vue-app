@@ -5,7 +5,7 @@
 */
 
 <template lang="pug">
-svg: use(:xlink:href="`${sprite}#${id}`")
+  svg: use(:xlink:href="`${sprite}#${id}`")
 </template>
 
 <script>

@@ -26,11 +26,14 @@ a
   color: $link-color
   text-decoration: underline
 
-a:hover
-  text-decoration: none
+  &:hover
+    text-decoration: none
 
-a:focus
-  outline: none
+  &:active
+    opacity: 0.5
+
+  &:focus
+    outline: none
 
 img
   max-width: 100%

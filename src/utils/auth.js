@@ -11,6 +11,8 @@ export function getToken() {
 export function setToken(token) {
   if (window.localStorage?.getItem('remember')) {
     Cookies.set(tokenKey, token, { expires: 90, secure });
+
+    return;
   }
 
   Cookies.set(tokenKey, token, { secure });

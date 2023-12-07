@@ -1,11 +1,12 @@
 <template lang="pug">
-VHeader
+  VHeader
 
-router-view(v-slot="{ Component }")
-  keep-alive
-    component(:is="Component")
+  router-view(v-slot="{ Component }")
+    transition(name="fade" mode="out-in")
+      keep-alive
+        component(:is="Component")
 
-VFooter
+  VFooter
 </template>
 
 <script>

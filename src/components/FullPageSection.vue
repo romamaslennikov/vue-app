@@ -1,9 +1,9 @@
 <template lang="pug">
-section.full-page__section(
-  @wheel="onWheel($event)"
-  v-touch:release="swipeHandlerEnd"
-  v-touch:press="swipeHandlerStart")
-  slot
+  section.full-page__section(
+    @wheel="onWheel($event)"
+    v-touch:release="swipeHandlerEnd"
+    v-touch:press="swipeHandlerStart")
+    slot
 </template>
 
 <script>

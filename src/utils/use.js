@@ -28,6 +28,8 @@ export function slideToggle(e) {
 
   currentTarget.classList.toggle('-active');
 
+  currentTarget.parentNode?.classList.toggle('-active');
+
   if (!height) {
     nextSibling.style.height = `${scrollHeight}px`;
 
@@ -59,4 +61,45 @@ export function formatBytes(bytes, decimals = 2) {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
   return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`;
+}
+
+export function mergeObjects(...sources) {
+  let acc = {};
+  // eslint-disable-next-line no-restricted-syntax
+  for (const source of sources) {
+    if (source instanceof Function) {
+      acc = source;
+    } else if (source instanceof Array) {
+      if (!(acc instanceof Array)) {
+        acc = [];
+      }
+      acc = [...acc, ...source];
+    } else if (source instanceof Object) {
+      // eslint-disable-next-line no-restricted-syntax,prefer-const
+      for (let [key, value] of Object.entries(source)) {
+        if (value instanceof Object && key in acc) {
+          value = mergeObjects(acc[key], value);
+        }
+        acc = { ...acc, [key]: value };
+      }
+    }
+  }
+  return acc;
+}
+
+export async function downloadAsset(src, name = 'image.png') {
+  try {
+    const response = await fetch(src);
+    const blob = await response.blob();
+    const href = URL.createObjectURL(blob);
+    const anchorElement = document.createElement('a');
+    anchorElement.href = href;
+    anchorElement.download = name;
+    document.body.appendChild(anchorElement);
+    anchorElement.click();
+    document.body.removeChild(anchorElement);
+    window.URL.revokeObjectURL(href);
+  } catch (e) {
+    console.log(e);
+  }
 }

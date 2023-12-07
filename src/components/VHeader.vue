@@ -1,6 +1,6 @@
 <template lang="pug">
-header.header(:class="{'-hide': showHeader}" ref="header")
-  .container header
+  header.header(:class="{ '-hide': showHeader }" ref="header")
+    .container header
 </template>
 
 <script>

@@ -6,26 +6,26 @@
 */
 
 <template lang="pug">
-picture
-  source(
-    v-if="avif"
-    :srcset="avif"
-    type="image/avif")
+  picture
+    source(
+      v-if="avif"
+      :srcset="avif"
+      type="image/avif")
 
-  source(
-    v-if="webp"
-    :srcset="webp"
-    type="image/webp")
+    source(
+      v-if="webp"
+      :srcset="webp"
+      type="image/webp")
 
-  img(
-    :class="{'v-lazy-image-loaded': loaded}"
-    loading="lazy"
-    decoding="async"
-    width="10"
-    height="10"
-    @load="load"
-    :src="src"
-    :alt="alt")
+    img(
+      :class="{ 'v-lazy-image-loaded': loaded }"
+      loading="lazy"
+      decoding="async"
+      width="10"
+      height="10"
+      @load="load"
+      :src="src"
+      :alt="alt")
 </template>
 
 <script>

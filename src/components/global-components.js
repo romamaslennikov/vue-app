@@ -5,5 +5,6 @@ import CheckBox from '@/components/ui/CheckBox.vue';
 import RadioBox from '@/components/ui/RadioBox.vue';
 import Hamburger from '@/components/ui/Hamburger.vue';
 import Popover from '@/components/ui/Popover.vue';
+import VSelect from '@/components/ui/VSelect.vue';
 
-export default [VImg, SvgIcon, VLoading, CheckBox, RadioBox, Hamburger, Popover];
+export default [VImg, SvgIcon, VLoading, CheckBox, RadioBox, Hamburger, Popover, VSelect];

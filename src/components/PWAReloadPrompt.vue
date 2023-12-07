@@ -18,18 +18,18 @@
 </script>
 
 <template lang="pug">
-//.pwa-toast(v-if='offlineReady || needRefresh' role='alert')
-//  .message
-//    span(v-if='offlineReady')
-//      | Сайт доступен в офлайн режиме
-//    span
-//      | New content available, click on reload button to update.
-//
-//  button(type='button' v-if='needRefresh' @click='updateServiceWorker()')
-//    | Reload
-//
-//  button(type='button' @click='close')
-//    | Close
+  .pwa-toast(v-if='offlineReady || needRefresh' role='alert')
+    .message
+      span(v-if='offlineReady')
+        | Сайт доступен в офлайн режиме
+      span
+        | New content available, click on reload button to update.
+
+    button(type='button' v-if='needRefresh' @click='updateServiceWorker()')
+      | Reload
+
+    button(type='button' @click='close')
+      | Close
 
 </template>
 

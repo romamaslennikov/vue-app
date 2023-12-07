@@ -6,11 +6,11 @@
 */
 
 <template lang="pug">
-.observer-move(ref="node")
-  .slide(
-    :class="origin"
-    :style="{'transition-delay': delay}")
-    slot
+  .observer-move(ref="node")
+    .slide(
+      :class="origin"
+      :style="{ 'transition-delay': delay }")
+      slot
 
 </template>
 

@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     '@vue/airbnb',
+    'plugin:vue-pug/vue3-recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -22,6 +23,8 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'max-len': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+    'vuejs-accessibility/form-control-has-label': 'off',
   },
   ignorePatterns: ['public/**/*.js', 'dev-dist/*.js'],
   settings: {

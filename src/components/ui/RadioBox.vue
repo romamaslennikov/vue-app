@@ -13,13 +13,13 @@
 */
 
 <template lang="pug">
-span(:class="[$style.r, {[$style.error]: error}]")
-  input(
-    :disabled="disabled"
-    type="radio"
-    v-model="model"
-    :value="value")
-  i
+  span(:class="[$style.r, { [$style.error]: error }]")
+    input(
+      :disabled="disabled"
+      type="radio"
+      v-model="model"
+      :value="value")
+    i
 </template>
 
 <script>

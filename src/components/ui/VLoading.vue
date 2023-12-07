@@ -6,7 +6,7 @@
 */
 
 <template lang="pug">
-span(:class="$style.spinner")
+  span(:class="$style.spinner")
 </template>
 
 <script>

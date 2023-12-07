@@ -1,18 +1,18 @@
 <template lang="pug">
-transition(
-  @after-enter="onAfterEnter"
-  @before-leave="onBeforeLeave"
-  name="fade")
-  .popup(
-    @click.self="onClick"
-    v-show="current"
-    @wheel.stop)
-    transition(
-      name="scale"
-      mode="out-in")
-      component(
-        v-if="showContent"
-        :is="current")
+  transition(
+    @after-enter="onAfterEnter"
+    @before-leave="onBeforeLeave"
+    name="fade")
+    .popup(
+      @click.self="onClick"
+      v-show="current"
+      @wheel.stop)
+      transition(
+        name="scale"
+        mode="out-in")
+        component(
+          v-if="showContent"
+          :is="current")
 
 </template>
 
@@ -67,7 +67,7 @@ export default {
   },
 
   components: {
-    PopupMessage: defineAsyncComponent(() => import('@/components/popup/Message.vue')),
+    PopupMessage: defineAsyncComponent(() => import('@/components/popup/PopupMessage.vue')),
   },
 };
 </script>
@@ -98,6 +98,18 @@ export default {
   100%
     opacity: 1
     transform: scale(1) translate3d(0,0,0)
+
+:deep(.popup__text)
+  color: $color-black
+  margin-top: rem(20px)
+  font-family: $family-alt
+  font-size: rem(24px)
+  line-height: 125%
+  text-align: center
+  +media($port)
+    margin-top: rem(10px)
+    font-size: rem(18px)
+    line-height: 133%
 
 :deep(.popup__title)
   color: $color-blue
@@ -168,6 +180,7 @@ export default {
     padding: 0
     backdrop-filter: none
 
-  +scrollbars(6px, $color-green, 8px, $color-white)
+  +media($land)
+    +scrollbars(rem(6px), $color-yellow, rem(6px), #71033B)
 
 </style>

@@ -1,8 +1,8 @@
 <template lang="pug">
-.popover
-  slot(name="action")
-  .popover__body
-    slot(name="body")
+  .popover
+    slot(name="action")
+    .popover__body
+      slot(name="body")
 
 </template>
 

@@ -1,10 +1,10 @@
 <template lang="pug">
-main.content(
-  :class="`-${$route.name}`"
-  @wheel="onWheel($event)"
-  v-touch:release="swipeHandlerEnd"
-  v-touch:press="swipeHandlerStart")
-  slot
+  main.content(
+    :class="`-${$route.name}`"
+    @wheel="onWheel($event)"
+    v-touch:release="swipeHandlerEnd"
+    v-touch:press="swipeHandlerStart")
+    slot
 </template>
 
 <script>

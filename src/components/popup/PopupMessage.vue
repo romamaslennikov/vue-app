@@ -1,8 +1,20 @@
 <template lang="pug">
-.popup__container
-  .popup__close.icon.i_x(@click="close(null)")
+  .popup__container
+    .popup__close.icon.icon__close(@click="close(null)")
 
-  div Message
+    .popup__title(
+      v-html="typograf(data.title)"
+      v-if="data.title")
+
+    .popup__text(
+      v-html="typograf(data.title)"
+      v-if="data.text")
+
+    .mt-2
+      .btn.-black.w-100(
+        v-html="data.btn"
+        v-if="data.btn")
+
 </template>
 
 <script>
@@ -16,7 +28,7 @@ export default {
     // data
     const appStore = useAppStore();
     const popupStore = usePopupStore();
-    const { show, close } = popupStore;
+    const { show, close, data } = popupStore;
 
     // computed
     const isPortrait = computed(() => appStore.isPortrait);
@@ -30,6 +42,7 @@ export default {
       close,
       isPortrait,
       typograf,
+      data,
     };
   },
 

@@ -13,13 +13,14 @@
 */
 
 <template lang="pug">
-span(:class="[$style.c, {[$style.error]: error}]")
-  input(
-    :disabled="disabled"
-    v-model="model"
-    type="checkbox"
-    :value="value")
-  i.icon.i_ch
+  span(:class="[$style.c, { [$style.error]: error }]")
+    input(
+      :disabled="disabled"
+      v-model="model"
+      type="checkbox"
+      :value="value")
+    i.icon.icon__ch
+
 </template>
 
 <script>
