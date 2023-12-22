@@ -1,23 +1,14 @@
 /**
 * @usage:
 *
-* VImg(src="@images/logo.png" webp="@images/logo.webp" avif="@images/logo.avif" alt="")
-*
+* v-img(src="@images/logo.png" webp="@images/logo.webp" avif="@images/logo.avif" alt="")
 */
 
-<template lang="pug">
-  picture
-    source(
-      v-if="avif"
-      :srcset="avif"
-      type="image/avif")
-
-    source(
-      v-if="webp"
-      :srcset="webp"
-      type="image/webp")
-
-    img(
+<template>
+  <picture>
+    <source v-if="avif" :srcset="avif" type="image/avif" />
+    <source v-if="webp" :srcset="webp" type="image/webp" />
+    <img
       :class="{ 'v-lazy-image-loaded': loaded }"
       loading="lazy"
       decoding="async"
@@ -25,7 +16,8 @@
       height="10"
       @load="load"
       :src="src"
-      :alt="alt")
+      :alt="alt" />
+  </picture>
 </template>
 
 <script>

@@ -1,11 +1,11 @@
 /**
 * @usage:
 *
-*   SvgIcon(id="yandex-music-logo")
+*  <SvgIcon id="name" />
 */
 
-<template lang="pug">
-  svg: use(:xlink:href="`${sprite}#${id}`")
+<template>
+  <svg><use :xlink:href="`${sprite}#${id}`" /></svg>
 </template>
 
 <script>

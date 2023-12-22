@@ -1,21 +1,16 @@
-<template lang="pug">
-  .select.field__input-text(@click="show = !show")
-    .select__placeholder(
-      v-if="!model"
-      :class="{ '-active': model }") {{ placeholder }}
-
-    .select__selected-option {{ options.filter((i) => i.value === model)[0]?.text }}
-
-    .select__arr.icon.icon__arr-b
-
-    .select__drop(
-      v-click-outside="onClickOutside"
-      v-if="show")
-      .select__item(
+<template>
+  <div class="select field__input-text" @click="show = !show">
+    <div class="select__placeholder" v-if="!model" :class="{ '-active': model }">{{ placeholder }}</div>
+    <div class="select__selected-option">{{ options.filter((i) => i.value === model)[0]?.text }}</div>
+    <div class="select__arr icon icon__arr-b" />
+    <div class="select__drop" v-click-outside="onClickOutside" v-if="show">
+      <div
+        class="select__item"
         @click="model = option.value"
         :key="index"
-        v-for="(option, index) in options") {{ option.text }}
-
+        v-for="(option, index) in options">{{ option.text }}</div>
+    </div>
+  </div>
 </template>
 
 <script>

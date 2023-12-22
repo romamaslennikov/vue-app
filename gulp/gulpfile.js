@@ -1,7 +1,3 @@
-//= ============================================
-//               DEPENDENCIES
-//= ============================================
-
 /**
  * Load required dependencies.
  */
@@ -17,11 +13,6 @@ const plugins = require('gulp-load-plugins')();
 const src = '../src/'; // development
 const fontName = 'Icons'; // name icons font
 const cssClassPrefix = 'icon__'; // class for font icons
-
-//= ============================================
-//               DECLARE PATHS
-//= ============================================
-
 const paths = {
   app: src,
   scss: `${src}styles/**/*.s+(a|c)ss`,
@@ -30,27 +21,14 @@ const paths = {
   pngForSprite: `${src}assets/images/png-to-sprite/**/*.png`,
   iconsForSpriteDir: `${src}assets/images/png-to-sprite/`,
   img: `${src}assets/images/**/*.{png,gif,jpg,jpeg,svg,ico,mp4,webp}`,
-  imgPublic: 'public/resource/**/*.{png,jpg,jpeg}',
+  imgPublic: 'public/res/**/*.{png,jpg,jpeg}',
   imgDir: `${src}assets/images/`,
-  imgPublicDir: 'public/resource/',
+  imgPublicDir: 'public/res/',
   svgForFont: `${src}assets/images/svg-to-font/**/*.svg`,
   svgForFontDir: `${src}assets/images/svg-to-font/`,
   fonts: `${src}assets/fonts/**/*.{eot,svg,ttf,woff,woff2}`,
   fontsDir: `${src}assets/fonts/`,
 };
-
-//= ============================================
-//               UTILS FUNCTIONS
-//= ============================================
-
-const notifyOnError = () => plugins.notify.onError({
-  message: 'Error: <%= error.message %>',
-  sound: true,
-});
-
-//= ============================================
-//                  TASKS
-//= ============================================
 
 /*
  * Create sprite
@@ -67,8 +45,7 @@ function spritePng() {
       padding: 2,
       algorithm: 'top-down',
       algorithmOpts: { sort: false },
-    }))
-    .on('error', notifyOnError());
+    }));
 
   spriteData.img
     .pipe(gulp.dest(paths.imgDir));
@@ -94,14 +71,12 @@ function iconfont() {
       targetPath: '../../styles/generic/_icons.scss',
       fontPath: '../assets/fonts/',
     }))
-    .on('error', notifyOnError())
     .pipe(plugins.iconfont({
       fontName,
       prependUnicode: true, // recommended option
-      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      formats: ['woff', 'woff2'],
       timestamp: runTimestamp, // recommended to get consistent builds when watching files
     }))
-    .on('error', notifyOnError())
     .pipe(gulp.dest(paths.fontsDir));
 }
 

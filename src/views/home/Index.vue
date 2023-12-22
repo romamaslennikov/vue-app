@@ -1,6 +1,7 @@
-<template lang="pug">
-  main.content
-    .container Home
+<template>
+  <main class="content">
+    <div class="container">Home</div>
+  </main>
 </template>
 
 <script>

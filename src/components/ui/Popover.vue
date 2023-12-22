@@ -1,9 +1,10 @@
-<template lang="pug">
-  .popover
-    slot(name="action")
-    .popover__body
-      slot(name="body")
-
+<template>
+  <div class="popover">
+    <slot name="action" />
+    <div class="popover__body">
+      <slot name="body" />
+    </div>
+  </div>
 </template>
 
 <script>

@@ -11,13 +11,13 @@
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
     "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*",
-    "deploy": "node deploy"
+    "deploy": "node /scripts/deploy"
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
     "@vuelidate/core": "^2.0.0",
     "@vuelidate/validators": "^2.0.0",
-    "axios": "^1.2.2",
+    "axios": "^1.6.2",
     "click-outside-vue3": "^4.0.1",
     "js-cookie": "^3.0.1",
     "lodash.debounce": "^4.0.8",
@@ -32,36 +32,27 @@
     "vue3-touch-events": "^4.1.0"
   },
   "devDependencies": {
-    "@funboxteam/optimizt": "^4.0.0",
-    "@vitejs/plugin-vue": "^4.0.0",
+    "@funboxteam/optimizt": "^5.0.2",
+    "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-airbnb": "^7.0.1",
-    "@vue/language-plugin-pug": "^1.8.25",
     "dotenv": "^16.1.4",
     "eslint": "^8.22.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^9.2.0",
-    "eslint-plugin-vue-pug": "^0.6.1",
     "eslint-plugin-vuejs-accessibility": "^2.0.0",
     "ftp-deploy": "^2.4.4",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-fontgen": "^0.2.5",
     "gulp-iconfont": "^11.0.0",
     "gulp-iconfont-css": "^3.0.0",
     "gulp-load-plugins": "^2.0.7",
-    "gulp-notify": "^4.0.0",
-    "gulp-rename": "^2.0.0",
     "gulp.spritesmith": "^6.12.1",
+    "husky": "^8.0.0",
     "path": "^0.12.7",
-    "prerender-spa-plugin-next": "^4.2.0",
-    "pug": "^3.0.2",
     "sass": "^1.54.0",
-    "vite": "^4.*",
+    "vite": "^5.*",
     "vite-plugin-eslint": "^1.8.0",
     "vite-plugin-prerender": "^1.0.8",
-    "vite-plugin-pwa": "^0.14.1",
-    "husky": "^8.0.0"
+    "vite-plugin-pwa": "^0.14.1"
   }
 }

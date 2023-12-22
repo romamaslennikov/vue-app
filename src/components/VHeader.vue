@@ -1,6 +1,7 @@
-<template lang="pug">
-  header.header(:class="{ '-hide': showHeader }" ref="header")
-    .container header
+<template>
+  <header class="header" :class="{ '-hide': showHeader }" ref="header">
+    <div class="container">header</div>
+  </header>
 </template>
 
 <script>

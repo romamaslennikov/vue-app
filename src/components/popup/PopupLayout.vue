@@ -1,19 +1,18 @@
-<template lang="pug">
-  transition(
+<template>
+  <transition
     @after-enter="onAfterEnter"
     @before-leave="onBeforeLeave"
-    name="fade")
-    .popup(
+    name="fade">
+    <div
+      class="popup"
       @click.self="onClick"
       v-show="current"
-      @wheel.stop)
-      transition(
-        name="scale"
-        mode="out-in")
-        component(
-          v-if="showContent"
-          :is="current")
-
+      @wheel.stop>
+      <transition name="scale" mode="out-in">
+        <component v-if="showContent" :is="current" />
+      </transition>
+    </div>
+  </transition>
 </template>
 
 <script>

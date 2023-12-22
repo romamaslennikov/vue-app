@@ -1,9 +1,15 @@
-<template lang="pug">
-  .hamburger-wrapper(@click="show(!active)")
-    .hamburger(:class="{ '-active': active }")
-      .hamburger-box
-        .hamburger-inner
-
+<template>
+  <div
+    class="hamburger-wrapper"
+    @click="show(!active)">
+    <div
+      class="hamburger"
+      :class="{ '-active': active }">
+      <div class="hamburger-box">
+        <div class="hamburger-inner" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -42,7 +48,6 @@ export default {
   align-items: center
   z-index: 200
   cursor: pointer
-
   +media($port)
     width: rem(30px)
     height: rem(30px)
@@ -62,13 +67,13 @@ export default {
   z-index: 101
   position: relative
 
-  .hamburger-box
+  &-box
     position: relative
     display: inline-block
     width: 100%
     height: 100%
 
-  .hamburger-inner
+  &-inner
     position: absolute
     width: 100%
     height: rem(2px)
@@ -80,30 +85,24 @@ export default {
     display: block
     transform: translateY(-50%)
 
-    .-black-menu:not(.-lock) &
+    &:after, &:before
+      display: block
+      content: ""
+      position: absolute
+      height: rem(2px)
       background-color: $color-black
+      left: 0
 
-  .hamburger-inner:after, .hamburger-inner:before
-    display: block
-    content: ""
-    position: absolute
-    height: rem(2px)
-    background-color: $color-black
-    left: 0
+    &:before
+      width: 100%
+      top: rem(-6px)
+      transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in
 
-    .-black-menu:not(.-lock) &
-      background-color: $color-black
-
-  .hamburger-inner:before
-    width: 100%
-    top: rem(-6px)
-    transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in
-
-  .hamburger-inner:after
-    width: 100%
-    transition: bottom 0.1s ease-in 0.25s, width 0.2s ease-in, transform 0.22s cubic-bezier(.16,1,.3,1)
-    bottom: rem(-6px)
-    left: 0
+    &:after
+      width: 100%
+      transition: bottom 0.1s ease-in 0.25s, width 0.2s ease-in, transform 0.22s cubic-bezier(.16,1,.3,1)
+      bottom: rem(-6px)
+      left: 0
 
   &.-active
     .hamburger-inner
@@ -112,15 +111,18 @@ export default {
       transform: rotate(225deg) translateY(rem(1px)) translateX(rem(1px))
       box-shadow: none
 
-  &.-active  .hamburger-inner:before
-    top: 0
-    transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s
-    opacity: 0
-    width: 100%
+  &.-active
+    .hamburger-inner:before
+      top: 0
+      transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s
+      opacity: 0
+      width: 100%
 
-  &.-active  .hamburger-inner:after
-    width: 100%
-    bottom: 0
-    transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1) 0.12s
-    transform: rotate(-90deg)
+  &.-active
+    .hamburger-inner:after
+      width: 100%
+      bottom: 0
+      transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1) 0.12s
+      transform: rotate(-90deg)
+
 </style>

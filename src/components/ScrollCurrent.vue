@@ -1,28 +1,15 @@
 /**
 * @usage:
 *
-* ScrollCurrent(:current="'products'")
+* <ScrollCurrent />
 */
 
-<template lang="pug">
-  div(ref="node")
-    slot
-
+<template>
+  <div ref="node"><slot /></div>
 </template>
 
 <script>
-import { useAppStore } from '@/stores/app';
-
-const appStore = useAppStore();
-
 export default {
-  props: {
-    current: {
-      required: true,
-      default: null,
-    },
-  },
-
   data() {
     return {
       observer: null,
@@ -33,9 +20,9 @@ export default {
     onIntersection(entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          appStore.updateCurrentNavItem(this.current);
+          // ...
         } else {
-          appStore.updateCurrentNavItem(null);
+          // ...
         }
       });
     },

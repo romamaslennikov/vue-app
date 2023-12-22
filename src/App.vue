@@ -1,13 +1,15 @@
-<template lang="pug">
-  router-view(v-slot="{ Component }")
-    keep-alive
-      component(:is="Component")
+<template>
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 
-  notifications(position="bottom right")
+  <notifications position="bottom right" />
 
-  Popup
+  <Popup />
 
-  // PWAReloadPrompt
+  <!--<PWAReloadPrompt />-->
 </template>
 
 <script>

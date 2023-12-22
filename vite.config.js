@@ -6,7 +6,7 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import eslintPlugin from 'vite-plugin-eslint';
 import path from 'path';
-import extraScripts from './extra-scripts';
+import extraScripts from './scripts/extra-scripts';
 
 const Prerender = vitePrerender.PuppeteerRenderer;
 
