@@ -1,11 +1,11 @@
 /**
 * @usage:
 *
-*  <SvgIcon id="name" />
+*  svg-icon(id="name")
 */
 
-<template>
-  <svg><use :xlink:href="`${sprite}#${id}`" /></svg>
+<template lang="pug">
+  svg: use(:xlink:href="`${sprite}#${id}`")
 </template>
 
 <script>

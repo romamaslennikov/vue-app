@@ -1,15 +1,13 @@
-<template>
-  <router-view v-slot="{ Component }">
-    <keep-alive>
-      <component :is="Component" />
-    </keep-alive>
-  </router-view>
+<template lang="pug">
+  router-view(v-slot="{ Component }")
+    keep-alive
+      component(:is="Component")
 
-  <notifications position="bottom right" />
+  notifications(position="bottom right")
 
-  <Popup />
+  popup
 
-  <!--<PWAReloadPrompt />-->
+  // PWAReloadPrompt
 </template>
 
 <script>
@@ -36,7 +34,7 @@ export default {
       if (window.PRERENDER_INJECTED) {
         setTimeout(() => {
           document.dispatchEvent(new Event('custom-render-trigger'));
-        }, 5000);
+        }, 3000);
       } else {
         const spinner = document.getElementById('spinner');
 

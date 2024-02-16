@@ -1,44 +1,51 @@
 /**
 * @usage:
 *
-* <ScrollCurrent />
+* scroll-current
 */
 
-<template>
-  <div ref="node"><slot /></div>
+<template lang="pug">
+  div(ref="node"): slot
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      observer: null,
-    };
-  },
+import { ref, onMounted, inject } from 'vue';
 
-  methods: {
-    onIntersection(entries) {
+export default {
+  setup() {
+    // data
+    const observer = ref(null);
+    const node = ref(null);
+    const show = inject('show');
+
+    // methods
+    function onIntersection(entries) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // ...
+          show.value = true;
         } else {
           // ...
         }
       });
-    },
+    }
 
-    initObserver() {
-      this.observer = new IntersectionObserver(this.onIntersection, {
+    function initObserver() {
+      observer.value = new IntersectionObserver(onIntersection, {
         root: null,
         threshold: 1,
       });
 
-      this.observer.observe(this.$refs.node);
-    },
-  },
+      observer.value.observe(node.value);
+    }
 
-  mounted() {
-    this.initObserver();
+    // hooks
+    onMounted(() => {
+      initObserver();
+    });
+
+    return {
+      node,
+    };
   },
 };
 </script>

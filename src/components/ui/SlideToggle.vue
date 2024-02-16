@@ -1,9 +1,7 @@
-<template>
-  <div
+<template lang="pug">
+  div(
     :style="props.open ? 'height: auto' : null"
-    :class="$style.slide">
-    <slot />
-  </div>
+    :class='$style.slide'): slot
 </template>
 
 <script>

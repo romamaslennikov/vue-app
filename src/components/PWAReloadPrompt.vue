@@ -1,6 +1,6 @@
 <script setup>
 // import { useRegisterSW } from 'virtual:pwa-register/vue';
-
+//
 // const {
 //   offlineReady,
 //   needRefresh,
@@ -17,16 +17,16 @@
 // };
 </script>
 
-<template>
-  <div class="pwa-toast" v-if="offlineReady || needRefresh" role="alert">
-    <div class="message">
-      <span v-if="offlineReady">Сайт доступен в офлайн режиме</span>
-      <span>New content available, click on reload button to update.</span>
-    </div>
+<template lang="pug">
+  .pwa-toast(v-if="offlineReady || needRefresh" role="alert")
+    .message
+      span(v-if="offlineReady") Сайт доступен в офлайн режиме
+      span New content available, click on reload button to update.
 
-    <button type="button" v-if="needRefresh" @click="updateServiceWorker()">Reload</button>
+    button(type="button" v-if="needRefresh" @click="updateServiceWorker()") Reload
 
-    <button type="button" @click="close">Close</button></div>
+    button(type="button" @click="close") Close
+
 </template>
 
 <style>

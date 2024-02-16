@@ -40,7 +40,7 @@ const config = ({ env }) => defineConfig({
           image: ['xlink:href', 'href'],
           use: ['xlink:href', 'href'],
           'v-lazy-image': ['src', 'srcset'],
-          VImg: ['src', 'srcset', 'avif', 'webp'],
+          'v-img': ['src', 'srcset', 'avif', 'webp'],
         },
       },
     }),
@@ -130,6 +130,10 @@ const config = ({ env }) => defineConfig({
     //   },
     // }),
   ],
+
+  build: {
+    assetsInlineLimit: 0,
+  },
 
   resolve: {
     alias: {

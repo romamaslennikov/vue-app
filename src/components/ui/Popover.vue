@@ -1,10 +1,10 @@
-<template>
-  <div class="popover">
-    <slot name="action" />
-    <div class="popover__body">
-      <slot name="body" />
-    </div>
-  </div>
+<template lang="pug">
+  .popover
+    slot(name="action")
+
+    .popover__body
+      slot(name="body")
+
 </template>
 
 <script>
@@ -13,6 +13,8 @@ import { computed } from 'vue';
 import { useAppStore } from '@/stores/app';
 
 export default {
+  name: 'Popover',
+
   setup() {
     // data
     const appStore = useAppStore();

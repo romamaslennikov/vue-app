@@ -1,26 +1,21 @@
-<template>
-  <div class="popup__container">
-    <div
-      class="popup__close icon icon__close"
-      @click="close(null)" />
+<template lang="pug">
+  .popup__container
+    .popup__close.icon.icon__close(
+      @click="close(null)")
 
-    <div
-      class="popup__title"
+    .popup__title(
       v-html="typograf(data.title)"
-      v-if="data.title" />
+      v-if="data.title")
 
-    <div
-      class="popup__text"
+    .popup__text(
       v-html="typograf(data.title)"
-      v-if="data.text" />
+      v-if="data.text")
 
-    <div class="mt-2">
-      <div
-        class="btn"
+    .mt-2
+      .btn(
         v-html="data.btn"
-        v-if="data.btn" />
-    </div>
-  </div>
+        v-if="data.btn")
+
 </template>
 
 <script>

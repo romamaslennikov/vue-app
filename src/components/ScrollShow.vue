@@ -1,15 +1,16 @@
 /**
 * @usage:
 *
-* <ScrollShow />
+* scroll-show
 */
 
-<template>
-  <div class="observer-move" ref="node">
-    <div class="slide" :class="origin" :style="{ 'transition-delay': delay }">
-      <slot />
-    </div>
-  </div>
+<template lang="pug">
+  .observer-move(ref="node")
+    .slide(
+      :class="origin"
+      :style="{ 'transition-delay': delay }")
+      slot
+
 </template>
 
 <script>

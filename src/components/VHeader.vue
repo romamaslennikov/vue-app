@@ -1,7 +1,7 @@
-<template>
-  <header class="header" :class="{ '-hide': showHeader }" ref="header">
-    <div class="container">header</div>
-  </header>
+<template lang="pug">
+  header.header(:class="{ '-hide': showHeader }" ref='header')
+    .container.header__container header
+
 </template>
 
 <script>
@@ -62,7 +62,7 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .header
   background: $color-white
   padding: rem(18px) 0
@@ -71,8 +71,10 @@ export default {
   //left: 0
   width: 100%
   z-index: 100
-
   +media($port)
     padding: rem(13px) 0
+
+  &__container
+    position: relative
 
 </style>

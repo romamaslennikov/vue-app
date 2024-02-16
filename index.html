@@ -9,14 +9,44 @@
     <meta name="theme-color" content="#fff">
     <!--<link rel="apple-touch-icon" href="/pwa-192x192.png">-->
     <style>
-        body, html {
-            background-color: #fff;
-            font-family: sans-serif;
-            margin: 0;
+      body, html {
+        background-color: #fff;
+        font-family: sans-serif;
+        margin: 0;
+      }
+      #spinner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100dvh;
+        background: #fff;
+        z-index: 1000;
+        pointer-events: none;
+        transition: all 0.4s ease-out;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+      #spinner.-hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+      @keyframes pulse {
+        from {
+          opacity: 0;
         }
+        to {
+          opacity: 1;
+        }
+      }
+      #spinner-pic {
+        animation: .4s pulse infinite alternate linear;
+      }
     </style>
   </head>
   <body ontouchstart>
+    <div id="spinner"></div>
     <div id="app"></div>
     <script type="text/javascript">
       if (!window.PRERENDER_INJECTED) {

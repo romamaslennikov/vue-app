@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
+    'plugin:vue-pug/vue3-recommended',
     '@vue/airbnb',
   ],
   parserOptions: {
@@ -24,6 +25,9 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'vuejs-accessibility/click-events-have-key-events': 'off',
     'vuejs-accessibility/form-control-has-label': 'off',
+    'vuejs-accessibility/label-has-for': 'off',
+    'vuejs-accessibility/anchor-has-content': 'off',
+    'vue/html-self-closing': 'off',
   },
   ignorePatterns: ['public/**/*.js', 'dev-dist/*.js'],
   settings: {

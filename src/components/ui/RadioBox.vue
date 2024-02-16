@@ -1,19 +1,18 @@
 /**
 * @usage:
 *
-*  <RadioBox value="foo" v-model="selected" :error="false" />
-*  <RadioBox value="bar" v-model="selected" :error="false" />
+*  radio-box(value="foo" v-model="selected" :error="false")
+*  radio-box(value="bar" v-model="selected" :error="false")
 */
 
-<template>
-  <span :class="[$style.r, { [$style.error]: error }]">
-    <input
+<template lang="pug">
+  span(:class="[$style.r, { [$style.error]: error }]")
+    input(
       :disabled="disabled"
       type="radio"
       v-model="model"
-      :value="value" />
-    <i />
-  </span>
+      :value="value")
+    i
 </template>
 
 <script>

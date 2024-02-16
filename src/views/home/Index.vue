@@ -1,7 +1,7 @@
-<template>
-  <main class="content">
-    <div class="container">Home</div>
-  </main>
+<template lang="pug">
+  main.content
+    .container Home
+
 </template>
 
 <script>

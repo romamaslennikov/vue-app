@@ -1,15 +1,13 @@
-<template>
-  <VHeader />
+<template lang="pug">
+  v-header
 
-  <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
-    </transition>
-  </router-view>
+  router-view(v-slot="{ Component }")
+    transition(name="fade" mode="out-in")
+      keep-alive
+        component(:is="Component")
 
-  <VFooter />
+  v-footer
+
 </template>
 
 <script>

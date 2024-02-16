@@ -1,7 +1,7 @@
-<template>
-  <footer class="footer">
-    <div class="container">Footer</div>
-  </footer>
+<template lang="pug">
+  footer.footer
+    .container Footer
+
 </template>
 
 <script>

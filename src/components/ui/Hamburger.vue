@@ -1,15 +1,9 @@
-<template>
-  <div
-    class="hamburger-wrapper"
-    @click="show(!active)">
-    <div
-      class="hamburger"
-      :class="{ '-active': active }">
-      <div class="hamburger-box">
-        <div class="hamburger-inner" />
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+  .hamburger-wrapper(@click='show(!active)')
+    .hamburger(:class="{ '-active': active }")
+      .hamburger-box
+        .hamburger-inner
+
 </template>
 
 <script>

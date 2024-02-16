@@ -11,7 +11,8 @@
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
     "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*",
-    "deploy": "node /scripts/deploy"
+    "deploy": "node deploy",
+    "husky-install": "npx husky-init && husky install && npx husky set .husky/pre-commit 'yarn lint'"
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^2.3.4",
@@ -35,11 +36,13 @@
     "@funboxteam/optimizt": "^5.0.2",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-airbnb": "^7.0.1",
+    "@vue/language-plugin-pug": "^1.8.27",
     "dotenv": "^16.1.4",
     "eslint": "^8.22.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-vue": "^9.2.0",
+    "eslint-plugin-vue-pug": "^0.6.1",
     "eslint-plugin-vuejs-accessibility": "^2.0.0",
     "ftp-deploy": "^2.4.4",
     "gulp": "^4.0.2",
@@ -49,6 +52,7 @@
     "gulp.spritesmith": "^6.12.1",
     "husky": "^8.0.0",
     "path": "^0.12.7",
+    "pug": "^3.0.2",
     "sass": "^1.54.0",
     "vite": "^5.*",
     "vite-plugin-eslint": "^1.8.0",

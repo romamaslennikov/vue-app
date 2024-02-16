@@ -1,8 +1,7 @@
 /**
 * @usage:
 *
-*   <CheckBox value="foo" v-model="selected" :error="false" />
-*   <CheckBox value="foo" v-model="selected" :error="false" />
+*   check-box(value="foo" v-model="selected" :error="false")
 *
 * data(){
 *    return {
@@ -11,11 +10,15 @@
 *  }
 */
 
-<template>
-  <span :class="[$style.c, { [$style.error]: error }]">
-    <input :disabled="disabled" v-model="model" type="checkbox" :value="value" />
-    <i class="icon icon__ch" />
-  </span>
+<template lang="pug">
+  span(:class="[$style.c, { [$style.error]: error }]")
+    input(
+      :disabled="disabled"
+      v-model="model"
+      type="checkbox"
+      :value="value")
+    i.icon.icon__ch
+
 </template>
 
 <script>

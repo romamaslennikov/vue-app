@@ -1,12 +1,12 @@
 /**
 * @usage:
 *
-*   <v-loading />
-*   <v-loading inline />
+*   v-loading
+*   v-loading(inline)
 */
 
-<template>
-  <span :class="$style.spinner" />
+<template lang="pug">
+  span(:class="$style.spinner")
 </template>
 
 <script>
