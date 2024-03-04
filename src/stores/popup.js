@@ -8,7 +8,7 @@ export const usePopupStore = defineStore('popup', {
   state: () => (
     {
       current: null,
-      data: null,
+      popupData: null,
     }
   ),
 
@@ -21,7 +21,7 @@ export const usePopupStore = defineStore('popup', {
       this.current = o;
 
       if (data) {
-        this.data = data;
+        this.popupData = data;
       }
 
       const promise = await new Promise((r) => {
@@ -40,7 +40,7 @@ export const usePopupStore = defineStore('popup', {
 
       this.current = null;
 
-      this.data = null;
+      this.popupData = null;
     },
   },
 });

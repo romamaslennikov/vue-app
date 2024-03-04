@@ -17,12 +17,12 @@
     :class="{ '-show': show }"
     @click="onClick")
     .select__placeholder(
-      v-if="!model && !focus"
+      v-if="model === null && !focus"
       :class="{ '-active': model }") {{ placeholder }}
 
     .select__selected-option(
       v-if="!focus")
-      | {{ options.filter((i) => i[propValue] === model)[0]?.[propText] }}
+      | {{ options?.filter((i) => i[propValue] === model)[0]?.[propText] }}
 
     input.select__input(
       v-else

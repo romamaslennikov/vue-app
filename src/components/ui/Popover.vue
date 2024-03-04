@@ -2,7 +2,7 @@
   .popover
     slot(name="action")
 
-    .popover__body
+    .popover__body(v-if="!disabled")
       slot(name="body")
 
 </template>
@@ -14,6 +14,13 @@ import { useAppStore } from '@/stores/app';
 
 export default {
   name: 'Popover',
+
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
 
   setup() {
     // data
