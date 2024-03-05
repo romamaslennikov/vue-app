@@ -5,7 +5,7 @@
   "developer": "telegram: @romamas",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode prod",
+    "build:prod": "vite build --mode prod",
     "build:stage": "vite build --mode stage",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
