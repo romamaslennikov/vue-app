@@ -1,15 +1,15 @@
 /**
 * @usage:
-* VSelect(
-* :search="true"
-* :fetch-search="true"
-* @fetch-search="search($event)"
-* prop-value="id"
-* prop-text="name"
-* :class="{ '-error': v.cityId.$error }"
-* v-model="form.cityId"
-* :placeholder="'Выберите город'"
-* :options="cities || []")
+  VSelect(
+    :search="true"
+    :fetch-search="true"
+    @fetch-search="search($event)"
+    prop-value="id"
+    prop-text="name"
+    :class="{ '-error': v.cityId.$error }"
+    v-model="form.cityId"
+    :placeholder="'Выберите город'"
+    :options="cities || []")
 */
 
 <template lang="pug">
@@ -34,17 +34,18 @@
       @input="onInput($event)")
 
     .select__arr.icon.icon__arr-b2(v-if="!pending")
-      v-loading.select__pending(v-if="search && fetchSearch && pending")
 
-      .select__drop(
-        v-click-outside="onClickOutside"
-        v-if="show")
-        .select__item(
-          @click.stop="model = option[propValue]; show = false"
-          :key="index"
-          v-for="(option, index) in filtered") {{ option[propText] }}
+    v-loading.select__pending(v-if="search && fetchSearch && pending")
 
-        .select__item(v-if="!filtered.length") Данных нет
+    .select__drop(
+      v-click-outside="onClickOutside"
+      v-if="show")
+      .select__item(
+        @click.stop="model = option[propValue]; show = false"
+        :key="index"
+        v-for="(option, index) in filtered") {{ option[propText] }}
+
+      .select__item(v-if="!filtered.length") Данных нет
 
 </template>
 

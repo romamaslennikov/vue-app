@@ -142,7 +142,6 @@ export default {
   right: rem(17px)
   top: rem(17px)
   color: $color-red
-
   &:hover
     color: $color-black
     transform: rotate(180deg)
@@ -153,11 +152,8 @@ export default {
   width: rem(519px)
   padding: rem(50px)
   background: $color-white
-
   +media($port)
     padding: rem(20px)
-    height: 100%
-    overflow: auto
 
 .popup
   position: fixed

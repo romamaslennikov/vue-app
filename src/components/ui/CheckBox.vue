@@ -1,13 +1,11 @@
 /**
 * @usage:
-*
-*   check-box(value="foo" v-model="selected" :error="false")
-*
-* data(){
-*    return {
-*      selected: [],
-*    }
-*  }
+  check-box(value="foo" v-model="selected" :error="false")
+  data(){
+    return {
+     selected: [],
+    }
+   }
 */
 
 <template lang="pug">

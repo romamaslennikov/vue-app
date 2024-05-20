@@ -32,7 +32,7 @@
 import { ref } from 'vue';
 
 export default {
-  name: 'VImg',
+  name: 'v-img',
 
   props: {
     src: {

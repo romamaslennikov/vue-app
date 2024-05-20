@@ -1,3 +1,13 @@
+/**
+* @usage:
+  popover
+    template(v-slot:action)
+      .icon
+    template(v-slot:body)
+      div Текст
+*
+*/
+
 <template lang="pug">
   .popover
     slot(name="action")

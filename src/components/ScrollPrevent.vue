@@ -37,7 +37,8 @@ export default {
       const { currentTarget } = e;
 
       const allowNext = !this.stopNext
-        && ((currentTarget.scrollTop + window.innerHeight) >= currentTarget.scrollHeight - 1);
+        && ((currentTarget.scrollTop + currentTarget.offsetHeight)
+          >= currentTarget.scrollHeight - 1);
 
       const allowPrev = !this.stopPrev && (currentTarget.scrollTop <= 0);
 

@@ -1,8 +1,7 @@
 /**
 * @usage:
-*
-*  radio-box(value="foo" v-model="selected" :error="false")
-*  radio-box(value="bar" v-model="selected" :error="false")
+  radio-box(value="foo" v-model="selected" :error="false")
+  radio-box(value="bar" v-model="selected" :error="false")
 */
 
 <template lang="pug">
