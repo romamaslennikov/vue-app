@@ -40,7 +40,9 @@ export const useMeStore = defineStore('me', {
 
         spinner?.classList.remove('-hide');
 
-        await logOut();
+        if (this.user) {
+          await logOut();
+        }
 
         spinner?.classList.add('-hide');
       }

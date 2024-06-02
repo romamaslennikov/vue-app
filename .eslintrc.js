@@ -28,6 +28,7 @@ module.exports = {
     'vuejs-accessibility/label-has-for': 'off',
     'vuejs-accessibility/anchor-has-content': 'off',
     'vue/html-self-closing': 'off',
+    'vue/object-curly-newline': 'off',
   },
   ignorePatterns: ['public/**/*.js', 'dev-dist/*.js'],
   settings: {
