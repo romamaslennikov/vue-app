@@ -9,14 +9,13 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:vue-pug/vue3-recommended',
     '@vue/airbnb',
+    'prettier',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'vue',
-  ],
+  plugins: ['vue'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

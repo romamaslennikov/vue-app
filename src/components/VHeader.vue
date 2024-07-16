@@ -6,9 +6,7 @@
 
 <script>
 import debounce from 'lodash.debounce';
-import {
-  ref, onMounted, computed,
-} from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useAppStore } from '@/stores/app';
 
 export default {
@@ -76,5 +74,4 @@ export default {
 
   &__container
     position: relative
-
 </style>

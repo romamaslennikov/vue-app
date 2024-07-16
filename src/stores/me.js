@@ -5,11 +5,9 @@ import { acceptHMRUpdate, defineStore } from 'pinia';
 export const useMeStore = defineStore('me', {
   persist: true,
 
-  state: () => (
-    {
-      user: null,
-    }
-  ),
+  state: () => ({
+    user: null,
+  }),
 
   actions: {
     setUser(o) {

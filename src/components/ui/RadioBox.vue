@@ -1,8 +1,5 @@
-/**
-* @usage:
-  radio-box(value="foo" v-model="selected" :error="false")
-  radio-box(value="bar" v-model="selected" :error="false")
-*/
+/** * @usage: radio-box(value="foo" v-model="selected" :error="false") radio-box(value="bar"
+v-model="selected" :error="false") */
 
 <template lang="pug">
   span(:class="[$style.r, { [$style.error]: error }]")
@@ -95,5 +92,4 @@ export default {
       color: #B3DDCA
       background: $color-orange
       box-shadow: 0 0 0 rem(8px) inset
-
 </style>

@@ -1,16 +1,6 @@
-/**
-* @usage:
-  VSelect(
-    :search="true"
-    :fetch-search="true"
-    @fetch-search="search($event)"
-    prop-value="id"
-    prop-text="name"
-    :class="{ '-error': v.cityId.$error }"
-    v-model="form.cityId"
-    :placeholder="'Выберите город'"
-    :options="cities || []")
-*/
+/** * @usage: VSelect( :search="true" :fetch-search="true" @fetch-search="search($event)"
+prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model="form.cityId"
+:placeholder="'Выберите город'" :options="cities || []") */
 
 <template lang="pug">
   .select.field__input(
@@ -125,9 +115,9 @@ export default {
         return props.options;
       }
 
-      return props.options.filter((i) => i[props.propText]
-        .toLowerCase()
-        .includes(term.value.toLowerCase()));
+      return props.options.filter((i) =>
+        i[props.propText].toLowerCase().includes(term.value.toLowerCase()),
+      );
     });
 
     // methods
@@ -241,5 +231,4 @@ export default {
 
     .-show &
       scale: 1 -1
-
 </style>

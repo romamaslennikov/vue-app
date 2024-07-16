@@ -1,8 +1,4 @@
-/**
-* @usage:
-*
-*  svg-icon(id="name")
-*/
+/** * @usage: * * svg-icon(id="name") */
 
 <template lang="pug">
   svg: use(:xlink:href="`${sprite}#${id}`")

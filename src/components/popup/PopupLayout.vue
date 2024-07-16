@@ -17,9 +17,7 @@
 </template>
 
 <script>
-import {
-  computed, defineAsyncComponent, ref, onMounted,
-} from 'vue';
+import { computed, defineAsyncComponent, ref, onMounted } from 'vue';
 import { useAppStore } from '@/stores/app';
 import { usePopupStore } from '@/stores/popup';
 
@@ -178,5 +176,4 @@ export default {
 
   +media($land)
     +scrollbars(rem(6px), $color-yellow, rem(6px), #71033B)
-
 </style>

@@ -4,13 +4,11 @@ import { isTouch } from '@/utils/device';
 export const useAppStore = defineStore('app', {
   persist: true,
 
-  state: () => (
-    {
-      isPortrait: null,
-      isMobile: isTouch(),
-      mobileNav: null,
-    }
-  ),
+  state: () => ({
+    isPortrait: null,
+    isMobile: isTouch(),
+    mobileNav: null,
+  }),
 
   // getters: {},
 
@@ -33,7 +31,7 @@ export const useAppStore = defineStore('app', {
         event: 'eventTracking',
         action: data[1],
         category: data[0],
-        label: data[2]
+        label: data[2],
       });
     },
   },

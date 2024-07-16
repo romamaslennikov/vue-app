@@ -1,13 +1,13 @@
-@use "sass:math";
+@use 'sass:math';
 
 @function vw($base, $screen) {
   $result: math.div($base * 100, $screen);
 
-  @return $result+vw;
+  @return $result + vw;
 }
 
 @function vh($base, $screen) {
   $result: math.div($base * 100, $screen);
 
-  @return $result+vh;
+  @return $result + vh;
 }

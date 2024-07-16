@@ -15,28 +15,31 @@ const service = axios.create({
   baseURL: BASE_API,
 });
 
-service.interceptors.request.use((config) => {
-  const conf = config;
+service.interceptors.request.use(
+  (config) => {
+    const conf = config;
 
-  conf.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    conf.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 
-  const token = getToken();
+    const token = getToken();
 
-  if (token) {
-    conf.headers['X-Auth-Token'] = token;
-  }
+    if (token) {
+      conf.headers['X-Auth-Token'] = token;
+    }
 
-  return conf;
-}, (error) => {
-  if (!window.PRERENDER_INJECTED) {
-    notification.notify({
-      ...configNotify,
-      text: 'Упс. Что-то пошло не так, повторите позже.',
-    });
-  }
+    return conf;
+  },
+  (error) => {
+    if (!window.PRERENDER_INJECTED) {
+      notification.notify({
+        ...configNotify,
+        text: 'Упс. Что-то пошло не так, повторите позже.',
+      });
+    }
 
-  Promise.reject(error);
-});
+    Promise.reject(error);
+  },
+);
 
 service.interceptors.response.use(
   (response) => response.data,

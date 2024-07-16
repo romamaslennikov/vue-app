@@ -1,9 +1,4 @@
-/**
-* @usage:
-*
-*   v-loading
-*   v-loading(inline)
-*/
+/** * @usage: * * v-loading * v-loading(inline) */
 
 <template lang="pug">
   span(:class="$style.spinner")

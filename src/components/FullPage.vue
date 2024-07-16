@@ -6,9 +6,7 @@
 </template>
 
 <script>
-import {
-  onMounted, onUnmounted, watch, ref,
-} from 'vue';
+import { onMounted, onUnmounted, watch, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 export default {
@@ -27,8 +25,7 @@ export default {
     const resolveCurrent = (a) => {
       const { children } = a;
 
-      const node = document
-        .getElementById(route.hash?.replace('#', ''));
+      const node = document.getElementById(route.hash?.replace('#', ''));
 
       node?.scrollTo({
         top: 0,
@@ -62,7 +59,10 @@ export default {
       observer.disconnect();
     });
 
-    watch(() => route.hash, () => resolveCurrent(app));
+    watch(
+      () => route.hash,
+      () => resolveCurrent(app),
+    );
 
     return {
       current,

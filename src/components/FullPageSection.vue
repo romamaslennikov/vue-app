@@ -34,11 +34,11 @@ export default {
 
       const visible = overflow === 'visible';
 
-      const allowNext = !this.stopNext
-        && (((currentTarget.scrollTop + window.innerHeight) >= currentTarget.scrollHeight - 1)
-          || visible);
+      const allowNext =
+        !this.stopNext &&
+        (currentTarget.scrollTop + window.innerHeight >= currentTarget.scrollHeight - 1 || visible);
 
-      const allowPrev = !this.stopPrev && ((currentTarget.scrollTop <= 0) || visible);
+      const allowPrev = !this.stopPrev && (currentTarget.scrollTop <= 0 || visible);
 
       return {
         allowNext,
@@ -83,7 +83,7 @@ export default {
         const timeDiff = curTime - prevTime;
 
         if (timeDiff > 40) {
-          if ((e.timeStamp - timeStamp) > 600) {
+          if (e.timeStamp - timeStamp > 600) {
             this.wheelHandler(e);
 
             timeStamp = e.timeStamp;

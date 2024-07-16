@@ -35,8 +35,8 @@ const paths = {
  * */
 
 function spritePng() {
-  const spriteData = gulp.src(paths.pngForSprite)
-    .pipe(plugins.spritesmith({
+  const spriteData = gulp.src(paths.pngForSprite).pipe(
+    plugins.spritesmith({
       // retinaSrcFilter: paths.iconsForSpriteDir+'*@2x.png',
       imgName: '../images/sprite.png',
       // retinaImgName: '../img/sprite@2x.png',
@@ -45,13 +45,12 @@ function spritePng() {
       padding: 2,
       algorithm: 'top-down',
       algorithmOpts: { sort: false },
-    }));
+    }),
+  );
 
-  spriteData.img
-    .pipe(gulp.dest(paths.imgDir));
+  spriteData.img.pipe(gulp.dest(paths.imgDir));
 
-  spriteData.css
-    .pipe(gulp.dest(paths.scssDirGeneric));
+  spriteData.css.pipe(gulp.dest(paths.scssDirGeneric));
 
   return spriteData;
 }
@@ -63,20 +62,25 @@ exports.spritePng = spritePng;
  * */
 
 function iconfont() {
-  return gulp.src(paths.svgForFont)
-    .pipe(plugins.iconfontCss({
-      fontName,
-      cssClass: cssClassPrefix,
-      path: './_icons_template.css.tmpl',
-      targetPath: '../../styles/generic/_icons.scss',
-      fontPath: '../assets/fonts/',
-    }))
-    .pipe(plugins.iconfont({
-      fontName,
-      prependUnicode: true, // recommended option
-      formats: ['woff', 'woff2'],
-      timestamp: runTimestamp, // recommended to get consistent builds when watching files
-    }))
+  return gulp
+    .src(paths.svgForFont)
+    .pipe(
+      plugins.iconfontCss({
+        fontName,
+        cssClass: cssClassPrefix,
+        path: './_icons_template.css.tmpl',
+        targetPath: '../../styles/generic/_icons.scss',
+        fontPath: '../assets/fonts/',
+      }),
+    )
+    .pipe(
+      plugins.iconfont({
+        fontName,
+        prependUnicode: true, // recommended option
+        formats: ['woff', 'woff2'],
+        timestamp: runTimestamp, // recommended to get consistent builds when watching files
+      }),
+    )
     .pipe(gulp.dest(paths.fontsDir));
 }
 

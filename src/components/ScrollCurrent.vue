@@ -1,8 +1,4 @@
-/**
-* @usage:
-*
-* scroll-current
-*/
+/** * @usage: * * scroll-current */
 
 <template lang="pug">
   div(ref="node"): slot

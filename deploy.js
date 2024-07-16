@@ -3,11 +3,7 @@ const FtpDeploy = require('ftp-deploy');
 
 const ftpDeploy = new FtpDeploy();
 
-const {
-  DEPLOY_USER,
-  DEPLOY_PASS,
-  DEPLOY_HOST,
-} = process.env;
+const { DEPLOY_USER, DEPLOY_PASS, DEPLOY_HOST } = process.env;
 
 const config = {
   user: DEPLOY_USER,
@@ -17,12 +13,7 @@ const config = {
   localRoot: `${__dirname}/dist`,
   remoteRoot: '/www/',
   include: ['*', '**/*'],
-  exclude: [
-    'dist/**/*.map',
-    'node_modules/**',
-    'node_modules/**/.*',
-    '.git/**',
-  ],
+  exclude: ['dist/**/*.map', 'node_modules/**', 'node_modules/**/.*', '.git/**'],
   deleteRemote: false,
   forcePasv: true,
   sftp: false,

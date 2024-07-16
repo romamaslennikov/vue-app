@@ -36,11 +36,11 @@ export default {
     allow(e) {
       const { currentTarget } = e;
 
-      const allowNext = !this.stopNext
-        && ((currentTarget.scrollTop + currentTarget.offsetHeight)
-          >= currentTarget.scrollHeight - 1);
+      const allowNext =
+        !this.stopNext &&
+        currentTarget.scrollTop + currentTarget.offsetHeight >= currentTarget.scrollHeight - 1;
 
-      const allowPrev = !this.stopPrev && (currentTarget.scrollTop <= 0);
+      const allowPrev = !this.stopPrev && currentTarget.scrollTop <= 0;
 
       return {
         allowNext,
@@ -96,37 +96,41 @@ export default {
       }
     },
 
-    wheelHandler: debounce((vm, e) => {
-      const { allowNext } = vm.allow(e);
+    wheelHandler: debounce(
+      (vm, e) => {
+        const { allowNext } = vm.allow(e);
 
-      const { allowPrev } = vm.allow(e);
+        const { allowPrev } = vm.allow(e);
 
-      if (e.deltaY > 0) {
-        vm.$emit('onScrollNext');
+        if (e.deltaY > 0) {
+          vm.$emit('onScrollNext');
 
-        if (allowNext) {
-          // if (vm.currentLinkArticle) {
-          //   document.location.href = vm.currentLinkArticle;
-          //
-          //   return false;
-          // }
+          if (allowNext) {
+            // if (vm.currentLinkArticle) {
+            //   document.location.href = vm.currentLinkArticle;
+            //
+            //   return false;
+            // }
 
-          return true;
+            return true;
+          }
+        } else {
+          vm.$emit('onScrollPrev');
+
+          if (allowPrev) {
+            return true;
+          }
         }
-      } else {
-        vm.$emit('onScrollPrev');
 
-        if (allowPrev) {
-          return true;
-        }
-      }
-
-      return null;
-    }, 400, {
-      leading: true,
-      trailing: false,
-      maxWait: 10,
-    }),
+        return null;
+      },
+      400,
+      {
+        leading: true,
+        trailing: false,
+        maxWait: 10,
+      },
+    ),
   },
 };
 </script>

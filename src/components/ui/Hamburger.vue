@@ -118,5 +118,4 @@ export default {
       bottom: 0
       transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1) 0.12s
       transform: rotate(-90deg)
-
 </style>

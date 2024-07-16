@@ -1,17 +1,18 @@
 /* Icons font----------------------------------------------------------- */
 @font-face {
-  font-family: "Icons";
-  src: url("../assets/fonts/Icons.eot");
-  src: url("../assets/fonts/Icons.eot?#iefix") format("embedded-opentype"),
-  url("../assets/fonts/Icons.woff") format("woff"),
-  url("../assets/fonts/Icons.ttf") format("truetype"),
-  url("../assets/fonts/Icons.svg#Icons") format("svg");
+  font-family: 'Icons';
+  src: url('../assets/fonts/Icons.eot');
+  src:
+    url('../assets/fonts/Icons.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Icons.woff') format('woff'),
+    url('../assets/fonts/Icons.ttf') format('truetype'),
+    url('../assets/fonts/Icons.svg#Icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 .icon {
-  font-family: "Icons", sans-serif;
+  font-family: 'Icons', sans-serif;
   display: inline-block;
   font-style: normal;
   font-weight: normal;
@@ -24,11 +25,11 @@
   text-rendering: auto;
 }
 .icon__ch:before {
-  content:"\E001";
+  content: '\E001';
 }
 .icon__chevron-down:before {
-  content:"\E002";
+  content: '\E002';
 }
 .icon__x:before {
-  content:"\E003";
+  content: '\E003';
 }

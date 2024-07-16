@@ -5,7 +5,11 @@ export async function signIn(o) {
   const options = qs.stringify(o);
 
   try {
-    const { result = null, data = {}, error = {} } = await request({
+    const {
+      result = null,
+      data = {},
+      error = {},
+    } = await request({
       url: '/authenticate',
       method: 'post',
       data: options,
@@ -33,7 +37,11 @@ export async function signUp(o) {
   const options = qs.stringify(o);
 
   try {
-    const { result = null, data = {}, error = {} } = await request({
+    const {
+      result = null,
+      data = {},
+      error = {},
+    } = await request({
       url: '/register',
       method: 'post',
       data: options,

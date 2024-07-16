@@ -5,7 +5,7 @@
  *   const { toAnchor } = useToAnchor();
  *   onMounted(() => {
  *      toAnchor();
-  *  });
+ *  });
  */
 
 import { useRouter, useRoute } from 'vue-router';
@@ -15,7 +15,7 @@ export default function useToAnchor() {
   const route = useRoute();
 
   async function toAnchor() {
-    const { hash = '' } = route;
+    const hash = route?.fullPath;
 
     if (hash) {
       setTimeout(() => {

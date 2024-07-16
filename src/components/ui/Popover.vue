@@ -1,12 +1,4 @@
-/**
-* @usage:
-  popover
-    template(v-slot:action)
-      .icon
-    template(v-slot:body)
-      div Текст
-*
-*/
+/** * @usage: popover template(v-slot:action) .icon template(v-slot:body) div Текст * */
 
 <template lang="pug">
   .popover
@@ -95,5 +87,4 @@ export default {
       opacity: 1
       visibility: visible
       transform: translate(-50%, 0)
-
 </style>

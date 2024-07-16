@@ -1,8 +1,4 @@
-/**
-* @usage:
-*
-* scroll-show
-*/
+/** * @usage: * * scroll-show */
 
 <template lang="pug">
   .observer-move(ref="node")

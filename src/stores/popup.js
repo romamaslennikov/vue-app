@@ -5,12 +5,10 @@ let resolve;
 const body = document.querySelector('body');
 
 export const usePopupStore = defineStore('popup', {
-  state: () => (
-    {
-      current: null,
-      popupData: null,
-    }
-  ),
+  state: () => ({
+    current: null,
+    popupData: null,
+  }),
 
   // getters: {},
 

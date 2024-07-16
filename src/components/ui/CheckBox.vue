@@ -1,12 +1,5 @@
-/**
-* @usage:
-  check-box(value="foo" v-model="selected" :error="false")
-  data(){
-    return {
-     selected: [],
-    }
-   }
-*/
+/** * @usage: check-box(value="foo" v-model="selected" :error="false") data(){ return { selected:
+[], } } */
 
 <template lang="pug">
   span(:class="[$style.c, { [$style.error]: error }]")
@@ -103,5 +96,4 @@ export default {
 
     &:checked + i
       color: $color-orange
-
 </style>

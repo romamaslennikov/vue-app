@@ -19,9 +19,7 @@ const router = createRouter({
       path: '/',
       name: 'default-layout',
       component: () => import('@/layouts/Default.vue'),
-      children: [
-        ...home,
-      ],
+      children: [...home],
     },
 
     // full layout
@@ -40,17 +38,16 @@ const router = createRouter({
   ],
 });
 
-router
-  .beforeEach((to, _, next) => {
-    const isLoggedIn = getToken();
+router.beforeEach((to, _, next) => {
+  const isLoggedIn = getToken();
 
-    const { meta } = to;
+  const { meta } = to;
 
-    if (meta.redirectIsLoggedIn && isLoggedIn) {
-      next('/');
-    }
+  if (meta.redirectIsLoggedIn && isLoggedIn) {
+    next('/');
+  }
 
-    return next();
-  });
+  return next();
+});
 
 export default router;
