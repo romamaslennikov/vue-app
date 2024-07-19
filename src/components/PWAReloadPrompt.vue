@@ -18,15 +18,21 @@
 </script>
 
 <template lang="pug">
-  .pwa-toast(v-if="offlineReady || needRefresh" role="alert")
+  .pwa-toast(
+    role="alert"
+    v-if="offlineReady || needRefresh")
     .message
       span(v-if="offlineReady") Сайт доступен в офлайн режиме
       span New content available, click on reload button to update.
 
-    button(type="button" v-if="needRefresh" @click="updateServiceWorker()") Reload
+    button(
+      @click="updateServiceWorker()"
+      type="button"
+      v-if="needRefresh") Reload
 
-    button(type="button" @click="close") Close
-
+    button(
+      @click="close"
+      type="button") Close
 </template>
 
 <style>

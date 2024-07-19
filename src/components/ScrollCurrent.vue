@@ -1,7 +1,7 @@
 /** * @usage: * * scroll-current */
 
 <template lang="pug">
-  div(ref="node"): slot
+  div(ref="node"):   slot
 </template>
 
 <script>

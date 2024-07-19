@@ -3,5 +3,13 @@
   "bracketSameLine": true,
   "bracketSpacing": true,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "plugins": ["@prettier/plugin-pug"],
+  "pugAttributeSeparator": "none",
+  "pugSortAttributes": "asc",
+  "pugWrapAttributesThreshold": 1,
+  "pugFramework": "vue",
+  "pugSingleFileComponentIndentation": true,
+  "pugExplicitDiv": false,
+  "pugSingleQuote": false
 }

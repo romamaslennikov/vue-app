@@ -5,9 +5,9 @@ v-model="selected" :error="false") */
   span(:class="[$style.r, { [$style.error]: error }]")
     input(
       :disabled="disabled"
+      :value="value"
       type="radio"
-      v-model="model"
-      :value="value")
+      v-model="model")
     i
 </template>
 

@@ -6,7 +6,6 @@
       :class="origin"
       :style="{ 'transition-delay': delay }")
       slot
-
 </template>
 
 <script>

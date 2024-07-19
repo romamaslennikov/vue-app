@@ -7,21 +7,20 @@ prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model=
     :class="{ '-show': show }"
     @click="onClick")
     .select__placeholder(
-      v-if="model === null && !focus"
-      :class="{ '-active': model }") {{ placeholder }}
+      :class="{ '-active': model }"
+      v-if="model === null && !focus") {{ placeholder }}
 
-    .select__selected-option(
-      v-if="!focus")
+    .select__selected-option(v-if="!focus")
       | {{ options?.filter((i) => i[propValue] === model)[0]?.[propText] }}
 
     input.select__input(
-      v-else
-      v-model="term"
+      @blur="focus = false"
+      @input="onInput($event)"
       placeholder="Поиск..."
       ref="input"
       type="text"
-      @blur="focus = false"
-      @input="onInput($event)")
+      v-else
+      v-model="term")
 
     .select__arr.icon.icon__arr-b2(v-if="!pending")
 
@@ -31,12 +30,11 @@ prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model=
       v-click-outside="onClickOutside"
       v-if="show")
       .select__item(
-        @click.stop="model = option[propValue]; show = false"
         :key="index"
+        @click.stop="model = option[propValue]; show = false"
         v-for="(option, index) in filtered") {{ option[propText] }}
 
       .select__item(v-if="!filtered.length") Данных нет
-
 </template>
 
 <script>

@@ -4,25 +4,24 @@ alt="") */
 <template lang="pug">
   picture
     source(
-      v-if="avif"
       :srcset="avif"
-      type="image/avif")
+      type="image/avif"
+      v-if="avif")
 
     source(
-      v-if="webp"
       :srcset="webp"
-      type="image/webp")
+      type="image/webp"
+      v-if="webp")
 
     img(
+      :alt="alt"
       :class="{ 'v-lazy-image-loaded': loaded }"
-      loading="lazy"
-      decoding="async"
-      width="10"
-      height="10"
-      @load="load"
       :src="src"
-      :alt="alt")
-
+      @load="load"
+      decoding="async"
+      height="10"
+      loading="lazy"
+      width="10")
 </template>
 
 <script>

@@ -1,7 +1,6 @@
 <template lang="pug">
   main.content
     .container Home
-
 </template>
 
 <script>

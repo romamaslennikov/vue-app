@@ -5,15 +5,14 @@
     name="fade")
     .popup(
       @click.self="onClick"
-      v-show="current"
-      @wheel.stop)
+      @wheel.stop
+      v-show="current")
       transition(
-        name="scale"
-        mode="out-in")
+        mode="out-in"
+        name="scale")
         component(
-          v-if="showContent"
-          :is="current")
-
+          :is="current"
+          v-if="showContent")
 </template>
 
 <script>

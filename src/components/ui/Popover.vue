@@ -6,7 +6,6 @@
 
     .popover__body(v-if="!disabled")
       slot(name="body")
-
 </template>
 
 <script>

@@ -5,11 +5,10 @@
   span(:class="[$style.c, { [$style.error]: error }]")
     input(
       :disabled="disabled"
-      v-model="model"
+      :value="value"
       type="checkbox"
-      :value="value")
+      v-model="model")
     i.icon.icon__ch
-
 </template>
 
 <script>

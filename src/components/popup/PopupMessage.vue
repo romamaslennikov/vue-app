@@ -1,7 +1,6 @@
 <template lang="pug">
   .popup__container
-    .popup__close.icon.icon__close(
-      @click="close(null)")
+    .popup__close.icon.icon__close(@click="close(null)")
 
     .popup__title(
       v-html="typograf(data.title)"
@@ -15,7 +14,6 @@
       .btn(
         v-html="data.btn"
         v-if="data.btn")
-
 </template>
 
 <script>

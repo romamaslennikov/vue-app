@@ -1,8 +1,6 @@
 <template lang="pug">
-  main#full-page(
-    :style='{ transform: `translate3d(0, calc(1dvh * -100 * ${current}), 0)` }')
+  main#full-page(:style="{ transform: `translate3d(0, calc(1dvh * -100 * ${current}), 0)` }")
     slot
-
 </template>
 
 <script>

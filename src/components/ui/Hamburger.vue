@@ -1,9 +1,8 @@
 <template lang="pug">
-  .hamburger-wrapper(@click='show(!active)')
+  .hamburger-wrapper(@click="show(!active)")
     .hamburger(:class="{ '-active': active }")
       .hamburger-box
         .hamburger-inner
-
 </template>
 
 <script>
