@@ -5,7 +5,7 @@
 
 <script>
 import { typograf } from '@/utils/format';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useAppStore } from '@/stores/app';
 import { usePopupStore } from '@/stores/popup';
 
@@ -20,16 +20,13 @@ export default {
     const isPortrait = computed(() => appStore.isPortrait);
 
     // methods
-    const popup = async (e) => {
-      const res = await show(e);
-
-      console.log(res);
-    };
 
     // hooks
+    onMounted(() => {
+      // ...
+    });
 
     return {
-      popup,
       show,
       isPortrait,
       typograf,

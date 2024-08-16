@@ -12,7 +12,7 @@ const plugins = require('gulp-load-plugins')();
 
 const src = '../src/'; // development
 const fontName = 'Icons'; // name icons font
-const cssClassPrefix = 'icon__'; // class for font icons
+const cssClassPrefix = 'icon_'; // class for font icons
 const paths = {
   app: src,
   scss: `${src}styles/**/*.s+(a|c)ss`,

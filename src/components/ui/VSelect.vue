@@ -22,7 +22,7 @@ prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model=
       v-else
       v-model="term")
 
-    .select__arr.icon.icon__arr-b2(v-if="!pending")
+    .select__arr.icon.icon_arr-b2(v-if="!pending")
 
     v-loading.select__pending(v-if="search && fetchSearch && pending")
 

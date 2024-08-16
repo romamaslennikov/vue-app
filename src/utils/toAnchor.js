@@ -15,12 +15,12 @@ export default function useToAnchor() {
   const route = useRoute();
 
   async function toAnchor() {
-    const hash = route?.fullPath;
+    const { hash, fullPath } = route;
 
     if (hash) {
       setTimeout(() => {
-        router.push(hash);
-      }, 200);
+        router.push(fullPath);
+      }, 1000);
     }
   }
 

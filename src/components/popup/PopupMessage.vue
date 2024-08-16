@@ -1,6 +1,6 @@
 <template lang="pug">
   .popup__container
-    .popup__close.icon.icon__close(@click="close(null)")
+    .popup__close.icon.icon_close(@click="close(null)")
 
     .popup__title(
       v-html="typograf(data.title)"

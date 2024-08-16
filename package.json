@@ -14,7 +14,7 @@
     "spritePng": "cd gulp && gulp spritePng",
     "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*",
     "deploy": "node deploy",
-    "husky-install": "npx husky-init && husky install && npx husky set .husky/pre-commit 'yarn lint && yarn format'",
+    "husky-install": "npx husky-init && husky install && npx husky set .husky/pre-commit 'yarn lint && yarn format && git add .'",
     "prepare": "husky install"
   },
   "dependencies": {

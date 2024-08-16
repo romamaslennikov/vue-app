@@ -8,7 +8,7 @@
       :value="value"
       type="checkbox"
       v-model="model")
-    i.icon.icon__ch
+    i.icon.icon_ch
 </template>
 
 <script>
