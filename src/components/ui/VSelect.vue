@@ -164,69 +164,85 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-.select
-  width: 100%
-  position: relative
-  display: flex
-  flex-flow: row nowrap
-  justify-content: space-between
-  align-items: center
-  cursor: pointer
+<style lang="scss" scoped>
+.select {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-flow: row nowrap;
+  cursor: pointer;
 
-  &.-show
-    border-radius: rem(6px) rem(6px) 0 0
+  &.-show {
+    border-radius: rem(6px) rem(6px) 0 0;
+  }
 
-  &.-error
-    border-color: $color-red
+  &.-error {
+    border-color: $color-red;
+  }
 
-  &__pending
-    left: auto
-    right: 0.6rem
+  &__pending {
+    right: 0.6rem;
+    left: auto;
+  }
 
-  &__input
-    width: 100%
-    background: transparent
-    border: 0
-    color: inherit
-    padding: 0
+  &__input {
+    padding: 0;
+    width: 100%;
+    color: inherit;
+    background: transparent;
+    border: 0;
+  }
 
-  &__placeholder
-    &.-active
-      transform: translateY(-100%)
+  &__placeholder {
+    &.-active {
+      transform: translateY(-100%);
+    }
+  }
 
-  &__item
-    padding: rem(18px) rem(30px)
-    cursor: pointer
-    text-align: left
-    border-bottom: rem(1px) solid $color-grey
-    &:last-child
-      border-bottom: 0
-    &:hover
-      color: $color-white
+  &__item {
+    padding: rem(18px) rem(30px);
+    cursor: pointer;
+    text-align: left;
+    border-bottom: rem(1px) solid $color-grey;
 
-  &__drop
-    position: absolute
-    top: 100%
-    left: rem(-1px)
-    right: rem(-1px)
-    z-index: 100
-    border-radius: 0 0 rem(6px) rem(6px)
-    background-color: $color-black
-    border: rem(1px) solid $color-grey
-    line-height: 133%
-    color: rgba(255, 255, 255, .5)
-    font-size: rem(18px)
-    max-height: 30vh
-    overflow: auto
-    +scrollbars(rem(6px), $color-white, rem(6px), $color-black)
+    &:last-child {
+      border-bottom: 0;
+    }
 
-  &__arr
-    cursor: pointer
-    font-size: 0.75em
-    margin-left: 0.75em
-    position: relative
+    &:hover {
+      color: $color-white;
+    }
+  }
 
-    .-show &
-      scale: 1 -1
+  &__drop {
+    position: absolute;
+    top: 100%;
+    right: rem(-1px);
+    left: rem(-1px);
+    z-index: 100;
+    overflow: auto;
+    max-height: 30vh;
+    font-size: rem(18px);
+    color: rgba(255, 255, 255, 0.5);
+    background-color: $color-black;
+    border: rem(1px) solid $color-grey;
+    border-radius: 0 0 rem(6px) rem(6px);
+    line-height: 133%;
+
+    @include scrollbars(rem(6px), $color-white, rem(6px), $color-black);
+  }
+
+  &__arr {
+    position: relative;
+    margin-left: 0.75em;
+    font-size: 0.75em;
+    cursor: pointer;
+
+    .-show & {
+      scale: 1 -1;
+    }
+  }
+}
 </style>

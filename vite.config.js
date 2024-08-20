@@ -25,8 +25,13 @@ const config = ({ env }) =>
       preprocessorOptions: {
         sass: {
           additionalData: `
-          @import "@/styles/global"
-        `,
+            @import "@/styles/global"
+          `,
+        },
+        scss: {
+          additionalData: `
+            @import "@/styles/global";
+          `,
         },
       },
     },

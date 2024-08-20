@@ -1,28 +1,5 @@
 @charset "UTF-8";
 
-//     _            _           _                           _ _
-//    (_)          | |         | |                         | (_)
-//     _ _ __   ___| |_   _  __| | ___   _ __ ___   ___  __| |_  __ _
-//    | | '_ \ / __| | | | |/ _` |/ _ \ | '_ ` _ \ / _ \/ _` | |/ _` |
-//    | | | | | (__| | |_| | (_| |  __/ | | | | | |  __/ (_| | | (_| |
-//    |_|_| |_|\___|_|\__,_|\__,_|\___| |_| |_| |_|\___|\__,_|_|\__,_|
-//
-//      Simple, elegant and maintainable media queries in Sass
-//                        v1.4.9
-//
-//                http://include-media.com
-//
-//         Authors: Eduardo Boucas (@eduardoboucas)
-//                  Hugo Giraudel (@hugogiraudel)
-//
-//      This project is licensed under the terms of the MIT license
-
-////
-/// include-media library public configuration
-/// @author Eduardo Boucas
-/// @access public
-////
-
 ///
 /// Creates a list of global breakpoints
 ///
@@ -192,6 +169,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     @error $message;
   } @else {
     @warn $message;
+
     $_: noop();
   }
 
@@ -434,7 +412,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   );
 
   // Remove +/- sign if present at first character
-  @if ($first-character == '+' or $first-character == '-') {
+  @if $first-character == '+' or $first-character == '-' {
     $value: str-slice($value, 2);
   }
 
@@ -583,7 +561,7 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     (not $im-media-support and im-intercepts-static-breakpoint($conditions...))
   {
     @content;
-  } @else if ($im-media-support and length($conditions) > 0) {
+  } @else if $im-media-support and length($conditions) > 0 {
     @media #{unquote(parse-expression(nth($conditions, 1)))} {
       // Recursive call
       @include media(slice($conditions, 2)...) {

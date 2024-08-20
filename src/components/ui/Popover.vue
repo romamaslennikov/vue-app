@@ -44,46 +44,51 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-.popover
-  display: inline-flex
-  position: relative
+<style scoped lang="scss">
+.popover {
+  position: relative;
+  display: inline-flex;
 
-  &__body
-    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, .2)
-    position: absolute
-    bottom: 100%
-    left: 50%
-    width: rem(272px)
-    z-index: 1000
-    background: $color-white
-    padding: rem(18px)
-    color: #333
-    font-size: rem(12px)
-    border-radius: rem(10px)
-    margin-bottom: rem(12px)
-    font-style: normal
-    font-weight: 400
-    line-height: normal
-    visibility: hidden
-    opacity: 0
-    transform: translate(-50%, -.5rem)
-    transition: all $transition ease-out
+  &__body {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    z-index: 1000;
+    padding: rem(18px);
+    margin-bottom: rem(12px);
+    width: rem(272px);
+    font-size: rem(12px);
+    color: #333;
+    background: $color-white;
+    border-radius: rem(10px);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: all $transition ease-out;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transform: translate(-50%, -0.5rem);
 
-    &::before
-      content: ""
-      position: absolute
-      bottom: rem(-7px)
-      background: $color-white
-      left: 50%
-      transform: translate(-50%) rotate(-45deg)
-      width: rem(14px)
-      height: rem(14px)
-      border-radius: rem(2px)
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: rem(-7px);
+      left: 50%;
+      width: rem(14px);
+      height: rem(14px);
+      background: $color-white;
+      border-radius: rem(2px);
+      transform: translate(-50%) rotate(-45deg);
+    }
+  }
 
-  &:hover
-    .popover__body
-      opacity: 1
-      visibility: visible
-      transform: translate(-50%, 0)
+  &:hover {
+    .popover__body {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+  }
+}
 </style>

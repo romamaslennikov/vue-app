@@ -61,18 +61,22 @@ export default {
 };
 </script>
 
-<style lang="sass">
-.header
-  background: $color-white
-  padding: rem(18px) 0
-  //position: fixed
-  //top: 0
-  //left: 0
-  width: 100%
-  z-index: 100
-  +media($port)
-    padding: rem(13px) 0
+<style scoped lang="scss">
+.header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 100;
+  padding: rem(18px) 0;
+  width: 100%;
+  background: $color-white;
 
-  &__container
-    position: relative
+  @include media($port) {
+    padding: rem(13px) 0;
+  }
+
+  &__container {
+    position: relative;
+  }
+}
 </style>

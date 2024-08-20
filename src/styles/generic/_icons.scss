@@ -1,6 +1,5 @@
-/* Icons font----------------------------------------------------------- */
 @font-face {
-  font-family: 'Icons';
+  font-family: Icons;
   src: url('../assets/fonts/Icons.eot');
   src:
     url('../assets/fonts/Icons.eot?#iefix') format('embedded-opentype'),
@@ -11,25 +10,28 @@
   font-style: normal;
   font-display: swap;
 }
+
 .icon {
-  font-family: 'Icons', sans-serif;
   display: inline-block;
+  font-family: Icons, sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
   vertical-align: middle;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-variant: normal;
   text-rendering: auto;
 }
-.icon_ch:before {
+
+.icon_ch::before {
   content: '\E001';
 }
-.icon_chevron-down:before {
+
+.icon_chevron-down::before {
   content: '\E002';
 }
-.icon_x:before {
+
+.icon_x::before {
   content: '\E003';
 }

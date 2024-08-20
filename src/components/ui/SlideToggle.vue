@@ -21,10 +21,11 @@ export default {
 };
 </script>
 
-<style lang="sass" module>
-.slide
-  overflow: hidden
-  position: relative
-  transition: all $transition ease-out
-  height: 0
+<style lang="scss" module>
+.slide {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  transition: all $transition ease-out;
+}
 </style>

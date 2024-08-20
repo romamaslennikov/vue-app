@@ -69,110 +69,133 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-//fade
+<style lang="scss" scoped>
+// fade
 .fade-enter-active,
-.fade-leave-active
-  transition: opacity calc($transition/2) ease-out
+.fade-leave-active {
+  transition: opacity calc($transition / 2) ease-out;
+}
 
 .fade-enter-from,
-.fade-leave-to
-  transition: none
-  opacity: 0
+.fade-leave-to {
+  opacity: 0;
+  transition: none;
+}
 
 // scale
-.scale-enter-active
-  animation: scale $transition ease
+.scale-enter-active {
+  animation: scale $transition ease;
+}
 
-.scale-leave-active
-  animation: scale $transition ease reverse
+.scale-leave-active {
+  animation: scale $transition ease reverse;
+}
 
-@keyframes scale
-  0%
-    opacity: 0
-    transform: scale(0.8) translate3d(0,0,0)
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translate3d(0, 0, 0);
+  }
 
-  100%
-    opacity: 1
-    transform: scale(1) translate3d(0,0,0)
+  100% {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
 
-:deep(.popup__text)
-  color: $color-black
-  margin-top: rem(20px)
-  font-family: $family-alt
-  font-size: rem(24px)
-  line-height: 125%
-  text-align: center
-  +media($port)
-    margin-top: rem(10px)
-    font-size: rem(18px)
-    line-height: 133%
+:deep(.popup__text) {
+  margin-top: rem(20px);
+  font-size: rem(24px);
+  font-family: $family-alt;
+  text-align: center;
+  color: $color-black;
+  line-height: 125%;
 
-:deep(.popup__title)
-  color: $color-blue
-  text-transform: uppercase
-  font-weight: 600
-  margin-bottom: rem(38px)
-  font-family: $family-alt
-  font-size: rem(32px)
-  text-align: center
+  @include media($port) {
+    margin-top: rem(10px);
+    font-size: rem(18px);
+    line-height: 133%;
+  }
+}
 
-  +media($port)
-    margin-bottom: rem(30px)
-    font-size: rem(24px)
+:deep(.popup__title) {
+  margin-bottom: rem(38px);
+  font-size: rem(32px);
+  font-family: $family-alt;
+  text-align: center;
+  color: $color-blue;
+  text-transform: uppercase;
+  font-weight: 600;
 
-.popup__container
-  +media($port)
-    display: grid
-    flex-flow: column nowrap
-    justify-content: stretch
-    align-items: center
+  @include media($port) {
+    margin-bottom: rem(30px);
+    font-size: rem(24px);
+  }
+}
 
-:deep(.popup__form)
-  margin: 0 auto
-  max-width: rem(280px)
+.popup__container {
+  @include media($port) {
+    display: grid;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    align-items: center;
+  }
+}
 
-:deep(.popup__close)
-  transition: all $transition ease-out
-  position: absolute
-  cursor: pointer
-  right: rem(17px)
-  top: rem(17px)
-  color: $color-red
-  &:hover
-    color: $color-black
-    transform: rotate(180deg)
+:deep(.popup__form) {
+  margin: 0 auto;
+  max-width: rem(280px);
+}
 
-:deep(.popup__container)
-  position: relative
-  max-width: 100%
-  width: rem(519px)
-  padding: rem(50px)
-  background: $color-white
-  +media($port)
-    padding: rem(20px)
+:deep(.popup__close) {
+  position: absolute;
+  top: rem(17px);
+  right: rem(17px);
+  color: $color-red;
+  transition: all $transition ease-out;
+  cursor: pointer;
 
-.popup
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  overflow: auto
-  height: 100dvh
-  z-index: 1000
-  background: rgba(0, 0, 0, .5)
-  backdrop-filter: blur(1px)
-  display: grid
-  justify-content: center
-  align-items: center
-  justify-items: center
-  grid-template-columns: minmax(0, 1fr)
-  padding: rem(5px)
+  &:hover {
+    color: $color-black;
+    transform: rotate(180deg);
+  }
+}
 
-  +media($port)
-    padding: 0
-    backdrop-filter: none
+:deep(.popup__container) {
+  position: relative;
+  padding: rem(50px);
+  width: rem(519px);
+  max-width: 100%;
+  background: $color-white;
 
-  +media($land)
-    +scrollbars(rem(6px), $color-yellow, rem(6px), #71033B)
+  @include media($port) {
+    padding: rem(20px);
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: grid;
+  justify-content: center;
+  place-items: center center;
+  overflow: auto;
+  padding: rem(5px);
+  width: 100%;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  grid-template-columns: minmax(0, 1fr);
+
+  @include media($port) {
+    padding: 0;
+    backdrop-filter: none;
+  }
+
+  @include media($land) {
+    @include scrollbars(rem(6px), $color-yellow, rem(6px), #71033b);
+  }
+}
 </style>

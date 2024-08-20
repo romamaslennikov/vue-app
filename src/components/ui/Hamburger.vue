@@ -30,91 +30,112 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-.hamburger-wrapper
-  width: rem(68px)
-  height: rem(68px)
-  min-width: rem(68px)
-  display: flex
-  flex-flow: row nowrap
-  justify-content: center
-  align-items: center
-  z-index: 200
-  cursor: pointer
-  +media($port)
-    width: rem(30px)
-    height: rem(30px)
-    min-width: rem(30px)
+<style scoped lang="scss">
+.hamburger-wrapper {
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: rem(68px);
+  min-width: rem(68px);
+  height: rem(68px);
+  flex-flow: row nowrap;
+  cursor: pointer;
 
-.hamburger
-  cursor: pointer
-  transition-timing-function: linear
-  transition-duration: 0.15s
-  transition-property: opacity, filter
-  display: inline-flex
-  flex-flow: column nowrap
-  justify-content: center
-  align-items: center
-  width: 100%
-  height: 100%
-  z-index: 101
-  position: relative
+  @include media($port) {
+    width: rem(30px);
+    min-width: rem(30px);
+    height: rem(30px);
+  }
+}
 
-  &-box
-    position: relative
-    display: inline-block
-    width: 100%
-    height: 100%
+.hamburger {
+  position: relative;
+  z-index: 101;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition-timing-function: linear;
+  transition-duration: 0.15s;
+  transition-property: opacity, filter;
+  flex-flow: column nowrap;
 
-  &-inner
-    position: absolute
-    width: 100%
-    height: rem(2px)
-    transition-property: all
-    background-color: $color-black
-    transition-timing-function: cubic-bezier(.16,1,.3,1)
-    transition-duration: 0.22s
-    top: 50%
-    display: block
-    transform: translateY(-50%)
+  &-box {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
 
-    &:after, &:before
-      display: block
-      content: ""
-      position: absolute
-      height: rem(2px)
-      background-color: $color-black
-      left: 0
+  &-inner {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 100%;
+    height: rem(2px);
+    background-color: $color-black;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: 0.22s;
+    transform: translateY(-50%);
 
-    &:before
-      width: 100%
-      top: rem(-6px)
-      transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: block;
+      height: rem(2px);
+      background-color: $color-black;
+    }
 
-    &:after
-      width: 100%
-      transition: bottom 0.1s ease-in 0.25s, width 0.2s ease-in, transform 0.22s cubic-bezier(.16,1,.3,1)
-      bottom: rem(-6px)
-      left: 0
+    &::before {
+      top: rem(-6px);
+      width: 100%;
+      transition:
+        top 0.1s ease-in 0.25s,
+        opacity 0.1s ease-in;
+    }
 
-  &.-active
-    .hamburger-inner
-      transition-delay: 0.12s
-      transition-timing-function: cubic-bezier(.16,1,.3,1)
-      transform: rotate(225deg) translateY(rem(1px)) translateX(rem(1px))
-      box-shadow: none
+    &::after {
+      bottom: rem(-6px);
+      left: 0;
+      width: 100%;
+      transition:
+        bottom 0.1s ease-in 0.25s,
+        width 0.2s ease-in,
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
 
-  &.-active
-    .hamburger-inner:before
-      top: 0
-      transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s
-      opacity: 0
-      width: 100%
+  &.-active {
+    .hamburger-inner {
+      transition-delay: 0.12s;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      transform: rotate(225deg) translateY(rem(1px)) translateX(rem(1px));
+      box-shadow: none;
+    }
 
-  &.-active
-    .hamburger-inner:after
-      width: 100%
-      bottom: 0
-      transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(.16,1,.3,1) 0.12s
-      transform: rotate(-90deg)
+    .hamburger-inner::before {
+      top: 0;
+      width: 100%;
+      opacity: 0;
+      transition:
+        top 0.1s ease-out,
+        opacity 0.1s ease-out 0.12s;
+    }
+
+    .hamburger-inner::after {
+      bottom: 0;
+      width: 100%;
+      transition:
+        bottom 0.1s ease-out,
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+      transform: rotate(-90deg);
+    }
+  }
+}
 </style>

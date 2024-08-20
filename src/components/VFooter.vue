@@ -21,8 +21,9 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-.footer
-  background: $color-white
-  content-visibility: auto
+<style scoped lang="scss">
+.footer {
+  background: $color-white;
+  content-visibility: auto;
+}
 </style>

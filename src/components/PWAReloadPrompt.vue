@@ -40,23 +40,25 @@
   position: fixed;
   right: 0;
   bottom: 0;
-  margin: 16px;
+  z-index: 1000;
   padding: 12px;
+  margin: 16px;
+  text-align: left;
+  background-color: white;
   border: 1px solid #8885;
   border-radius: 4px;
-  z-index: 1000;
-  text-align: left;
   box-shadow: 3px 4px 5px 0 #8885;
-  background-color: white;
 }
+
 .pwa-toast .message {
   margin-bottom: 8px;
 }
+
 .pwa-toast button {
-  border: 1px solid #8885;
-  outline: none;
-  margin-right: 5px;
-  border-radius: 2px;
   padding: 3px 10px;
+  margin-right: 5px;
+  border: 1px solid #8885;
+  border-radius: 2px;
+  outline: none;
 }
 </style>

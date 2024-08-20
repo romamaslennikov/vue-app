@@ -66,17 +66,20 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-picture
-  display: inline-block
-  vertical-align: middle
+<style lang="scss" scoped>
+picture {
+  display: inline-block;
+  vertical-align: middle;
 
-  img
-    width: 100%
-    opacity: 0
-    transition: opacity $transition
-    height: auto
+  img {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity $transition;
 
-    &.v-lazy-image-loaded
-      opacity: 1
+    &.v-lazy-image-loaded {
+      opacity: 1;
+    }
+  }
+}
 </style>

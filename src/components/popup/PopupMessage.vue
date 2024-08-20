@@ -48,5 +48,3 @@ export default {
   components: {},
 };
 </script>
-
-<style lang="sass" scoped></style>

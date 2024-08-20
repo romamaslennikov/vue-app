@@ -1,0 +1,49 @@
+$rem-baseline: 16px;
+
+// screen ratio
+$port: 'portrait';
+$land: 'landscape';
+$scaling: '<2000000px';
+$land-tablet: 'landscapeTablet';
+$land-laptop: 'landscapeLaptop';
+$port-square: 'portraitSquare';
+
+// vw base
+$size-land: 1366;
+$size-port-tablet: 420;
+$size-port: 320;
+
+// vh base
+$size-land-vh: 768;
+
+// Fonts
+$fz-base: rem(16px);
+$line-height-base: 1.25;
+$family-base: arial, sans-serif;
+$family-alt: arial, sans-serif;
+
+// Colors
+$color-red: red;
+$color-white: white;
+$color-green: green;
+$color-blue: blue;
+$color-yellow: yellow;
+$color-brown: brown;
+$color-orange: orange;
+$color-black: black;
+$color-grey: grey;
+
+// Text color, background and border color
+$bg-color-base: $color-white;
+$color-base: $color-black;
+$placeholder: $color-black;
+$link-color: $color-base;
+$link-color-hover: $color-base;
+$link-color-visited: $color-base;
+$link-color-active: $color-base;
+
+// Animation
+$transition: 0.4s;
+
+// Custom checkbox radio
+$control-size: rem(20px);

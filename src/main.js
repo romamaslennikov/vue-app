@@ -6,12 +6,9 @@ import vueEmitter from './utils/emitter';
 import App from './App.vue';
 import router from './router';
 import store from './stores';
-
-// global CSS
-import 'normalize.css/normalize.css';
-import './styles/layout.sass';
-
-// global components
+// global css
+import './styles/index.scss';
+// global vue components
 import globalComponents from './components/global-components';
 
 const app = createApp(App);

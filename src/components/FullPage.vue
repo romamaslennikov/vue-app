@@ -69,16 +69,19 @@ export default {
 };
 </script>
 
-<style lang="sass">
-html, body
-  overflow: hidden
-  height: 100dvh
-  -webkit-tap-highlight-color: transparent
+<style lang="scss">
+html,
+body {
+  overflow: hidden;
+  height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
 
-#full-page
-  position: relative
-  height: 100dvh
-  transform: translate3d(0, 0, 0)
-  transition: transform $transition*1.5 ease
-  will-change: transform
+#full-page {
+  position: relative;
+  height: 100dvh;
+  transform: translate3d(0, 0, 0);
+  transition: transform $transition * 1.5 ease;
+  will-change: transform;
+}
 </style>
