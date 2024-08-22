@@ -78,7 +78,7 @@ export default {
       width: rem(14px);
       height: rem(14px);
       background: $color-white;
-      border-radius: 0;
+      border-radius: rem(2px);
       transform: translate(-50%) rotate(-45deg);
     }
   }
