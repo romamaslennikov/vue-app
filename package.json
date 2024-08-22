@@ -24,7 +24,8 @@
   },
   "lint-staged": {
     "src/**/*.{vue,js,ts,tsx}": [
-      "yarn lint", "yarn format"
+      "yarn lint",
+      "yarn format"
     ],
     "src/**/*.{css,scss,vue}": [
       "yarn stylelint"

@@ -58,7 +58,7 @@ export default {
     margin-bottom: rem(12px);
     width: rem(272px);
     font-size: rem(12px);
-    color: #3333;
+    color: #333;
     background: $color-white;
     border-radius: rem(10px);
     opacity: 0;
@@ -78,7 +78,7 @@ export default {
       width: rem(14px);
       height: rem(14px);
       background: $color-white;
-      border-radius: rem(2px);
+      border-radius: 0;
       transform: translate(-50%) rotate(-45deg);
     }
   }
