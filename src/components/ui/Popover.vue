@@ -58,7 +58,7 @@ export default {
     margin-bottom: rem(12px);
     width: rem(272px);
     font-size: rem(12px);
-    color: #333;
+    color: #3333;
     background: $color-white;
     border-radius: rem(10px);
     opacity: 0;
