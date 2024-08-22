@@ -14,9 +14,21 @@
     "iconfont": "cd gulp && gulp iconfont",
     "spritePng": "cd gulp && gulp spritePng",
     "optimiz": "optimizt --webp --lossless src/assets/images/* && optimizt --avif src/assets/images/* && optimizt src/assets/images/*",
-    "deploy": "node deploy",
-    "husky-install": "npx husky-init && husky install && npx husky set .husky/pre-commit 'yarn lint && yarn format && yarn stylelint && git add .'",
-    "prepare": "husky install"
+    "deploy": "node deploy"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{vue,js,ts,tsx}": [
+      "yarn lint"
+    ],
+    "src/**/*.{css,scss,vue}": [
+      "yarn stylelint"
+    ]
   },
   "dependencies": {
     "@kyvg/vue3-notification": "^3.2.1",
@@ -60,7 +72,8 @@
     "gulp-load-plugins": "^2.0.7",
     "gulp-rename": "^2.0.0",
     "gulp.spritesmith": "^6.12.1",
-    "husky": "^8.0.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "path": "^0.12.7",
     "postcss": "^8.4.41",
     "postcss-html": "^1.7.0",

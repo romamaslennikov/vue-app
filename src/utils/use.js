@@ -47,8 +47,8 @@ export function slideToggle(e) {
   }
 }
 
-export function getImageUrl(name) {
-  return new URL(name, import.meta.url).href;
+export function getImageUrl(path, name, ext) {
+  return new URL(`${path}${name}.${ext}`, import.meta.url).href;
 }
 
 export function formatBytes(bytes, decimals = 2) {
