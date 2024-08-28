@@ -1,6 +1,7 @@
 import { useNotification } from '@kyvg/vue3-notification';
 import axios from 'axios';
 import { getToken, removeToken } from '@/utils/auth';
+import { BASE_API } from '@/constants';
 
 const notification = useNotification();
 
@@ -8,8 +9,6 @@ const configNotify = {
   type: 'error',
   duration: 5000,
 };
-
-const BASE_API = import.meta.env.VITE_BASE_API;
 
 const service = axios.create({
   baseURL: BASE_API,
