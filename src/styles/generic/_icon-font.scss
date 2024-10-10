@@ -1,0 +1,40 @@
+@font-face {
+  font-family: icon-font;
+  src: url('@/assets/fonts/icon-font/icon-font.eot?t=1728580271748'); /* IE9 */
+  src:
+    url('@/assets/fonts/icon-font/icon-font.eot?t=1728580271748#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */
+      url('@/assets/fonts/icon-font/icon-font.woff2?t=1728580271748')
+      format('woff2'),
+    url('@/assets/fonts/icon-font/icon-font.woff?t=1728580271748')
+      format('woff'),
+    url('@/assets/fonts/icon-font/icon-font.ttf?t=1728580271748')
+      format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+      url('@/assets/fonts/icon-font/icon-font.svg?t=1728580271748#icon-font')
+      format('svg'); /* iOS 4.1- */
+}
+
+[class^='icon-font-'],
+[class*=' icon-font-'] {
+  font-size: inherit;
+  font-family: icon-font !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-font-ch::before {
+  content: '\ea01';
+}
+.icon-font-chevron-down::before {
+  content: '\ea02';
+}
+.icon-font-x::before {
+  content: '\ea03';
+}
+
+$icon-font-ch: '\ea01';
+$icon-font-chevron-down: '\ea02';
+$icon-font-x: '\ea03';

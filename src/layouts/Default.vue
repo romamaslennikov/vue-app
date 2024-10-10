@@ -11,17 +11,9 @@
   v-footer
 </template>
 
-<script>
+<script setup>
 import { defineAsyncComponent } from 'vue';
 
-export default {
-  setup() {
-    return {};
-  },
-
-  components: {
-    VHeader: defineAsyncComponent(() => import('@/components/VHeader.vue')),
-    VFooter: defineAsyncComponent(() => import('@/components/VFooter.vue')),
-  },
-};
+const VHeader = defineAsyncComponent(() => import('@/components/VHeader.vue'));
+const VFooter = defineAsyncComponent(() => import('@/components/VFooter.vue'));
 </script>

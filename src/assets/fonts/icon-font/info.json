@@ -1,0 +1,20 @@
+{
+  "ch": {
+    "encodedCode": "\\ea01",
+    "prefix": "icon-font",
+    "className": "icon-font-ch",
+    "unicode": "&#59905;"
+  },
+  "chevron-down": {
+    "encodedCode": "\\ea02",
+    "prefix": "icon-font",
+    "className": "icon-font-chevron-down",
+    "unicode": "&#59906;"
+  },
+  "x": {
+    "encodedCode": "\\ea03",
+    "prefix": "icon-font",
+    "className": "icon-font-x",
+    "unicode": "&#59907;"
+  }
+}

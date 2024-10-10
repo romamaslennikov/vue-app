@@ -1,38 +1,10 @@
 <template lang="pug">
   main.content
-    .container Home
+    .container {{ a }}
 </template>
 
-<script>
-import { typograf } from '@/utils/format';
-import { computed, onMounted } from 'vue';
-import { useAppStore } from '@/stores/app';
-import { usePopupStore } from '@/stores/popup';
+<script setup>
+import { ref } from 'vue';
 
-export default {
-  setup() {
-    // data
-    const appStore = useAppStore();
-    const popupStore = usePopupStore();
-    const { show } = popupStore;
-
-    // computed
-    const isPortrait = computed(() => appStore.isPortrait);
-
-    // methods
-
-    // hooks
-    onMounted(() => {
-      // ...
-    });
-
-    return {
-      show,
-      isPortrait,
-      typograf,
-    };
-  },
-
-  components: {},
-};
+const a = ref('Home');
 </script>

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width: 0; height: 0; position: absolute;"><symbol id="icon-ch" viewBox="0 0 1024 1024">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="display:none;"><symbol viewBox="0 0 1024 1024" id="icon-font-ch">
   <path d="m140.549 400 220.863 246.4L883.45 64 1024 220.8 361.412 960 0 556.8 140.549 400z"></path>
-</symbol><symbol id="icon-chevron-down" viewBox="0 0 1024 1024">
+</symbol><symbol viewBox="0 0 1024 1024" id="icon-font-chevron-down">
   <path d="m21.363 344.261 438.893 438.893c28.583 28.583 74.886 28.583 103.414 0l438.893-438.893c28.583-28.583 28.583-74.886 0-103.414s-74.886-28.583-103.414 0L511.99 628.006 124.831 240.847c-28.583-28.583-74.886-28.583-103.414 0s-28.583 74.886 0 103.414z"></path>
-</symbol><symbol id="icon-x" viewBox="0 0 1024 1024">
+</symbol><symbol viewBox="0 0 1024 1024" id="icon-font-x">
   <path d="M623.676 512.001 510.574 625.103 0 114.529 113.102 1.427l510.574 510.574z"></path>
   <path d="M113.113 1022.575.011 909.473l510.574-510.574 113.102 113.102-510.574 510.574z"></path>
   <path d="m400.324 512.001 113.102-113.102L1024 909.473l-113.102 113.102-510.574-510.574z"></path>

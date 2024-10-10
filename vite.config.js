@@ -24,11 +24,13 @@ const config = ({ env }) =>
     css: {
       preprocessorOptions: {
         sass: {
+          api: 'modern',
           additionalData: `
             @import "@/styles/global"
           `,
         },
         scss: {
+          api: 'modern',
           additionalData: `
             @import "@/styles/global";
           `,

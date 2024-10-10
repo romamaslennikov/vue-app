@@ -3,59 +3,44 @@
     keep-alive
       component(:is="Component")
 
-  notifications(position="bottom right")
-
   popup
 
   // PWAReloadPrompt
 </template>
 
-<script>
+<script setup>
 import { defineAsyncComponent, onMounted } from 'vue';
 import { isPortrait } from '@/utils/device';
 import { useAppStore } from '@/stores/app';
 // import PWAReloadPrompt from '@/components/PWAReloadPrompt.vue';
 
-export default {
-  setup() {
-    // data
-    const store = useAppStore();
+const Popup = defineAsyncComponent(() => import('@/components/popup/PopupLayout.vue'));
 
-    // computed
+const store = useAppStore();
 
-    // methods
-    function handleWindowResize() {
-      store.updateIsPortrait(isPortrait());
+function handleWindowResize() {
+  store.updateIsPortrait(isPortrait());
 
-      store.updateIsMobile();
-    }
+  store.updateIsMobile();
+}
 
-    function handleLoad() {
-      if (window.PRERENDER_INJECTED) {
-        setTimeout(() => {
-          document.dispatchEvent(new Event('custom-render-trigger'));
-        }, 3000);
-      } else {
-        const spinner = document.getElementById('spinner');
+function handleLoad() {
+  if (window.PRERENDER_INJECTED) {
+    setTimeout(() => {
+      document.dispatchEvent(new Event('custom-render-trigger'));
+    }, 3000);
+  } else {
+    const spinner = document.getElementById('spinner');
 
-        spinner?.classList.add('-hide');
-      }
-    }
+    spinner?.classList.add('-hide');
+  }
+}
 
-    // hooks
-    onMounted(() => {
-      window.addEventListener('load', handleLoad);
-    });
+onMounted(() => {
+  window.addEventListener('load', handleLoad);
+});
 
-    handleWindowResize();
+handleWindowResize();
 
-    window.addEventListener('resize', handleWindowResize);
-
-    return {};
-  },
-
-  components: {
-    Popup: defineAsyncComponent(() => import('@/components/popup/PopupLayout.vue')),
-  },
-};
+window.addEventListener('resize', handleWindowResize);
 </script>

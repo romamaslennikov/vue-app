@@ -1,0 +1,14 @@
+{
+  "fontName": "icon-font",
+  "css": {
+    "output": "./src/styles/generic/",
+    "cssPath": "@/assets/fonts/icon-font/",
+    "include": "\\.(scss)$",
+    "fileName": "_icon-font",
+    "fontSize": "inherit"
+  },
+  "emptyDist": true,
+  "outSVGReact": false,
+  "outSVGPath": false,
+  "generateInfoData": true
+}

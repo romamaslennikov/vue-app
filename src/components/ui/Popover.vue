@@ -114,8 +114,7 @@ export default {
     left: 50%
     width: rem(352px)
     z-index: 1000
-    background: $color-black url("@images/quod/popover-bg.png") no-repeat 50% 50% / 100% 100%
-    font-family: $family-Maestro
+    background: $color-black
     padding: rem(40px)
     color: #D1D0D0
     text-transform: uppercase

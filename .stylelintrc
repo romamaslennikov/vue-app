@@ -32,6 +32,7 @@
     "selector-no-qualifying-type": null,
     "alpha-value-notation": "number",
     "at-rule-no-unknown": null,
+    "font-family-no-missing-generic-family-keyword": null,
     "order/properties-order": [
       "content",
       "position",
