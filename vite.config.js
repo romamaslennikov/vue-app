@@ -70,25 +70,12 @@ const config = ({ env }) =>
           minifyCSS: true,
         },
         renderer: new Prerender({
-          // Optional - The name of the property to add to
-          // the window object with the contents of `inject`.
           injectProperty: 'PRERENDER_INJECTED',
-
-          // Optional - Any values you'd like your app to have access to via `window.injectProperty`.
           inject: {
             foo: 'bar',
           },
-
-          // Optional - Wait to render until the specified event is dispatched on the document.
-          // eg, with `document.dispatchEvent(new Event('custom-render-trigger'))`
           renderAfterDocumentEvent: 'custom-render-trigger',
-
-          // Optional - Wait to render until the specified
-          // element is detected using `document.querySelector`
           renderAfterElementExists: '.content',
-
-          // headless: false,
-
           executablePath: env?.VITE_PATH_TO_CHROME || '',
         }),
         postProcess(context) {
