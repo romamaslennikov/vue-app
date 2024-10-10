@@ -29,7 +29,7 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/object-curly-newline': 'off',
   },
-  ignorePatterns: ['public/**/*.js', 'dev-dist/*.js'],
+  ignorePatterns: ['public/**/*.js', 'dev-dist/*.js', 'docs/.vitepress'],
   settings: {
     'import/resolver': {
       alias: {
