@@ -1,6 +1,3 @@
-/** * @usage: * * v-img(src="@images/logo.png" webp="@images/logo.webp" avif="@images/logo.avif"
-alt="") */
-
 <template lang="pug">
   picture
     source(
@@ -24,45 +21,42 @@ alt="") */
       width="10")
 </template>
 
-<script>
+<script setup>
+/*
+ * @usage: v-img(src="@images/logo.png" webp="@images/logo.webp" avif="@images/logo.avif" alt="")
+ *  */
 import { ref } from 'vue';
 
-export default {
-  name: 'v-img',
-
-  props: {
-    src: {
-      type: String,
-      required: true,
-    },
-    avif: {
-      type: String,
-      default: '',
-    },
-    webp: {
-      type: String,
-      default: '',
-    },
-    alt: {
-      type: String,
-      default: 'text',
-    },
+defineProps({
+  src: {
+    type: String,
+    required: true,
   },
 
-  setup(props, { emit }) {
-    const loaded = ref(null);
-
-    const load = () => {
-      loaded.value = true;
-
-      emit('load');
-    };
-
-    return {
-      loaded,
-      load,
-    };
+  avif: {
+    type: String,
+    default: '',
   },
+
+  webp: {
+    type: String,
+    default: '',
+  },
+
+  alt: {
+    type: String,
+    default: 'picture',
+  },
+});
+
+const emit = defineEmits(['load']);
+
+const loaded = ref(null);
+
+const load = () => {
+  loaded.value = true;
+
+  emit('load');
 };
 </script>
 

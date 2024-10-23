@@ -1,50 +1,54 @@
-/** * @usage: radio-box(value="foo" v-model="selected" :error="false") radio-box(value="bar"
-v-model="selected" :error="false") */
-
 <template lang="pug">
-  span(:class="[$style.r, { [$style.error]: error }]")
+  component(
+    :class="[$style.r, { [$style.error]: error }, modifier]"
+    :is="tag")
     input(
       :disabled="disabled"
+      :id="id ? id : null"
       :value="value"
       type="radio"
       v-model="model")
     i
 </template>
 
-<script>
-import { computed } from 'vue';
+<script setup>
+/*
+ * @usage:
+ * radio-box(value="foo" v-model="selected" :error="false")
+ * radio-box(value="bar" v-model="selected" :error="false")
+ *  */
 
-export default {
-  name: 'RadioBox',
-
-  props: {
-    disabled: { type: Boolean },
-    error: { type: Boolean },
-    modelValue: {
-      type: [Array, Boolean, String],
-      default: false,
-    },
-    value: {
-      type: [Boolean, Object, String],
-      default: false,
-    },
+defineProps({
+  id: {
+    type: String,
+    default: '',
   },
 
-  setup(props, { emit }) {
-    const model = computed({
-      get() {
-        return props.modelValue;
-      },
-      set(value) {
-        emit('update:modelValue', value);
-      },
-    });
-
-    return {
-      model,
-    };
+  tag: {
+    type: String,
+    default: 'span',
   },
-};
+
+  modifier: {
+    type: String,
+    default: '',
+  },
+
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  error: {
+    type: Boolean,
+    default: false,
+  },
+  value: {
+    type: [Boolean, Object, String, Number],
+    default: false,
+  },
+});
+
+const model = defineModel();
 </script>
 
 <style lang="scss" module>
@@ -64,8 +68,8 @@ export default {
     justify-content: center;
     align-items: center;
     color: transparent;
-    background: #b3ddca;
-    border: rem(1px) solid #b3ddca;
+    background: $color-grey;
+    border: rem(1px) solid transparent;
     border-radius: 100%;
     flex-flow: row nowrap;
     line-height: 1;
@@ -90,8 +94,9 @@ export default {
 
     &:checked + i {
       color: #b3ddca;
-      background: $color-orange;
-      box-shadow: 0 0 0 rem(8px) inset;
+      background: $color-blue;
+
+      // box-shadow: 0 0 0 rem(8px) inset;
     }
   }
 }

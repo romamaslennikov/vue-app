@@ -1,5 +1,3 @@
-/** * @usage: popover template(v-slot:action) .icon template(v-slot:body) div Текст * */
-
 <template lang="pug">
   .popover(
     :class="skin"
@@ -17,6 +15,14 @@
 </template>
 
 <script>
+/*
+ * @usage:
+ *   popover
+ *     template(v-slot:action)
+ *       .icon
+ *     template(v-slot:body)
+ *       div Текст
+ *  */
 import { typograf } from '@/utils/format';
 import { computed, nextTick, ref } from 'vue';
 import { useAppStore } from '@/stores/app';

@@ -5,29 +5,13 @@
         .hamburger-inner
 </template>
 
-<script>
+<script setup>
 import { useAppStore } from '@/stores/app';
 import { computed } from 'vue';
 
-export default {
-  name: 'Hamburger',
-
-  setup() {
-    // data
-    const appStore = useAppStore();
-
-    // computed
-    const active = computed(() => appStore.mobileNav);
-
-    // methods
-    const show = (e) => appStore.showMobileNav(e);
-
-    return {
-      active,
-      show,
-    };
-  },
-};
+const appStore = useAppStore();
+const active = computed(() => appStore.mobileNav);
+const show = (e) => appStore.showMobileNav(e);
 </script>
 
 <style scoped lang="scss">

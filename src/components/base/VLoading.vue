@@ -1,13 +1,24 @@
-/** * @usage: * * v-loading * v-loading(inline) */
-
 <template lang="pug">
-  span(:class="$style.spinner")
+  component(
+    :class="[$style.spinner, modifier]"
+    :is="tag")
 </template>
 
-<script>
-export default {
-  name: 'VLoading',
-};
+<script setup>
+/*
+ * @usage: v-loading or v-loading(inline)
+ *  */
+defineProps({
+  tag: {
+    type: String,
+    default: 'span',
+  },
+
+  modifier: {
+    type: String,
+    default: '',
+  },
+});
 </script>
 
 <style lang="scss" module>
@@ -35,7 +46,7 @@ export default {
     width: 1.5em;
     height: 1.5em;
     border: 0.75em solid $color-white;
-    border-color: $color-red $color-white $color-red $color-white;
+    border-color: $color-blue $color-white $color-blue $color-white;
     border-radius: 50%;
     animation: lds-dual-ring 1.2s linear infinite;
   }

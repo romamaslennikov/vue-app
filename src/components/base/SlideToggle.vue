@@ -1,24 +1,16 @@
 <template lang="pug">
   div(
     :class="$style.slide"
-    :style="props.open ? 'height: auto' : null"):   slot
+    :style="open ? 'height: auto' : null"):   slot
 </template>
 
-<script>
-export default {
-  props: {
-    open: {
-      type: Boolean,
-      default: false,
-    },
+<script setup>
+defineProps({
+  open: {
+    type: Boolean,
+    default: false,
   },
-
-  setup(props) {
-    return {
-      props,
-    };
-  },
-};
+});
 </script>
 
 <style lang="scss" module>

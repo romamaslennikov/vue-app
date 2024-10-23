@@ -1,28 +1,24 @@
-/** * @usage: VSelect( :search="true" :fetch-search="true" @fetch-search="search($event)"
-prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model="form.cityId"
-:placeholder="'Выберите город'" :options="cities || []") */
-
 <template lang="pug">
-  .select.field__input(
+  .select(
     :class="{ '-show': show }"
     @click="onClick")
     .select__placeholder(
       :class="{ '-active': model }"
       v-if="model === null && !focus") {{ placeholder }}
 
+    input-text(
+      :errors="[]"
+      :icon-after="'icon-font-arr-b'"
+      :modifier="'field__input_grey'"
+      @blur="focus = false"
+      @input="onInput($event)"
+      ref="input"
+      v-model="term")
+
     .select__selected-option(v-if="!focus")
       | {{ options?.filter((i) => i[propValue] === model)[0]?.[propText] }}
 
-    input.select__input(
-      @blur="focus = false"
-      @input="onInput($event)"
-      placeholder="Поиск..."
-      ref="input"
-      type="text"
-      v-else
-      v-model="term")
-
-    .select__arr.icon.icon_arr-b2(v-if="!pending")
+    // .select__arr.icon.icon_arr-b2(v-if="!pending")
 
     v-loading.select__pending(v-if="search && fetchSearch && pending")
 
@@ -38,8 +34,12 @@ prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model=
 </template>
 
 <script>
+/*
+ * @usage: VSelect(:search="true" :fetch-search="true" @fetch-search="search($event)" prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model="form.cityId" :placeholder="'Выберите город'" :options="cities || []")
+ *  */
 import { computed, ref, nextTick } from 'vue';
 import { useAppStore } from '@/stores/app';
+import InputText from '@/components/base/fields/InputText.vue';
 
 export default {
   name: 'VSelect',
@@ -160,7 +160,9 @@ export default {
     };
   },
 
-  components: {},
+  components: {
+    InputText,
+  },
 };
 </script>
 
@@ -173,6 +175,18 @@ export default {
   width: 100%;
   flex-flow: row nowrap;
   cursor: pointer;
+
+  &__selected-option {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    padding: rem(10px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    grid-template-columns: 1fr;
+  }
 
   &.-show {
     border-radius: rem(6px) rem(6px) 0 0;
@@ -187,14 +201,6 @@ export default {
     left: auto;
   }
 
-  &__input {
-    padding: 0;
-    width: 100%;
-    color: inherit;
-    background: transparent;
-    border: 0;
-  }
-
   &__placeholder {
     &.-active {
       transform: translateY(-100%);
@@ -202,7 +208,7 @@ export default {
   }
 
   &__item {
-    padding: rem(18px) rem(30px);
+    padding: rem(10px) rem(20px);
     cursor: pointer;
     text-align: left;
     border-bottom: rem(1px) solid $color-grey;
@@ -212,37 +218,27 @@ export default {
     }
 
     &:hover {
-      color: $color-white;
+      color: $color-blue;
     }
   }
 
   &__drop {
     position: absolute;
     top: 100%;
-    right: rem(-1px);
-    left: rem(-1px);
+    right: 0;
+    left: 0;
     z-index: 100;
     overflow: auto;
+    padding-top: rem(10px);
+    padding-bottom: rem(10px);
+    margin-top: rem(1px);
     max-height: 30vh;
-    font-size: rem(18px);
-    color: rgba(255, 255, 255, 0.5);
-    background-color: $color-black;
-    border: rem(1px) solid $color-grey;
-    border-radius: 0 0 rem(6px) rem(6px);
+    font-size: rem(16px);
+    background: rgba(241, 241, 241, 1);
+    border-radius: rem(10px);
     line-height: 133%;
 
     @include scrollbars(rem(6px), $color-white, rem(6px), $color-black);
-  }
-
-  &__arr {
-    position: relative;
-    margin-left: 0.75em;
-    font-size: 0.75em;
-    cursor: pointer;
-
-    .-show & {
-      scale: 1 -1;
-    }
   }
 }
 </style>
