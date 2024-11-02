@@ -59,6 +59,12 @@ const model = defineModel();
 </script>
 
 <style lang="scss" module>
+.error {
+  i {
+    border-color: $color-red !important;
+  }
+}
+
 .c {
   position: relative;
   display: inline-flex;
@@ -82,10 +88,6 @@ const model = defineModel();
     border: rem(1px) solid transparent;
     flex-flow: row nowrap;
     border-radius: rem(4px);
-
-    .error & {
-      border-color: $color-red;
-    }
   }
 
   input {

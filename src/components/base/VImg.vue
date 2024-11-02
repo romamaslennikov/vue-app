@@ -67,7 +67,6 @@ picture {
 
   img {
     width: 100%;
-    height: auto;
     opacity: 0;
     transition: opacity $transition;
 

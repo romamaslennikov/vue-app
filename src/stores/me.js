@@ -30,7 +30,7 @@ export const useMeStore = defineStore('me', {
       }
     },
 
-    async logOut(local) {
+    async logOut({ local = false } = {}) {
       console.log('---', 'logOut');
 
       if (!local) {
