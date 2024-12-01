@@ -14,6 +14,6 @@
 <script setup>
 import { defineAsyncComponent } from 'vue';
 
-const VHeader = defineAsyncComponent(() => import('@/components/VHeader.vue'));
-const VFooter = defineAsyncComponent(() => import('@/components/VFooter.vue'));
+const VHeader = defineAsyncComponent(() => import('@/components/v-header/VHeader.vue'));
+const VFooter = defineAsyncComponent(() => import('@/components/v-footer/VFooter.vue'));
 </script>

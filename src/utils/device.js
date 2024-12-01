@@ -1,7 +1,5 @@
 export const isTouch = () => 'ontouchstart' in window || navigator.maxTouchPoints;
 
-export const isPortrait = () => window.matchMedia('(orientation: portrait)').matches;
-
 export const isMobileDevice = () =>
   navigator.userAgent.match(/Android/i) ||
   navigator.userAgent.match(/webOS/i) ||
@@ -23,7 +21,6 @@ export const isMac = navigator.platform.toUpperCase().includes('MAC');
 export default {
   isTouch,
   isMobileDevice,
-  isPortrait,
   iOS,
   isMac,
 };

@@ -6,7 +6,7 @@
 
 <script setup>
 /*
- * @usage: v-loading or v-loading(inline)
+ * @usage: spinner or spinner(inline)
  *  */
 defineProps({
   tag: {

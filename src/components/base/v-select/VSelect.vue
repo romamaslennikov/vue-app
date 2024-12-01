@@ -20,7 +20,7 @@
 
     // .select__arr.icon.icon_arr-b2(v-if="!pending")
 
-    v-loading.select__pending(v-if="search && fetchSearch && pending")
+    spinner.select__pending(v-if="search && fetchSearch && pending")
 
     .select__drop(
       v-click-outside="onClickOutside"
@@ -38,8 +38,8 @@
  * @usage: VSelect(:search="true" :fetch-search="true" @fetch-search="search($event)" prop-value="id" prop-text="name" :class="{ '-error': v.cityId.$error }" v-model="form.cityId" :placeholder="'Выберите город'" :options="cities || []")
  *  */
 import { computed, ref, nextTick } from 'vue';
-import { useAppStore } from '@/stores/app';
-import InputText from '@/components/base/fields/InputText.vue';
+import InputText from '@/components/base/input-text/InputText.vue';
+import useIsPortrait from '@/utils/useIsPortrait';
 
 export default {
   name: 'VSelect',
@@ -90,14 +90,13 @@ export default {
 
   setup(props, { emit }) {
     // data
-    const appStore = useAppStore();
     const show = ref(null);
     const input = ref(null);
     const focus = ref(false);
     const term = ref('');
+    const { isPortrait } = useIsPortrait();
 
     // computed
-    const isPortrait = computed(() => appStore.isPortrait);
     const model = computed({
       get() {
         return props.modelValue;

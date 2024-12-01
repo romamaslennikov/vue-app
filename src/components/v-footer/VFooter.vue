@@ -3,23 +3,7 @@
     .container Footer
 </template>
 
-<script>
-export default {
-  name: 'VFooter',
-
-  setup() {
-    // data
-
-    // computed
-
-    // methods
-
-    // hooks
-
-    return {};
-  },
-};
-</script>
+<script setup></script>
 
 <style scoped lang="scss">
 .footer {

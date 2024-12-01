@@ -1,17 +1,14 @@
 <template lang="pug">
-  .hamburger-wrapper(@click="show(!active)")
-    .hamburger(:class="{ '-active': active }")
+  .hamburger-wrapper(@click="showMobileNav(!mobileNav)")
+    .hamburger(:class="{ '-active': mobileNav }")
       .hamburger-box
         .hamburger-inner
 </template>
 
 <script setup>
-import { useAppStore } from '@/stores/app';
-import { computed } from 'vue';
+import useMobileNav from '@/utils/useMobileNav';
 
-const appStore = useAppStore();
-const active = computed(() => appStore.mobileNav);
-const show = (e) => appStore.showMobileNav(e);
+const { mobileNav, showMobileNav } = useMobileNav();
 </script>
 
 <style scoped lang="scss">

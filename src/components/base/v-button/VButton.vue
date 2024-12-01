@@ -13,7 +13,7 @@
     font-icon.btn__icon(
       :icon="iconAfter"
       v-if="iconAfter")
-    v-loading(v-if="pending")
+    spinner(v-if="pending")
 </template>
 
 <script setup>

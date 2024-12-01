@@ -2,26 +2,16 @@
   svg:   use(:xlink:href="`${sprite}#${id}`")
 </template>
 
-<script>
+<script setup>
 /*
  * @usage: svg-icon(id="name")
  *  */
 import sprite from '@/assets/images/sprite.svg';
 
-export default {
-  name: 'SvgIcon',
-
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
+defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-
-  setup() {
-    return {
-      sprite,
-    };
-  },
-};
+});
 </script>

@@ -14,7 +14,7 @@
         .popover__close.icon.icon__x2(@click="toggle")
 </template>
 
-<script>
+<script setup>
 /*
  * @usage:
  *   popover
@@ -23,70 +23,42 @@
  *     template(v-slot:body)
  *       div Текст
  *  */
-import { typograf } from '@/utils/format';
-import { computed, nextTick, ref } from 'vue';
-import { useAppStore } from '@/stores/app';
+import { nextTick, ref } from 'vue';
 
-export default {
-  name: 'Popover',
-
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    skin: {
-      type: String,
-      default: '',
-    },
+defineProps({
+  disabled: {
+    type: Boolean,
+    default: false,
   },
 
-  setup() {
-    // data
-    const appStore = useAppStore();
-    const isShow = ref(false);
-    const popoverBody = ref(null);
-
-    // computed
-    const isPortrait = computed(() => appStore.isPortrait);
-
-    // methods
-    function resolvePosition() {
-      const target = popoverBody.value;
-
-      if (target) {
-        const { clientWidth } = document.documentElement;
-        const { right, left } = target.getBoundingClientRect();
-        const deltaRight = clientWidth - right;
-
-        if (deltaRight < 0) {
-          target.style.marginLeft = `${deltaRight}px`;
-        } else if (left < 0) {
-          target.style.marginLeft = `${Math.abs(left)}px`;
-        }
-      }
-    }
-
-    function toggle() {
-      isShow.value = !isShow.value;
-
-      nextTick(resolvePosition);
-    }
-
-    // hooks
-
-    return {
-      popoverBody,
-      isShow,
-      isPortrait,
-      typograf,
-      toggle,
-    };
+  skin: {
+    type: String,
+    default: '',
   },
+});
 
-  components: {},
-};
+const isShow = ref(false);
+const popoverBody = ref(null);
+function resolvePosition() {
+  const target = popoverBody.value;
+
+  if (target) {
+    const { clientWidth } = document.documentElement;
+    const { right, left } = target.getBoundingClientRect();
+    const deltaRight = clientWidth - right;
+
+    if (deltaRight < 0) {
+      target.style.marginLeft = `${deltaRight}px`;
+    } else if (left < 0) {
+      target.style.marginLeft = `${Math.abs(left)}px`;
+    }
+  }
+}
+function toggle() {
+  isShow.value = !isShow.value;
+
+  nextTick(resolvePosition);
+}
 </script>
 
 <style scoped lang="sass">

@@ -1,7 +1,7 @@
 /**
  * @usage:
  *
- *   import useToAnchor from '@/utils/toAnchor';
+ *   import useToAnchor from '@/utils/to-anchor';
  *   const { toAnchor } = useToAnchor();
  *   onMounted(() => {
  *      toAnchor();

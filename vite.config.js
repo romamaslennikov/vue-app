@@ -25,12 +25,14 @@ const config = ({ env }) =>
       preprocessorOptions: {
         sass: {
           api: 'modern',
+          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
           additionalData: `
             @import "@/styles/global"
           `,
         },
         scss: {
           api: 'modern',
+          silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import'],
           additionalData: `
             @import "@/styles/global";
           `,
